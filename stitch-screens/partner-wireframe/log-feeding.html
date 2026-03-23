@@ -84,11 +84,16 @@
     body {
       min-height: max(884px, 100dvh);
     }
+    @media (min-width: 430px) {
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
+    }
   </style>
   </head>
 <body class="font-body text-on-surface min-h-screen flex flex-col">
 <!-- TopAppBar -->
-<header class="bg-[#fbf9f4] dark:bg-stone-900 sticky top-0 z-50">
+<header class="bg-[#fbf9f4] dark:bg-stone-900 fixed top-0 w-full z-50">
 <div class="flex items-center justify-between w-full px-6 py-4 max-w-screen-xl mx-auto">
 <button class="text-[#635d5a] dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors p-2 rounded-full Active:opacity-70 Active:scale-95 transition-all">
 <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
@@ -99,7 +104,7 @@
 <div class="bg-[#f5f3ee] dark:bg-stone-800 h-px w-full"></div>
 </header>
 <!-- Main Content -->
-<main class="flex-grow max-w-lg mx-auto w-full px-6 py-8 flex flex-col gap-10">
+<main class="flex-grow mx-auto w-full px-6 py-8 flex flex-col gap-10">
 <!-- Amount Section (Editorial Bento Style) -->
 <section class="flex flex-col gap-4">
 <h2 class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem] text-primary/60">Amount</h2>
@@ -171,22 +176,18 @@
 <!-- BottomNavBar (Suppressed for focused task logic as per instructions, but placeholder provided for reference if it were top-level) -->
 <!-- Nav is suppressed here because this is a "Task-Focused" screen (Log Entry) -->
 <!-- Navigation logic would usually sit here if this were the Feed screen -->
-<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_-4px_32px_rgba(27,28,25,0.04)] border-t border-stone-200/20">
-<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
-<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
-<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Feed</span>
-</div>
-<div class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-100 font-bold bg-[#f5f3ee] dark:bg-stone-800 rounded-xl px-3 py-1 scale-90 duration-200 ease-out">
-<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
-<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Log</span>
-</div>
-<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
-<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
-<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Guides</span>
-</div>
-<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Profile</span>
-</div>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-20 bg-[#fbf9f4]/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="home.html">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="log-feeding.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">edit_note</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Log</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="guides.html">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Guides</span>
+</a>
 </nav>
 </body></html>

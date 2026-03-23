@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdbcf",
+              "on-secondary-fixed-variant": "#504538",
+              "background": "#fbf9f7",
+              "secondary-container": "#f1e0cd",
+              "on-background": "#1b1c1b",
+              "secondary-fixed-dim": "#d4c4b2",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f2f0ee",
+              "primary-container": "#8da399",
+              "surface-bright": "#fbf9f7",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#b5ccc1",
+              "primary-fixed": "#d1e8dd",
+              "on-tertiary-container": "#5a2611",
+              "surface-variant": "#e4e2e0",
+              "on-tertiary-fixed-variant": "#703620",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#424845",
+              "outline": "#727875",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#0b1f18",
+              "surface-container-highest": "#e4e2e0",
+              "primary": "#4e635a",
+              "surface-container": "#efedec",
+              "on-surface": "#1b1c1b",
+              "tertiary-fixed-dim": "#ffb59b",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#6f6254",
+              "tertiary": "#8d4d35",
+              "on-secondary-fixed": "#231a0f",
+              "on-tertiary-fixed": "#380d00",
+              "surface-container-high": "#eae8e6",
+              "on-primary-fixed-variant": "#374b43",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#b5ccc1",
+              "secondary-fixed": "#f1e0cd",
+              "surface-tint": "#4e635a",
+              "outline-variant": "#c2c8c4",
+              "secondary": "#695c4e",
+              "on-primary-container": "#263932",
+              "surface-dim": "#dbdad8",
+              "inverse-surface": "#30302f",
+              "tertiary-container": "#d88b6f",
+              "surface": "#fbf9f7",
+              "surface-container-low": "#f5f3f1"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f7] dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 py-4">
+<div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="User profile photo avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZPKrWBfw7zIi6HY61Z8cTGtOU0O251Gap2a47LcSNGAJSq1JNLlXNgCPScMIFNMe2dSb4y0nlNLQaWfQ1hSmKM63MqnslRbZCuXdTedz_T1adik6A505bPyv2rPRux4cGDgynCcbq-Wp_7BpxNsd4t0-ucA71D3WaJt9piuSQZcg9tK-giD_ywJe5Fsl9v0Sue4QT3DL1COxF9qVL8L1KkgWns4ZVE1pxAe1eSGPOi5YqFCuq57wfG-ac_-ZSU3FgKLgVxlyrmLA"/>
+</div>
+<h1 class="font-['Plus_Jakarta_Sans'] text-2xl tracking-tight font-bold text-[#4e635a] dark:text-[#8da399]">Laitly</h1>
+<button class="text-[#4e635a] dark:text-[#8da399] hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<main class="max-w-screen-xl mx-auto px-6 pt-8 pb-32">
+<!-- Header Section -->
+<div class="mb-10">
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-primary mb-6">Guides</h2>
+<!-- Filters: Pill-style chips -->
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary font-label text-sm font-bold tracking-wide transition-all active:scale-95">All</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant font-label text-sm font-bold tracking-wide hover:bg-surface-container-high transition-all active:scale-95">Storage</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant font-label text-sm font-bold tracking-wide hover:bg-surface-container-high transition-all active:scale-95">Feeding</button>
+<button class="px-6 py-2.5 rounded-full bg-surface-container-low text-on-surface-variant font-label text-sm font-bold tracking-wide hover:bg-surface-container-high transition-all active:scale-95">AAP</button>
+</div>
+</div>
+<!-- Featured Card: Quote -->
+<section class="mb-12">
+<div class="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-xl overflow-hidden bg-secondary-container flex items-center justify-center p-8 md:p-12">
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 20% 30%, #4e635a 0%, transparent 50%), radial-gradient(circle at 80% 70%, #8d4d35 0%, transparent 50%);"></div>
+<div class="z-10 text-center max-w-2xl">
+<span class="font-label text-xs uppercase tracking-[0.2em] text-on-secondary-container/60 mb-4 block font-extrabold">Today's Wisdom</span>
+<p class="font-headline text-2xl md:text-3xl lg:text-4xl font-bold text-on-secondary-container leading-tight italic">
+                        "Your best is enough, even on the days it doesn't feel like it."
+                    </p>
+</div>
+</div>
+</section>
+<!-- Article List: Waterfall/Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+<!-- Article Card 1 -->
+<div class="group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-5 bg-surface-container-low">
+<img alt="Milk Storage" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Glass milk bottles on a clean shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkMV9PvrzsJuWQqOMWfGKPGOOKWJWUf2_X9FhmGU9yw9K1aPoJKHUaNl_W5L2iJjE3XpTFHbmQlYjeCcEXDnfCz00x-bS0XWVhC3Pp4kT6Cmnc3hxC8MT1rEiR_glxd4sXQpZgI_JYS7QLj3CygqD0Z8CB0vSiPh5Tp9EhnNuNC3hIK-LyewlnXEplGIuAYG8gnE-BwHcHmHfTq6rdNeVJWt_73OXGzmSJazFDfYZQgtQGttruq1GC2zwptqY1Wc4-sl3ij6MnbGg"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Storage</span>
+</div>
+</div>
+<div class="flex justify-between items-start gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="schedule">schedule</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/70">5 min read</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">Milk Storage 101</h3>
+<p class="text-on-surface-variant/80 text-sm leading-relaxed max-w-md">Everything you need to know about keeping your liquid gold safe and fresh.</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Article Card 2 -->
+<div class="group cursor-pointer md:mt-16">
+<div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-5 bg-surface-container-low">
+<img alt="Pitcher Method" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Pouring milk into a larger pitcher" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvFd7Qh3xWK98Nfc2FwxkhgnXYdi7hJDeZuPwbuGPNUuA71eYj1G-JwfZpGIyhJAgeaExE7WugZzjM5aaQtn5DNKp2OlMZl4khpvijW-Sy1CS6GKb7Q73-nxp24brwa1QoEaxtl8CDTLWU69xWXbnI3et9pxEbipjQD7xwE82oPLO7VsRYF1hEvyrlHuRtJURbj6rRDJx0dklOqOMBREGwkN3k_35Ow13j_1DxCyhbCYdZwjMjCQuKitjJh7kgJEyaIQ3Td_f1eWw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Feeding</span>
+</div>
+</div>
+<div class="flex justify-between items-start gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="schedule">schedule</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/70">8 min read</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">The Pitcher Method</h3>
+<p class="text-on-surface-variant/80 text-sm leading-relaxed max-w-md">How to streamline your daily routine by pooling your milk supply.</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Article Card 3 -->
+<div class="group cursor-pointer">
+<div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-5 bg-surface-container-low">
+<img alt="AAP Guidelines" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Scientific looking documents and icons" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfHDymO8Lkl762sStd5AAsHePchbPBLuO79T_Qj-3dbPujaFoq7DT8G8XQaw41tBEvqXJA1av6ekMm6B1IAX_Oa3_kn9034kXE5GdG_wrajNGmI8Kk2mCoUIs7wuQVdIMvzXCcO3hy8Nazeen0dqCm_iGZOcyanrrAxOV2RWo_90d3g3TW1F6UCblIT2nnxw-ycH73t7XBM2LNLjx2OSCk2v3WUCr2HrgzbBQ4J4M3JrPOq4dQKGC-TiFqDcF5FeIo0mvjnITDjus"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">AAP</span>
+</div>
+</div>
+<div class="flex justify-between items-start gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="schedule">schedule</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/70">12 min read</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">Safety Standards</h3>
+<p class="text-on-surface-variant/80 text-sm leading-relaxed max-w-md">Understanding the latest American Academy of Pediatrics recommendations.</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Article Card 4 -->
+<div class="group cursor-pointer md:mt-16">
+<div class="relative rounded-lg overflow-hidden aspect-[4/3] mb-5 bg-surface-container-low">
+<img alt="Cleaning tips" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Clean baby bottle parts drying" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCAMblI2o35PZHdGeT8yvvuHCcXN5wwH1oaNqLhMzS9oOB4X4B0sWVL8rF8fJT6VbXmvWuBREASW0PVWpO1TPS86S3l4EeH0S0RKGOG75u5BhQ05IKJ3jJHLn5qtbFcIpFdKO5YlRFsNrX0WN0nSZyT6O80Nzn2uFXHKMDWcLMvFH35Tq22StiHnMl0X3iUKRFGA1PR-474C9EfL5CB1FA1j1LpmPQW45nV3fxLJ_5EebDNfapQdH0mqiQZXrpLcQqUOSRt7R1kfI"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary-container/90 backdrop-blur-md text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Sanitation</span>
+</div>
+</div>
+<div class="flex justify-between items-start gap-4">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="schedule">schedule</span>
+<span class="font-label text-[11px] font-bold uppercase tracking-widest text-on-surface-variant/70">4 min read</span>
+</div>
+<h3 class="font-headline text-2xl font-bold text-on-surface group-hover:text-primary transition-colors">Sterilizing 101</h3>
+<p class="text-on-surface-variant/80 text-sm leading-relaxed max-w-md">Deep dive into the best practices for keeping pump parts ultra-clean.</p>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f7]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_40px_0_rgba(27,28,27,0.04)] rounded-t-[2rem]">
+<div class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399]">
+<span class="material-symbols-outlined text-2xl" data-icon="home">home</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399]">
+<span class="material-symbols-outlined text-2xl" data-icon="some_navigation">navigation</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Movement</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399]">
+<span class="material-symbols-outlined text-2xl" data-icon="opacity">opacity</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Lait</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-[#f1e0cd] dark:bg-[#8d4d35]/20 text-[#6f6254] dark:text-[#f1e0cd] rounded-full px-4 py-2 transition-all active:scale-98">
+<span class="material-symbols-outlined text-2xl" data-icon="menu_book" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Guides</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399]">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Me</span>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly - Digital Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-secondary-fixed-variant": "#504538",
+                        "background": "#fbf9f7",
+                        "secondary-container": "#f1e0cd",
+                        "on-background": "#1b1c1b",
+                        "secondary-fixed-dim": "#d4c4b2",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f0ee",
+                        "primary-container": "#8da399",
+                        "surface-bright": "#fbf9f7",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b5ccc1",
+                        "primary-fixed": "#d1e8dd",
+                        "on-tertiary-container": "#5a2611",
+                        "surface-variant": "#e4e2e0",
+                        "on-tertiary-fixed-variant": "#703620",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#424845",
+                        "outline": "#727875",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#0b1f18",
+                        "surface-container-highest": "#e4e2e0",
+                        "primary": "#4e635a",
+                        "surface-container": "#efedec",
+                        "on-surface": "#1b1c1b",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#6f6254",
+                        "tertiary": "#8d4d35",
+                        "on-secondary-fixed": "#231a0f",
+                        "on-tertiary-fixed": "#380d00",
+                        "surface-container-high": "#eae8e6",
+                        "on-primary-fixed-variant": "#374b43",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#b5ccc1",
+                        "secondary-fixed": "#f1e0cd",
+                        "surface-tint": "#4e635a",
+                        "outline-variant": "#c2c8c4",
+                        "secondary": "#695c4e",
+                        "on-primary-container": "#263932",
+                        "surface-dim": "#dbdad8",
+                        "inverse-surface": "#30302f",
+                        "tertiary-container": "#d88b6f",
+                        "surface": "#fbf9f7",
+                        "surface-container-low": "#f5f3f1"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f7;
+            color: #1b1c1b;
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface selection:bg-primary-container/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 z-50 w-full flex justify-between items-center px-6 py-4 bg-[#fbf9f7] dark:bg-slate-950/80 backdrop-blur-xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center overflow-hidden">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Portrait of a smiling woman outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFdHtd-txrgGjQk6CQBXC9JrchnwKktx3CRg3j81xfCNx6Tcp8F_15efXYmhfmXzRhhPq4vycGggCx91yDSJQ4W2uwU14oc0poWTOMZGDJwAo5N63GcT2BETxqPBl2GM5PoKdpKH5KTSYobnNgs1_UfmCXAm_cWQiocPfNzuyxUekimAV2AnoYAD4kqCiAhzjEDvNac-RdpmIMRYDktM9J0pKJWzfFJQjIUAedebdbPs2NijlSOJNr4QoicLfUIpEijtLOSZf6km4"/>
+</div>
+<span class="text-[#4e635a] dark:text-[#8da399] font-['Plus_Jakarta_Sans'] text-2xl tracking-tight font-bold">Laitly</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center text-[#1b1c1b]/60 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Header Section -->
+<section class="space-y-4">
+<div class="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label text-[10px] font-bold uppercase tracking-widest">
+                Day 312
+            </div>
+<h1 class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight text-on-surface">
+                Good morning, Sarah
+            </h1>
+</section>
+<!-- Lifetime Display Bento Card -->
+<section class="relative overflow-hidden bg-gradient-to-br from-primary to-primary-container rounded-xl p-8 text-on-primary shadow-xl shadow-primary/10">
+<div class="relative z-10 flex flex-col items-start justify-between h-full">
+<p class="font-label text-xs font-bold uppercase tracking-[0.2em] opacity-80 mb-2">Stored Lifetime</p>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-6xl font-extrabold tracking-tighter">1,847</span>
+<span class="font-headline text-2xl font-medium opacity-70">oz</span>
+</div>
+<div class="mt-8 flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full backdrop-blur-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-medium">Top 5% contributors this month</span>
+</div>
+</div>
+<!-- Decorative abstract shape -->
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+</section>
+<!-- Progress Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-surface-container-lowest p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300">
+<p class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">Currently Stored</p>
+<div class="space-y-1">
+<p class="font-headline text-2xl font-bold text-primary">51 oz</p>
+<p class="text-sm text-on-surface-variant font-medium">≈ 4.2 days</p>
+</div>
+<div class="mt-4 h-2 w-full bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[65%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300">
+<p class="font-label text-[10px] font-bold uppercase tracking-widest text-on-surface-variant mb-4">Last Session</p>
+<div class="space-y-1">
+<p class="font-headline text-2xl font-bold text-primary">3.5 oz</p>
+<p class="text-sm text-on-surface-variant font-medium">2h ago</p>
+</div>
+<div class="mt-4 flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container border-2 border-surface-container-lowest flex items-center justify-center">
+<span class="material-symbols-outlined text-xs" data-icon="history">history</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Reminders / Action Items (Waterfall Layout) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline text-xl font-bold text-on-surface">Upcoming</h3>
+<span class="material-symbols-outlined text-outline" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-4">
+<!-- Reminder Item 1 -->
+<div class="flex items-center gap-4 bg-surface-container-low p-5 rounded-lg ml-0 mr-4">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Fridge milk expiring</p>
+<p class="text-sm text-on-surface-variant">In 4 hours • Bag #42</p>
+</div>
+<button class="bg-surface-container-lowest p-2 rounded-full shadow-sm text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Reminder Item 2 -->
+<div class="flex items-center gap-4 bg-surface-container-low p-5 rounded-lg ml-4 mr-0">
+<div class="w-2 h-2 rounded-full bg-primary-container"></div>
+<div class="flex-1">
+<p class="font-semibold text-on-surface">Chicago trip</p>
+<p class="text-sm text-on-surface-variant">Departure in 2 days</p>
+</div>
+<button class="bg-surface-container-lowest p-2 rounded-full shadow-sm text-outline">
+<span class="material-symbols-outlined text-[20px]" data-icon="luggage">luggage</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Supportive Quote Card -->
+<section class="mt-12 bg-secondary-container/30 border border-secondary-container/50 p-10 rounded-xl relative overflow-hidden">
+<span class="material-symbols-outlined text-secondary-fixed-dim absolute -top-4 -left-4 text-8xl opacity-20 rotate-12" data-icon="format_quote">format_quote</span>
+<div class="relative z-10 space-y-4">
+<p class="font-headline text-xl italic text-on-secondary-container leading-relaxed">
+                    "The hours you spend nurturing are never wasted; they are the invisible architecture of your child's future."
+                </p>
+<p class="font-label text-[10px] font-bold uppercase tracking-widest text-secondary">— Daily Sanctuary</p>
+</div>
+</section>
+</main>
+<!-- Floating Action Button -->
+<button class="fixed bottom-28 right-6 w-16 h-16 rounded-full bg-primary text-on-primary shadow-[0_8px_30px_rgb(78,99,90,0.3)] flex items-center justify-center transition-all hover:scale-105 active:scale-95 z-[60]">
+<span class="material-symbols-outlined text-3xl" data-icon="add" data-weight="fill" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f7]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_40px_0_rgba(27,28,27,0.04)] rounded-t-lg">
+<a class="flex flex-col items-center justify-center bg-[#f1e0cd] dark:bg-[#8d4d35]/20 text-[#6f6254] dark:text-[#f1e0cd] rounded-full px-4 py-2 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="some_navigation">navigation</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Movement</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="opacity">opacity</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Lait</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] dark:hover:text-[#8da399] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest mt-1">Me</span>
+</a>
+</nav>
+</body></html>

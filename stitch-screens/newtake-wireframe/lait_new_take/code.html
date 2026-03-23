@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#ffdbcf",
+              "on-secondary-fixed-variant": "#504538",
+              "background": "#fbf9f7",
+              "secondary-container": "#f1e0cd",
+              "on-background": "#1b1c1b",
+              "secondary-fixed-dim": "#d4c4b2",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f2f0ee",
+              "primary-container": "#8da399",
+              "surface-bright": "#fbf9f7",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#b5ccc1",
+              "primary-fixed": "#d1e8dd",
+              "on-tertiary-container": "#5a2611",
+              "surface-variant": "#e4e2e0",
+              "on-tertiary-fixed-variant": "#703620",
+              "on-secondary": "#ffffff",
+              "on-surface-variant": "#424845",
+              "outline": "#727875",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-primary-fixed": "#0b1f18",
+              "surface-container-highest": "#e4e2e0",
+              "primary": "#4e635a",
+              "surface-container": "#efedec",
+              "on-surface": "#1b1c1b",
+              "tertiary-fixed-dim": "#ffb59b",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#6f6254",
+              "tertiary": "#8d4d35",
+              "on-secondary-fixed": "#231a0f",
+              "on-tertiary-fixed": "#380d00",
+              "surface-container-high": "#eae8e6",
+              "on-primary-fixed-variant": "#374b43",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#b5ccc1",
+              "secondary-fixed": "#f1e0cd",
+              "surface-tint": "#4e635a",
+              "outline-variant": "#c2c8c4",
+              "secondary": "#695c4e",
+              "on-primary-container": "#263932",
+              "surface-dim": "#dbdad8",
+              "inverse-surface": "#30302f",
+              "tertiary-container": "#d88b6f",
+              "surface": "#fbf9f7",
+              "surface-container-low": "#f5f3f1"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f7;
+            font-family: 'Manrope', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="text-on-background selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<nav class="fixed top-0 z-50 w-full px-6 py-4 flex justify-between items-center bg-[#fbf9f7] dark:bg-slate-950/80 backdrop-blur-xl transition-opacity">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy-yngjNvn21pdjQ37gszVJq_MqonUdP1OywGjbByNA6Xf-nE8mFYPmeFGr0UAL4I9HRBmv4NpHbJLt0dKzQZOPIi8jUmR9UTQwcX1mSrCV9rfd0AK6u995C__lw-a_D5k5X-DGcd8JLzqVssWYUPpTskGhFxhOBQObmQvdhveGfvbocPuyOLGGPdaQ0drCfxSI5cz64uh3Hl3uwh4BeGs7xzmhOsmCfS4e_aoQ9aEve4H7pdkP7iBKjzA-W1IKsq5BVblsYtZrw8"/>
+</div>
+<span class="font-['Plus_Jakarta_Sans'] text-2xl tracking-tight font-bold text-[#4e635a] dark:text-[#8da399]">Laitly</span>
+</div>
+<button class="material-symbols-outlined text-[#4e635a] dark:text-[#8da399] p-2 hover:opacity-80 active:scale-95 transition-all" data-icon="settings">settings</button>
+</nav>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-10">
+<!-- Header Section -->
+<header class="space-y-2">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight text-primary">Lait</h1>
+<p class="font-label text-sm uppercase tracking-[0.2em] text-on-surface-variant/70">Inventory Overview</p>
+</header>
+<!-- Inventory Summary Card -->
+<section class="bg-surface-container-lowest rounded-xl p-8 space-y-8 shadow-[0_4px_40px_0_rgba(27,28,27,0.02)] border border-outline-variant/10">
+<div class="flex justify-between items-start">
+<div class="space-y-1">
+<span class="text-6xl font-headline font-bold tracking-tighter text-on-surface">51.0 <span class="text-3xl font-medium text-on-surface-variant/40">oz</span></span>
+<p class="text-primary font-medium">Covers 4.2 days of feeds</p>
+</div>
+<div class="bg-surface-container-low p-1 rounded-full flex gap-1">
+<button class="px-4 py-2 bg-white text-on-surface rounded-full text-xs font-bold shadow-sm transition-all active:scale-95">OZ</button>
+<button class="px-4 py-2 text-on-surface-variant/60 hover:text-on-surface rounded-full text-xs font-bold transition-all">BOTTLES</button>
+<button class="px-4 py-2 text-on-surface-variant/60 hover:text-on-surface rounded-full text-xs font-bold transition-all">DAYS</button>
+</div>
+</div>
+<!-- Location Breakdown -->
+<div class="space-y-6 pt-4">
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Fridge</label>
+<span class="font-headline font-bold text-lg text-primary">12 oz</span>
+</div>
+<div class="h-4 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[23%] transition-all duration-1000"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant font-bold">Freezer</label>
+<span class="font-headline font-bold text-lg text-primary">39 oz</span>
+</div>
+<div class="h-4 w-full bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[76%] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expiry Warnings (Bento-lite) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="bg-tertiary-fixed/30 p-6 rounded-lg space-y-4 border border-tertiary-fixed/10">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary"></div>
+<span class="font-label text-xs uppercase tracking-widest text-tertiary font-bold">Priority Action</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold text-on-tertiary-fixed-variant">Expiring in 24h</h3>
+<p class="text-3xl font-headline font-extrabold text-tertiary">9 oz</p>
+</div>
+</div>
+<div class="bg-secondary-container/30 p-6 rounded-lg space-y-4 border border-secondary-container/20">
+<div class="flex items-center gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-on-secondary-fixed-variant/50"></div>
+<span class="font-label text-xs uppercase tracking-widest text-on-secondary-fixed-variant/70 font-bold">Upcoming</span>
+</div>
+<div>
+<h3 class="font-headline text-2xl font-bold text-on-secondary-fixed-variant">Expiring in 3 days</h3>
+<p class="text-3xl font-headline font-extrabold text-on-secondary-fixed-variant/80">3 oz</p>
+</div>
+</div>
+</section>
+<!-- Quick Log Action (Contextual) -->
+<div class="flex justify-center pt-4">
+<button class="flex items-center gap-3 bg-gradient-to-br from-primary to-primary-container text-white px-8 py-4 rounded-full font-headline font-bold shadow-xl active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Log Milk Deposit
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f7]/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-[0_-4px_40px_0_rgba(27,28,27,0.04)] rounded-t-[2rem]">
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="home">home</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="some_navigation">navigation</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Movement</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#f1e0cd] dark:bg-[#8d4d35]/20 text-[#6f6254] dark:text-[#f1e0cd] rounded-full px-4 py-2 transition-all active:scale-98" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="opacity">opacity</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Lait</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="menu_book">menu_book</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#1b1c1b]/50 dark:text-slate-500 px-4 py-2 hover:text-[#4e635a] transition-all" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-widest">Me</span>
+</a>
+</nav>
+</body></html>

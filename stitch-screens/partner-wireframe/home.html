@@ -80,11 +80,16 @@
     body {
       min-height: max(884px, 100dvh);
     }
+    @media (min-width: 430px) {
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
+    }
   </style>
   </head>
 <body class="bg-surface text-on-surface font-body min-h-screen pb-32">
 <!-- TopAppBar -->
-<header class="bg-[#fbf9f4] text-[#635d5a] flex justify-between items-center w-full px-6 h-20 sticky top-0 z-40">
+<header class="bg-[#fbf9f4] text-[#635d5a] flex justify-between items-center w-full px-6 h-20 fixed top-0 w-full z-40">
 <div class="flex items-center gap-4">
 <span class="material-symbols-outlined cursor-pointer hover:bg-[#f5f3ee] p-2 rounded-full transition-colors">menu</span>
 <h1 class="text-3xl font-medium font-headline text-[#C5A55A] tracking-tight">Laitly</h1>
@@ -93,7 +98,7 @@
 <img alt="Caregiver profile photo" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling caregiver" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHqzeqImSSCyuqjTrqRyIRczT_-SiE7OQZn-4aRQhGiYPIR57TGU-fBlu5LDx3m679NlGsvA4Qh5_xhZCWKUqVU5DDm8TviGes6Sy3REwZGK6VVUqU8IwYNq2QS6TTyq1ebRUUkixVUJfm1fJ3BeZnGX0fL2ytUPBFY8nxz0UEdxWh0wLyYR7MD8759KGdODmyE20Rfqqydp41tC4qm_lbGvaJAt9IwkRGG6Rm-I7GSmvQDRFDDXZFlntyFWYHlFdqvOm849sfPoM"/>
 </div>
 </header>
-<main class="max-w-xl mx-auto px-6 py-8">
+<main class="mx-auto px-6 py-8">
 <!-- Welcome Section -->
 <section class="mb-12">
 <h2 class="font-headline text-4xl text-on-surface mb-2">Hello, Caregiver.</h2>
@@ -166,26 +171,18 @@
 </section>
 </main>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-8 pt-4 bg-[#fbf9f4]/80 backdrop-blur-xl rounded-t-3xl border-t border-[#f5f3ee]/20 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
-<a class="flex flex-col items-center justify-center text-[#635d5a] relative after:content-[''] after:absolute after:-bottom-1 after:w-1 after:h-1 after:bg-[#C5A55A] after:rounded-full transform scale-90 duration-150" href="#">
-<span class="material-symbols-outlined">home</span>
-<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-20 bg-[#fbf9f4]/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28.25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="home.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Home</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#635d5a]/40 hover:opacity-80 transition-opacity" href="#">
-<span class="material-symbols-outlined">child_care</span>
-<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Movement</span>
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="log-feeding.html">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Log</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#635d5a]/40 hover:opacity-80 transition-opacity" href="#">
-<span class="material-symbols-outlined">opacity</span>
-<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Lait</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#635d5a]/40 hover:opacity-80 transition-opacity" href="#">
-<span class="material-symbols-outlined">auto_stories</span>
-<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Guides</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#635d5a]/40 hover:opacity-80 transition-opacity" href="#">
-<span class="material-symbols-outlined">person</span>
-<span class="font-sans text-[10px] font-bold uppercase tracking-widest mt-1">Me</span>
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="guides.html">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Guides</span>
 </a>
 </nav>
 </body></html>

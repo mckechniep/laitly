@@ -86,6 +86,11 @@
     body {
       min-height: max(884px, 100dvh);
     }
+    @media (min-width: 430px) {
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
+    }
   </style>
   </head>
 <body class="bg-background font-body text-on-background min-h-screen pb-32">
@@ -99,7 +104,7 @@
 <span class="material-symbols-outlined text-[#635d5a] dark:text-stone-300 cursor-pointer hover:opacity-80 transition-opacity active:scale-95 duration-150" data-icon="search">search</span>
 </div>
 </nav>
-<main class="pt-24 px-6 max-w-2xl mx-auto space-y-12">
+<main class="pt-24 px-6 mx-auto space-y-12">
 <!-- Hero Header -->
 <section class="space-y-3">
 <h2 class="font-headline italic text-5xl md:text-6xl text-primary tracking-tight">For the Caregiver</h2>
@@ -197,22 +202,18 @@
 </section>
 </main>
 <!-- BottomNavBar -->
-<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-safe bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 rounded-t-3xl border-t border-[#635d5a]/10 dark:border-stone-800 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
-<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="home">home</span>
-<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Home</span>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-20 bg-[#fbf9f4]/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="home.html">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Home</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
-<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Log</span>
+<a class="flex flex-col items-center justify-center text-[#635d5a] opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="log-feeding.html">
+<span class="material-symbols-outlined mb-1">edit_note</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Log</span>
 </a>
-<a class="flex flex-col items-center justify-center text-[#C5A55A] dark:text-[#e5c374] scale-110 transition-transform tap-highlight-none transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
-<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Guides</span>
-</a>
-<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
-<span class="material-symbols-outlined" data-icon="person">person</span>
-<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Profile</span>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="guides.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Guides</span>
 </a>
 </nav>
 </body></html>
