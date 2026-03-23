@@ -88,11 +88,10 @@
       min-height: max(884px, 100dvh);
     }
     @media (min-width: 430px) {
-      html { background: #e4e2dd; min-height: 100vh; }
-      body { max-width: 390px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); position: relative; }
-      header.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      nav.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      .fixed.bottom-24.right-6 { right: auto; left: 50%; margin-left: calc(195px - 56px - 24px); }
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
+      .fixed.bottom-24 { width: auto !important; left: auto !important; right: calc(50% - 195px + 1.5rem) !important; transform: none !important; }
     }
   </style>
 </head>

@@ -90,11 +90,9 @@
       min-height: max(884px, 100dvh);
     }
     @media (min-width: 430px) {
-      html { background: #e4e2dd; min-height: 100vh; }
-      body { max-width: 390px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); position: relative; }
-      header.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      nav.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      .fixed.bottom-24.right-6 { right: auto; left: 50%; margin-left: calc(195px - 56px - 24px); }
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
     }
   </style>
   </head>
@@ -109,7 +107,7 @@
 <img class="w-full h-full object-cover" data-alt="User profile photo showing a friendly person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8A6z0F0Clc1wY0Ct_YJpKzjH4kRVvtEnGJnsCScfkFfMT_vmt5o0p1gjc_CeA9tkDoSR4XfhkrQvR0smtdkcwqfOp6vThlvsvb2f4vRIHI3Vk0hiyNM6gCllX-zwHLz-xqj3ohknVwtpytPeur9H2smucdgb7z0V17c_C_0HMF1KJPMS7Tc_Bcs18ggyJc6lpn3EbDArweYibvVrBhruCTGM8CNrDUKweGXV1I83_QACYTbM0zSIUzPbyy8vYFwvJN72Wr39CoR4"/>
 </div>
 </header>
-<main class="pt-24 px-6 max-w-2xl mx-auto">
+<main class="pt-24 px-6">
 <!-- Header Section -->
 <header class="mb-8">
 <h2 class="font-headline text-5xl font-medium text-primary mb-2">Guides</h2>

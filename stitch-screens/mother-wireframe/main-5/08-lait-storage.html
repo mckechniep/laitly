@@ -90,11 +90,9 @@
       min-height: max(884px, 100dvh);
     }
     @media (min-width: 430px) {
-      html { background: #e4e2dd; min-height: 100vh; }
-      body { max-width: 390px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); position: relative; }
-      header.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      nav.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
-      .fixed.bottom-24.right-6 { right: auto; left: 50%; margin-left: calc(195px - 56px - 24px); }
+      html { background: #e4e2dd; min-height: 100vh; display: flex; justify-content: center; }
+      body { width: 390px !important; max-width: 390px !important; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); overflow-x: hidden; }
+      .fixed { width: 390px !important; left: 50% !important; right: auto !important; transform: translateX(-50%) !important; }
     }
   </style>
   </head>
@@ -109,7 +107,7 @@
 <img alt="User profile" class="w-full h-full object-cover" data-alt="Soft focused portrait of a person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNFgIuT37akDH4zJT8I5tH6NzqNoRNofJvftuMoiMf_BJnvb6nfMX2q-ahQ38R1YqP7_IKnb17L2cvVkS9SBzf3nJU9phU7rwed9Z2wtzvHGSIrHaS-1K_ZXGm86bJbT0rfLMTADU651sSNMQs8P_lld6Uu1QMc3GmUPuxaC3VXoOmVfwsI6dAg9Egvx6aFT3AATcRiGR2ZiGy_-WkgBBiIrjMqfEanPWlAOMrGMEs0mFk0OnGtXXQ3tKTZthDh2IjBIL9ygk2OWs"/>
 </div>
 </header>
-<main class="pt-24 px-6 max-w-2xl mx-auto">
+<main class="pt-24 px-6">
 <!-- Screen Header -->
 <header class="mb-10 text-center md:text-left">
 <h1 class="font-headline italic text-5xl md:text-6xl text-primary leading-tight">Lait</h1>
