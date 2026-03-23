@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly - The Milk Math</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#251a00",
+              "tertiary": "#6b5d38",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#795f1b",
+              "inverse-primary": "#cdc5c0",
+              "on-tertiary-fixed": "#241a00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#eae8e3",
+              "on-primary-fixed-variant": "#4b4642",
+              "surface-tint": "#635d5a",
+              "outline-variant": "#d0c5b4",
+              "surface-dim": "#dbdad5",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-surface": "#30312e",
+              "secondary-fixed": "#ffdf99",
+              "surface-container-low": "#f5f3ee",
+              "tertiary-container": "#b8a77c",
+              "surface": "#fbf9f4",
+              "inverse-on-surface": "#f2f1ec",
+              "on-secondary-fixed-variant": "#5a4300",
+              "background": "#fbf9f4",
+              "tertiary-fixed": "#f4e1b2",
+              "secondary-fixed-dim": "#e5c374",
+              "on-error-container": "#93000a",
+              "on-background": "#1b1c19",
+              "secondary-container": "#ffdc8c",
+              "surface-variant": "#e4e2dd",
+              "on-tertiary-container": "#483c1b",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-error": "#ffffff",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "primary-fixed-dim": "#cdc5c0",
+              "primary-fixed": "#e9e1dc",
+              "outline": "#7e7667",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#4d4639",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-surface": "#1b1c19",
+              "surface-container-highest": "#e4e2dd",
+              "primary": "#635d5a",
+              "on-primary-fixed": "#1e1b18",
+              "surface-container": "#f0eee9"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-italic { font-family: 'Newsreader'; font-style: italic; }
+        .glass-nav {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed-dim">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-stone-900 border-b border-[#635d5a]/10 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto sticky top-0 z-50">
+<div class="text-3xl font-medium font-serif text-[#635d5a] dark:text-stone-100">Laitly</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="#">Home</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="#">Movement</a>
+<a class="text-[#C5A55A] font-bold border-b-2 border-[#C5A55A] pb-1 font-label uppercase tracking-widest text-xs" href="#">Lait</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="#">Guides</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="#">Me</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="person">person</button>
+</div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-[72px] h-[calc(100vh-72px)] w-64 bg-[#f5f3ee] dark:bg-stone-800 border-r border-[#635d5a]/5 flex flex-col p-6 z-40">
+<div class="mb-10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Laitly Curated" class="w-full h-full object-cover" data-alt="Portrait of a curated lifestyle expert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYqjn6KMwL262hMOfw0IC9IC3iK7wGxb58TIK5JrH8Y-JZ-RX5REFELBWfTvxL1RTJ5QLqxAAeS2GqSTx0HxxYuc099C6qlgpOISBaM1MrSOrnJMy2qB60h4jma1-wwdcQCe4UcloGlz5D1KqHKe4fVuu88cKI9wWDSdP0eWG5-aRjiw-pzvf-DTb9gdnuvBjzBxNgVsDEqpaVyW8BS66kGyFQEXjaNuetYDisxLi8NVvZ9uB_4JP_sc_2sMukgXX3RVzfuzppG5o"/>
+</div>
+<div>
+<p class="font-serif italic text-[#C5A55A] text-sm leading-tight">The Curator</p>
+<p class="text-[10px] font-label uppercase tracking-tighter opacity-60">Your Daily Feed</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-700 text-[#635d5a] border-l-2 border-[#C5A55A] rounded-r-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="opacity">opacity</span>
+<span class="font-sans Manrope tracking-tight">Log Milk</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#635d5a]/70 dark:text-stone-400 hover:bg-stone-200/50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+<span class="font-sans Manrope tracking-tight">Add Feed</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-4 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Entry
+            </button>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-grow p-12 max-w-7xl mx-auto">
+<!-- Breadcrumb / Tab Indicator -->
+<div class="mb-12">
+<h2 class="font-label uppercase tracking-[0.15rem] text-[0.75rem] text-primary mb-2">Storage Intelligence</h2>
+<h1 class="font-headline text-5xl text-primary font-medium">The Milk Math Tab</h1>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Metric Card: Total Stored -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-10 flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex justify-between items-start mb-8">
+<span class="font-label uppercase tracking-widest text-xs text-primary/60">Total Stored Liquid Gold</span>
+<div class="flex bg-surface-container-low rounded-full p-1 gap-1">
+<button class="px-4 py-1.5 text-[10px] font-bold font-label uppercase tracking-tighter bg-white rounded-full shadow-sm text-primary">OZ</button>
+<button class="px-4 py-1.5 text-[10px] font-bold font-label uppercase tracking-tighter text-primary/40 hover:text-primary">BOTTLES</button>
+<button class="px-4 py-1.5 text-[10px] font-bold font-label uppercase tracking-tighter text-primary/40 hover:text-primary">DAYS</button>
+</div>
+</div>
+<div class="flex items-baseline gap-4 mb-4">
+<span class="font-headline text-9xl tracking-tighter text-primary">51.0</span>
+<span class="font-headline italic text-4xl text-secondary-fixed-dim">oz</span>
+</div>
+</div>
+<div>
+<p class="font-headline italic text-2xl text-primary/80 leading-relaxed max-w-md">
+                            "Covers 4.2 days of feeds."
+                        </p>
+<p class="font-label text-xs text-primary/40 mt-2 uppercase tracking-widest">Based on your rolling 7-day average</p>
+</div>
+</div>
+<!-- Breakdown: Fridge vs Freezer -->
+<div class="col-span-12 lg:col-span-5 flex flex-col gap-8">
+<!-- Fridge -->
+<div class="bg-surface-container-low p-8 rounded-sm relative overflow-hidden group">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="ac_unit">ac_unit</span>
+<h3 class="font-label uppercase tracking-widest text-xs">Fridge Inventory</h3>
+</div>
+<span class="font-headline text-3xl">12.5 <span class="text-sm font-sans uppercase">oz</span></span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-1/3"></div>
+</div>
+<p class="mt-4 text-[10px] font-label uppercase tracking-widest text-primary/50">4 Batches logged</p>
+</div>
+<!-- Freezer -->
+<div class="bg-surface-container-low p-8 rounded-sm relative overflow-hidden group">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="material-symbols-outlined text-secondary mb-2" data-icon="kitchen">kitchen</span>
+<h3 class="font-label uppercase tracking-widest text-xs">Freezer Inventory</h3>
+</div>
+<span class="font-headline text-3xl">38.5 <span class="text-sm font-sans uppercase">oz</span></span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-3/4"></div>
+</div>
+<p class="mt-4 text-[10px] font-label uppercase tracking-widest text-primary/50">12 Bags stashed</p>
+</div>
+</div>
+<!-- Expiry Section -->
+<div class="col-span-12 bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-10">
+<div class="flex items-center justify-between mb-10">
+<h3 class="font-label uppercase tracking-[0.15rem] text-[0.75rem] text-primary">Expiration Timeline</h3>
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[10px] font-label uppercase tracking-widest text-primary/60">Urgent (24h)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary/30"></span>
+<span class="text-[10px] font-label uppercase tracking-widest text-primary/60">Stable (3 days)</span>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Expiry Item 1 -->
+<div class="flex items-center justify-between group hover:bg-surface-container-low/30 p-2 -mx-2 transition-colors">
+<div class="flex items-center gap-6">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<div>
+<p class="font-body font-bold text-primary">Batch #882 — Drawer A</p>
+<p class="text-xs text-primary/60">Pumped Mar 24, 8:45 AM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline italic text-lg text-secondary">Expires in 4h 12m</p>
+<p class="text-[10px] font-label uppercase tracking-widest opacity-40">4.5 oz</p>
+</div>
+</div>
+<!-- Expiry Item 2 -->
+<div class="flex items-center justify-between group hover:bg-surface-container-low/30 p-2 -mx-2 transition-colors">
+<div class="flex items-center gap-6">
+<span class="w-2 h-2 rounded-full bg-primary/30"></span>
+<div>
+<p class="font-body font-bold text-primary">Batch #881 — Main Shelf</p>
+<p class="text-xs text-primary/60">Pumped Mar 23, 11:15 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline italic text-lg text-primary/60">Expires in 2d 14h</p>
+<p class="text-[10px] font-label uppercase tracking-widest opacity-40">5.0 oz</p>
+</div>
+</div>
+<!-- Expiry Item 3 -->
+<div class="flex items-center justify-between group hover:bg-surface-container-low/30 p-2 -mx-2 transition-colors">
+<div class="flex items-center gap-6">
+<span class="w-2 h-2 rounded-full bg-primary/30"></span>
+<div>
+<p class="font-body font-bold text-primary">Batch #880 — Main Shelf</p>
+<p class="text-xs text-primary/60">Pumped Mar 23, 6:30 PM</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline italic text-lg text-primary/60">Expires in 2d 19h</p>
+<p class="text-[10px] font-label uppercase tracking-widest opacity-40">3.0 oz</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Quote Card -->
+<div class="col-span-12 bg-surface-container-low py-20 px-8 flex flex-col items-center justify-center text-center mt-12 mb-12">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl mb-6" data-icon="format_quote">format_quote</span>
+<blockquote class="font-headline italic text-3xl text-primary max-w-2xl leading-snug">
+                        Every ounce stashed is a moment of freedom earned. Remember to rotate your stock—first in, first out ensures the freshest nutrients for your little one.
+                    </blockquote>
+<p class="mt-8 font-label uppercase tracking-[0.2rem] text-[10px] text-primary/40">The Curator's Note on Storage</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full px-8 py-12 flex flex-col items-center gap-4 bg-[#fbf9f4] dark:bg-stone-900 border-t border-[#635d5a]/10 mt-20">
+<div class="font-serif text-[#635d5a] text-2xl">Laitly</div>
+<div class="flex gap-8">
+<a class="font-sans Manrope text-sm text-[#635d5a]/60 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="font-sans Manrope text-sm text-[#635d5a]/60 hover:opacity-100 transition-opacity" href="#">Support</a>
+<a class="font-sans Manrope text-sm text-[#635d5a]/60 hover:opacity-100 transition-opacity underline decoration-[#C5A55A]" href="#">Editorial Policy</a>
+</div>
+<p class="font-sans Manrope text-sm text-[#635d5a]/60 mt-4">© 2024 Laitly. We carry the details. You carry the baby.</p>
+</footer>
+</body></html>

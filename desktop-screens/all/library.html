@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#745b17",
+              "inverse-surface": "#30312e",
+              "on-background": "#1b1c19",
+              "surface-variant": "#e4e2dd",
+              "on-surface": "#1b1c19",
+              "secondary-fixed": "#ffdf99",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbdad5",
+              "surface-tint": "#635d5a",
+              "surface": "#fbf9f4",
+              "on-surface-variant": "#4d4639",
+              "background": "#fbf9f4",
+              "tertiary-container": "#b8a77c",
+              "on-tertiary-container": "#483c1b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#1e1b18",
+              "tertiary": "#6b5d38",
+              "secondary-container": "#ffdc8c",
+              "inverse-on-surface": "#f2f1ec",
+              "tertiary-fixed": "#f4e1b2",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#413d3a",
+              "outline-variant": "#d0c5b4",
+              "primary": "#635d5a",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#e5c374",
+              "primary-fixed": "#e9e1dc",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eee9",
+              "primary-container": "#afa7a3",
+              "outline": "#7e7667",
+              "on-secondary-container": "#795f1b",
+              "surface-bright": "#fbf9f4",
+              "inverse-primary": "#cdc5c0",
+              "on-primary-fixed-variant": "#4b4642",
+              "on-secondary-fixed": "#251a00",
+              "on-secondary-fixed-variant": "#5a4300",
+              "surface-container-low": "#f5f3ee",
+              "primary-fixed-dim": "#cdc5c0",
+              "surface-container-high": "#eae8e3",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- SideNavBar (from Shared Components JSON) -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#fbf9f4] dark:bg-stone-900 flex flex-col z-40">
+<div class="px-8 py-10">
+<h1 class="text-3xl font-medium font-serif text-[#C5A55A] dark:text-[#e5c374]">Laitly</h1>
+<p class="text-[0.65rem] font-label font-bold tracking-[0.15rem] text-primary/60 mt-1 uppercase">The Digital Curator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-8 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label">Home</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-label">Movement</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span class="font-label">Lait</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-4 text-[#635d5a] dark:text-white font-bold border-l-2 border-[#C5A55A] bg-[#ffffff] dark:bg-stone-800" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label">Guides</span>
+</a>
+<a class="flex items-center gap-4 px-8 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label">Me</span>
+</a>
+</nav>
+<div class="p-8 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Close up of a smiling mother's face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYTBC9k3NCau723DDfORhRlMKmE5HjPvgmvNburuqV1Ebct8rueqvJTyzUOIWLLaj1NPDfmJ4vxSg3z2qHCelFcUmCpdWwPuOKGAiQTLTbufju8EuQT-32qtL8Ssd6daE7Bo2QCHs_sa2JeV6OQlVeq-qmatrvz87kaxGPfirN6d8K_X6IiSA6NqAZdNZCbxtX9y78Po8mKS0nMYEOCUkZ1mUffEhW2NW0TASOqzBTXlkaD7v01y3QgFDUKwDbvqWsabkJnb-lu6g"/>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">Sarah Miller</p>
+<p class="text-[0.6rem] text-primary/60 font-label">Member since 2023</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (from Shared Components JSON) -->
+<header class="fixed top-0 right-0 left-64 h-16 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl flex justify-between items-center px-8 z-30">
+<div class="flex-1 max-w-md">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-primary/40 text-sm">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-secondary-fixed-dim transition-all" placeholder="Search guides, tips, protocols..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary/70 hover:text-secondary-fixed-dim transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-primary/70 hover:text-secondary-fixed-dim transition-colors" data-icon="settings">settings</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-7xl mx-auto px-12 py-12">
+<!-- Hero Editorial Section -->
+<section class="mb-16">
+<div class="grid grid-cols-12 gap-12 items-end">
+<div class="col-span-7">
+<h2 class="text-xs font-label font-bold tracking-[0.2rem] text-primary/50 uppercase mb-4">Curated Knowledge</h2>
+<h1 class="text-6xl font-headline font-medium leading-tight text-primary">Nurturing through <br/><i class="font-serif italic">Expert Guidance</i></h1>
+<p class="mt-8 text-lg text-primary/70 leading-relaxed max-w-xl font-body">
+                            Explore our meticulously curated library of breastfeeding resources, designed to empower your journey from first latch to weaning.
+                        </p>
+</div>
+<div class="col-span-5 pb-2">
+<div class="aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden relative group">
+<img alt="Breastfeeding guide hero" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A peaceful mother nursing her newborn in natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLgmn3xcxRe81UhiSntL117BULAe1A3K0j-oB8Hpq538UqWhz6Z8l3BjxJCfpjv5DBM7O9ymobaBEviL-Nuig-O_uDVH4-zKcIUZJZzyGG3p8fhqLYUJIXQkfhtj9hkGO86ePfSSNW1wnG2esBel_gSspH_O3NVkJaaWvWVJJ3_wdngSh1pA_btKedgJfCo2v_8BdBcXpQhwd4_F4C1OlDsLU_jjmw5J-pVaimGdAhc9GNNiSfR__q0az_DsMlhHegiOWxtyVYcF8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<span class="bg-secondary-fixed-dim/90 text-on-secondary-fixed text-[0.6rem] font-bold tracking-widest uppercase px-2 py-1 rounded">Featured</span>
+<h3 class="text-xl font-headline mt-2">The Golden Hour Protocol</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid of Guides -->
+<section class="mb-20">
+<div class="flex justify-between items-end mb-8 border-b border-outline-variant/20 pb-4">
+<h3 class="text-xs font-label font-bold tracking-[0.15rem] text-primary uppercase">Core Protocols</h3>
+<div class="flex gap-4">
+<button class="text-[0.65rem] font-bold font-label uppercase text-primary/40 hover:text-primary transition-colors">Storage</button>
+<button class="text-[0.65rem] font-bold font-label uppercase text-primary/40 hover:text-primary transition-colors">Supply</button>
+<button class="text-[0.65rem] font-bold font-label uppercase text-primary/40 hover:text-primary transition-colors">Methods</button>
+<button class="text-[0.65rem] font-bold font-label uppercase text-secondary font-bold">All Library</button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<!-- Card 1: Pitcher Method -->
+<div class="col-span-2 group">
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-8 flex gap-10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+<div class="w-1/3 aspect-[3/4] rounded-lg overflow-hidden bg-surface-container-low">
+<img alt="Pitcher Method" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A clean glass pitcher with fresh milk on a marble counter" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHWQ8C_xh-zRZRMB7b8sChKaJbSoiGzsnIe_JGzdwCaSsqV880SrZ-ncDB6PjWe1ApqMtU_42cVwmrYsn625gLiOJEqqXAIc1kHsqHTugcZObUetgBF01w7cq-pH35D00VPbalZJJF_1c31GrLXCOTwwVv9Yrj8Sp6REAIkDXtgDPG1SzWu7LSW4k4JPZp-YxcYXpWd0ZSNjWnfBTOlQnbT3FKnffRK_OFp2RwaqJ0CgryE7MTg9oF59KV7NLMnUUumkE7bLvpDUE"/>
+</div>
+<div class="w-2/3 flex flex-col justify-center">
+<span class="text-[0.65rem] font-label font-bold text-secondary tracking-widest uppercase mb-2">Masterclass</span>
+<h4 class="text-3xl font-headline text-primary mb-4 leading-snug">The Pitcher Method: <br/>Streamlining Your Daily Supply</h4>
+<p class="text-primary/60 text-sm leading-relaxed mb-6 line-clamp-3">
+                                    Learn the most efficient way to manage a 24-hour supply. Reduce bottle waste, stabilize fat content, and simplify your nighttime preparation.
+                                </p>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1 text-[0.65rem] font-bold text-primary/40"><span class="material-symbols-outlined text-sm">schedule</span> 12 MIN READ</span>
+<button class="px-6 py-2 bg-primary text-white text-xs font-bold rounded hover:opacity-90 transition-opacity">Read Guide</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Milk Storage -->
+<div class="group">
+<div class="h-full bg-surface-container-low p-8 flex flex-col hover:bg-surface-container transition-colors duration-300">
+<div class="mb-6">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl" style="font-variation-settings: 'FILL' 1;">ac_unit</span>
+</div>
+<h4 class="text-2xl font-headline text-primary mb-4">Milk Storage 101</h4>
+<p class="text-primary/60 text-sm leading-relaxed mb-auto">
+                                Critical temperatures, duration guidelines, and best practices for freezing and thawing your "liquid gold."
+                            </p>
+<div class="mt-8 pt-6 border-t border-outline-variant/30 flex justify-between items-center">
+<span class="text-[0.65rem] font-label font-bold text-primary/40 uppercase">Infographic Included</span>
+<span class="material-symbols-outlined text-primary/40 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Power Pumping -->
+<div class="group">
+<div class="h-full bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-8 flex flex-col hover:shadow-lg transition-all">
+<div class="aspect-square bg-surface-container-low rounded mb-6 overflow-hidden">
+<img alt="Power Pumping" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Close up of a smart electric breast pump interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSwehsjRJn-WadRf8I-hPGoLMPH_xLjMoFRa_zZ4GWTUax7XkLutg5wxkgrklZuea-LSeLjWY86mIqRC9LL6ncZYu8mt6vfye9Himw4gMsmeao-DUb7pDu7bKsJQBML-zVOfRvrLTXGMTHNbynTNTw03WYpp2JbO1rWSkhq7kp4rB6hBElpX-Qv0B2gRyOnrLPhgbPkys2alD0nyH1141DEq_Y7_TYz38N68HbStdFp_krNqfQE50NwbNM8IOymS50fEnm81n0oKk"/>
+</div>
+<h4 class="text-xl font-headline text-primary mb-2">Power Pumping Protocols</h4>
+<p class="text-primary/60 text-xs leading-relaxed">Boost your supply naturally with structured pumping intervals designed to mimic cluster feeding.</p>
+</div>
+</div>
+<!-- Card 4: Lipase Issues -->
+<div class="group">
+<div class="h-full bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-8 flex flex-col hover:shadow-lg transition-all">
+<h4 class="text-xl font-headline text-primary mb-2">Dealing with High Lipase</h4>
+<p class="text-primary/60 text-xs leading-relaxed mb-6">If your frozen milk smells "off," you might have high lipase. Discover the scalding technique and other solutions.</p>
+<div class="mt-auto flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-[0.6rem] font-bold text-primary/60 uppercase tracking-tighter">Updated Today</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Latch Mastery -->
+<div class="group">
+<div class="h-full bg-[#f2f1ec] p-8 flex flex-col hover:bg-surface-container-high transition-colors">
+<span class="text-[0.65rem] font-label font-bold text-secondary tracking-widest uppercase mb-4">Video Series</span>
+<h4 class="text-xl font-headline text-primary mb-4 italic">"The Painless Latch: A Visual Walkthrough"</h4>
+<div class="relative w-full aspect-video bg-primary-fixed rounded overflow-hidden mt-auto">
+<img alt="Video preview" class="w-full h-full object-cover opacity-60" data-alt="Mother calmly cradling an infant in a nursery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqEbVqeUkRLfVy5f5vBqVkK23aNGdrCSSVlK8hTmiNC-C3LlMWCGk7vkoj-Gl0uKtiQULCUEWCStUI1eQtzEb7ZN3n3bW6B2G1-SC-U0hpiV896iRwXrzY0ReqevUE0yb0sFCIESsPiAGUn7jV99c9n_Bii7uMVziP3moNQEi0kNN6M2cAfaZ2cy89XA5pq_HPuD2vP3CWo6tw9q4aU9hcqPe4xKnn3U-_97URDICHeMoGrUmGlpbjPVb8PcY-shujJDleCaturAo"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Quote Component -->
+<section class="mb-20">
+<div class="bg-surface-container-low py-24 px-12 text-center rounded-xl">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-5xl mb-6">format_quote</span>
+<blockquote class="text-3xl font-headline italic text-primary max-w-2xl mx-auto leading-relaxed">
+                        "Your body's ability to produce exactly what your baby needs is a biological masterpiece. We're just here to help you curate the masterpiece."
+                    </blockquote>
+<p class="mt-8 text-xs font-label font-bold tracking-[0.2rem] text-primary/40 uppercase">— Dr. Aris Thorne, IBCLC</p>
+</div>
+</section>
+<!-- Newsletter/Guide Update Sign-up -->
+<section class="mb-20">
+<div class="bg-primary p-12 rounded-xl flex items-center justify-between text-white">
+<div class="max-w-md">
+<h3 class="text-3xl font-headline mb-4">Never miss a protocol update.</h3>
+<p class="text-white/70 text-sm font-body">Get the latest evidence-based breastfeeding guides delivered to your inbox every Thursday.</p>
+</div>
+<div class="flex gap-2">
+<input class="bg-white/10 border-none rounded-lg px-6 py-3 text-sm focus:ring-1 focus:ring-secondary-fixed-dim text-white placeholder-white/40 w-64" placeholder="email@example.com" type="email"/>
+<button class="bg-secondary-fixed-dim text-on-secondary-fixed px-8 py-3 rounded-lg font-bold text-sm hover:brightness-110 transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on Guides page per rules) -->
+<!-- The FAB is suppressed as this is a library/details focused screen -->
+</body></html>

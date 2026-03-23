@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#251a00",
+              "tertiary": "#6b5d38",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#795f1b",
+              "inverse-primary": "#cdc5c0",
+              "on-tertiary-fixed": "#241a00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#eae8e3",
+              "on-primary-fixed-variant": "#4b4642",
+              "surface-tint": "#635d5a",
+              "outline-variant": "#d0c5b4",
+              "surface-dim": "#dbdad5",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-surface": "#30312e",
+              "secondary-fixed": "#ffdf99",
+              "surface-container-low": "#f5f3ee",
+              "tertiary-container": "#b8a77c",
+              "surface": "#fbf9f4",
+              "inverse-on-surface": "#f2f1ec",
+              "on-secondary-fixed-variant": "#5a4300",
+              "background": "#fbf9f4",
+              "tertiary-fixed": "#f4e1b2",
+              "secondary-fixed-dim": "#e5c374",
+              "on-error-container": "#93000a",
+              "on-background": "#1b1c19",
+              "secondary-container": "#ffdc8c",
+              "surface-variant": "#e4e2dd",
+              "on-tertiary-container": "#483c1b",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-error": "#ffffff",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "primary-fixed-dim": "#cdc5c0",
+              "primary-fixed": "#e9e1dc",
+              "outline": "#7e7667",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#4d4639",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-surface": "#1b1c19",
+              "surface-container-highest": "#e4e2dd",
+              "primary": "#635d5a",
+              "on-primary-fixed": "#1e1b18",
+              "surface-container": "#f0eee9"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-italic { font-style: italic; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-fixed-dim selection:text-on-secondary-fixed">
+<header class="bg-[#fbf9f4] dark:bg-stone-900 text-[#635d5a] dark:text-stone-200 border-b border-[#635d5a]/10 sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto">
+<h1 class="text-3xl font-medium font-headline text-[#635d5a] dark:text-stone-100">Laitly</h1>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="home-v1.html">Home</a>
+<a class="text-[#C5A55A] font-bold border-b-2 border-[#C5A55A] pb-1 font-label uppercase tracking-widest text-xs" href="movement.html">Movement</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="storage-v1.html">Lait</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="guides.html">Guides</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-label uppercase tracking-widest text-xs" href="strategy.html">Me</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-2xl hover:opacity-80 transition-opacity">person</button>
+</div>
+</div>
+</header>
+<aside class="fixed left-0 top-[73px] h-[calc(100vh-73px)] w-64 bg-[#f5f3ee] dark:bg-stone-800 border-r border-[#635d5a]/5 hidden xl:flex flex-col p-6">
+<div class="mb-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Curator profile woman silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs7XPyEvbu1gcz2WTzxku0O3KaBBsMRRQ9Zc3LHPeK1GHZQYFZLUVT4N7Y0O4vpEZKIfrp484QjWxriPp6UEP-7e1yJrbOwwDNgDMrcLob7lL124hQ4vJE3eEyMNxiVbxVhbwztWZSUQG789cdyEqsMx4OKxxe0LldkkVb8ByueforcZFiIiA7lu7-kDDeDPJKcceLUkvjgDqJ3TMdgvzud_f1sO_byDvUtxv1lWqT87RYh2C2Q1qoYEtVPs6oB2QCjek5OksN00U"/>
+</div>
+<div>
+<p class="font-headline italic text-[#C5A55A] text-sm">The Curator</p>
+<p class="text-xs opacity-70">Your Daily Feed</p>
+</div>
+</div>
+<nav class="space-y-2">
+<button class="w-full flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-700 text-[#635d5a] border-l-2 border-[#C5A55A] rounded-r-lg hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined">opacity</span>
+<span class="font-body font-medium">Log Milk</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-[#635d5a]/70 dark:text-stone-400 hover:bg-stone-200/50 hover:translate-x-1 transition-transform duration-200">
+<span class="material-symbols-outlined">child_care</span>
+<span class="font-body font-medium">Add Feed</span>
+</button>
+</nav>
+</div>
+<div class="mt-auto">
+<button class="w-full py-4 bg-primary text-on-primary rounded-lg font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined">add</span>
+                New Entry
+            </button>
+</div>
+</aside>
+<main class="xl:ml-64 min-h-[calc(100vh-73px)] flex items-center justify-center p-6 md:p-12">
+<div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-[0_32px_32px_0_rgba(27,28,25,0.04)] overflow-hidden flex flex-col md:flex-row">
+<div class="w-2 bg-secondary-fixed-dim hidden md:block"></div>
+<div class="flex-1 p-8 md:p-12">
+<header class="mb-10 text-center md:text-left">
+<span class="font-label uppercase tracking-widest text-xs text-secondary font-bold mb-2 block">Quick Log</span>
+<h2 class="font-headline text-4xl text-primary">Movement</h2>
+</header>
+<div class="flex border-b border-surface-container-highest mb-10 overflow-x-auto no-scrollbar">
+<button class="px-6 py-3 text-secondary font-bold border-b-2 border-secondary whitespace-nowrap">Add Milk</button>
+<button class="px-6 py-3 text-primary opacity-60 hover:opacity-100 transition-opacity whitespace-nowrap">Move Milk</button>
+<button class="px-6 py-3 text-primary opacity-60 hover:opacity-100 transition-opacity whitespace-nowrap">Used Milk</button>
+</div>
+<div class="space-y-10">
+<div>
+<label class="font-label uppercase tracking-widest text-[10px] text-primary opacity-60 mb-4 block text-center md:text-left">Volume (Ounces)</label>
+<div class="flex items-center justify-center gap-8">
+<button class="w-12 h-12 rounded-full border border-surface-container-highest flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="text-center">
+<span class="font-headline text-6xl text-primary">3.5</span>
+<span class="font-body text-xl text-primary opacity-40 ml-2">oz</span>
+</div>
+<button class="w-12 h-12 rounded-full border border-surface-container-highest flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-4">
+<label class="font-label uppercase tracking-widest text-[10px] text-primary opacity-60 block">Source</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="p-4 rounded-lg bg-surface-container-low border border-secondary/20 flex flex-col items-center gap-2 transition-all hover:border-secondary active:scale-95">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="text-xs font-bold text-primary">Pump L</span>
+</button>
+<button class="p-4 rounded-lg bg-surface-container-low border border-secondary/20 flex flex-col items-center gap-2 transition-all hover:border-secondary active:scale-95">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+<span class="text-xs font-bold text-primary">Pump R</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<label class="font-label uppercase tracking-widest text-[10px] text-primary opacity-60 block">Destination</label>
+<button class="w-full p-4 rounded-lg bg-white border-2 border-primary flex items-center justify-center gap-3 transition-all hover:bg-surface-container-low active:scale-95">
+<span class="material-symbols-outlined text-primary">kitchen</span>
+<span class="text-sm font-bold text-primary">Fridge Storage</span>
+</button>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full py-5 bg-primary rounded-lg text-on-primary font-bold text-lg shadow-lg shadow-primary/10 hover:opacity-95 transition-all active:scale-[0.98] flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">check_circle</span>
+                            Log Session
+                        </button>
+<p class="text-center mt-6 font-headline italic text-primary opacity-50 text-sm">
+                            "The days are long, but the years are short."
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-[#fbf9f4] dark:bg-stone-900 text-[#635d5a] dark:text-stone-400 w-full px-8 py-12 flex flex-col items-center gap-4 border-t border-[#635d5a]/10 mt-20">
+<p class="font-headline text-[#635d5a] text-2xl">Laitly</p>
+<p class="font-body text-sm text-center">© 2024 Laitly. We carry the details. You carry the baby.</p>
+<div class="flex gap-6 mt-2">
+<a class="opacity-60 hover:opacity-100 transition-opacity font-body text-sm" href="#">Privacy</a>
+<a class="opacity-60 hover:opacity-100 transition-opacity font-body text-sm" href="#">Support</a>
+<a class="opacity-60 hover:opacity-100 transition-opacity font-body text-sm underline decoration-[#C5A55A]" href="#">Editorial Policy</a>
+</div>
+</footer>
+<div class="md:hidden fixed bottom-6 right-6 z-50">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-xl active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-2xl">add</span>
+</button>
+</div>
+</body></html>

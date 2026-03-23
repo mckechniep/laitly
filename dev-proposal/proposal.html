@@ -311,11 +311,13 @@
       text-align: left; position: relative;
       transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
     }
+    .tier { cursor: pointer; }
     .tier:hover { transform: translateY(-2px); }
-    .tier.rec {
+    .tier.active {
       border: 2px solid var(--gold);
       box-shadow: 0 8px 32px rgba(184,150,42,0.08);
     }
+    .tier:not(.active) { border-color: var(--border); border-width: 1px; box-shadow: none; }
     .tier-badge {
       font: 700 0.5625rem/1 var(--body);
       letter-spacing: 0.12em; text-transform: uppercase;
@@ -340,7 +342,10 @@
       letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--text-3); text-align: center;
       margin-bottom: 24px;
+      transition: opacity 0.3s;
     }
+    .ms-breakdown { transition: opacity 0.35s var(--ease); }
+    .ms-breakdown.hidden { display: none; }
     .ms-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 0; text-align: left; margin-bottom: 40px;
@@ -677,13 +682,13 @@
       </div>
 
       <div class="tiers rvs">
-        <div class="tier rec rv">
+        <div class="tier active rv" data-plan="8wk">
           <span class="tier-badge">Recommended</span>
           <span class="tier-price">$10,000</span>
           <span class="tier-dur">8 weeks</span>
           <p class="tier-desc">Full team, parallel workstreams. Fastest path to launch.</p>
         </div>
-        <div class="tier rv">
+        <div class="tier rv" data-plan="16wk">
           <span class="tier-badge">&nbsp;</span>
           <span class="tier-price">$8,000</span>
           <span class="tier-dur">16 weeks</span>
@@ -691,31 +696,63 @@
         </div>
       </div>
 
-      <p class="ms-heading rv">8-Week Milestone Breakdown</p>
-      <div class="ms-grid rvs">
-        <div class="ms-col rv">
-          <span class="ms-label">Signing</span>
-          <span class="ms-amt">$2,000</span>
-          <span class="ms-when">Upon agreement</span>
-          <p class="ms-desc">Kickoff, discovery, architecture &amp; design system</p>
+      <div class="ms-breakdown" id="ms-8wk">
+        <p class="ms-heading rv">8-Week Milestone Breakdown</p>
+        <div class="ms-grid rvs">
+          <div class="ms-col rv">
+            <span class="ms-label">Signing</span>
+            <span class="ms-amt">$2,000</span>
+            <span class="ms-when">Upon agreement</span>
+            <p class="ms-desc">Kickoff, discovery, architecture &amp; design system</p>
+          </div>
+          <div class="ms-col rv">
+            <span class="ms-label">Core Engine</span>
+            <span class="ms-amt">$3,000</span>
+            <span class="ms-when">Week 4</span>
+            <p class="ms-desc">Movement + Lait tabs live, storage logic complete</p>
+          </div>
+          <div class="ms-col rv">
+            <span class="ms-label">Full Build</span>
+            <span class="ms-amt">$3,000</span>
+            <span class="ms-when">Week 6</span>
+            <p class="ms-desc">All tabs, partner view, strategy planner, guides</p>
+          </div>
+          <div class="ms-col rv">
+            <span class="ms-label">Launch</span>
+            <span class="ms-amt">$2,000</span>
+            <span class="ms-when">Week 8</span>
+            <p class="ms-desc">QA, polish, iOS + Android deploy, handoff</p>
+          </div>
         </div>
-        <div class="ms-col rv">
-          <span class="ms-label">Core Engine</span>
-          <span class="ms-amt">$3,000</span>
-          <span class="ms-when">Week 4</span>
-          <p class="ms-desc">Movement + Lait tabs live, storage logic complete</p>
-        </div>
-        <div class="ms-col rv">
-          <span class="ms-label">Full Build</span>
-          <span class="ms-amt">$3,000</span>
-          <span class="ms-when">Week 6</span>
-          <p class="ms-desc">All tabs, partner view, strategy planner, guides</p>
-        </div>
-        <div class="ms-col rv">
-          <span class="ms-label">Launch</span>
-          <span class="ms-amt">$2,000</span>
-          <span class="ms-when">Week 8</span>
-          <p class="ms-desc">QA, polish, iOS + Android deploy, handoff</p>
+      </div>
+
+      <div class="ms-breakdown hidden" id="ms-16wk">
+        <p class="ms-heading">16-Week Milestone Breakdown</p>
+        <div class="ms-grid">
+          <div class="ms-col">
+            <span class="ms-label">Signing</span>
+            <span class="ms-amt">$1,500</span>
+            <span class="ms-when">Upon agreement</span>
+            <p class="ms-desc">Kickoff, discovery, architecture &amp; design system</p>
+          </div>
+          <div class="ms-col">
+            <span class="ms-label">Core Engine</span>
+            <span class="ms-amt">$2,500</span>
+            <span class="ms-when">Week 8</span>
+            <p class="ms-desc">Movement + Lait tabs live, storage logic complete</p>
+          </div>
+          <div class="ms-col">
+            <span class="ms-label">Full Build</span>
+            <span class="ms-amt">$2,500</span>
+            <span class="ms-when">Week 12</span>
+            <p class="ms-desc">All tabs, partner view, strategy planner, guides</p>
+          </div>
+          <div class="ms-col">
+            <span class="ms-label">Launch</span>
+            <span class="ms-amt">$1,500</span>
+            <span class="ms-when">Week 16</span>
+            <p class="ms-desc">QA, polish, iOS + Android deploy, handoff</p>
+          </div>
         </div>
       </div>
       <p class="fine rv">Payment schedules are flexible across all options. Timeline assumes timely feedback. Scope changes may affect cost.</p>
@@ -758,6 +795,17 @@
       a.addEventListener('click', e => {
         e.preventDefault();
         document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    /* ── Tier switching ── */
+    document.querySelectorAll('.tier[data-plan]').forEach(tier => {
+      tier.addEventListener('click', () => {
+        document.querySelectorAll('.tier').forEach(t => t.classList.remove('active'));
+        tier.classList.add('active');
+        const plan = tier.dataset.plan;
+        document.querySelectorAll('.ms-breakdown').forEach(b => b.classList.add('hidden'));
+        document.getElementById('ms-' + plan).classList.remove('hidden');
       });
     });
 

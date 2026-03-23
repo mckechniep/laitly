@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly - Me (Strategy)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#251a00",
+                        "tertiary": "#6b5d38",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#795f1b",
+                        "inverse-primary": "#cdc5c0",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed-variant": "#4b4642",
+                        "surface-tint": "#635d5a",
+                        "outline-variant": "#d0c5b4",
+                        "surface-dim": "#dbdad5",
+                        "secondary": "#745b17",
+                        "on-primary-container": "#413d3a",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed": "#ffdf99",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary-container": "#b8a77c",
+                        "surface": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-fixed-variant": "#5a4300",
+                        "background": "#fbf9f4",
+                        "tertiary-fixed": "#f4e1b2",
+                        "secondary-fixed-dim": "#e5c374",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c19",
+                        "secondary-container": "#ffdc8c",
+                        "surface-variant": "#e4e2dd",
+                        "on-tertiary-container": "#483c1b",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#524623",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "primary-container": "#afa7a3",
+                        "primary-fixed-dim": "#cdc5c0",
+                        "primary-fixed": "#e9e1dc",
+                        "outline": "#7e7667",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4d4639",
+                        "tertiary-fixed-dim": "#d7c598",
+                        "on-surface": "#1b1c19",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary": "#635d5a",
+                        "on-primary-fixed": "#1e1b18",
+                        "surface-container": "#f0eee9"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-custom {
+            @apply bg-transparent border-b border-outline-variant py-2 focus:ring-0 focus:border-secondary transition-colors font-body text-primary;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            @apply bg-secondary-fixed-dim;
+        }
+        .toggle-checkbox:checked + .toggle-label div {
+            @apply translate-x-4;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary-fixed">
+<!-- TopAppBar -->
+<nav class="bg-[#fbf9f4] dark:bg-stone-900 text-[#635d5a] dark:text-stone-200 docked full-width top-0 border-b border-[#635d5a]/10 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto z-50">
+<div class="text-3xl font-medium font-serif text-[#635d5a] dark:text-stone-100">Laitly</div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors Headlines: font-serif Newsreader. Body: font-sans Manrope. Labels: font-sans uppercase tracking-widest text-xs" href="#">Home</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors Headlines: font-serif Newsreader. Body: font-sans Manrope. Labels: font-sans uppercase tracking-widest text-xs" href="#">Movement</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors Headlines: font-serif Newsreader. Body: font-sans Manrope. Labels: font-sans uppercase tracking-widest text-xs" href="#">Lait</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors Headlines: font-serif Newsreader. Body: font-sans Manrope. Labels: font-sans uppercase tracking-widest text-xs" href="#">Guides</a>
+<a class="text-[#C5A55A] font-bold border-b-2 border-[#C5A55A] pb-1 Headlines: font-serif Newsreader. Body: font-sans Manrope. Labels: font-sans uppercase tracking-widest text-xs" href="#">Me</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined hover:opacity-80 transition-opacity active:scale-95 duration-150" data-icon="person">person</button>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<!-- Page Header -->
+<header class="mb-20 max-w-2xl">
+<h1 class="font-headline text-5xl text-primary leading-tight mb-4 italic">Me - Configure your personal lactation engine.</h1>
+<p class="font-body text-primary/70 text-lg">Define your goals, manage your circle, and calibrate your strategy for the months ahead.</p>
+</header>
+<!-- Multi-column Grid for Settings -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Column: My Baby & Strategy -->
+<div class="lg:col-span-8 space-y-24">
+<!-- My Baby Section -->
+<section>
+<div class="flex items-baseline gap-4 mb-10">
+<span class="font-label text-xs uppercase tracking-[0.15rem] text-primary/60 font-bold">01</span>
+<h2 class="font-headline text-3xl text-primary">My Baby</h2>
+</div>
+<div class="grid md:grid-cols-2 gap-x-12 gap-y-10">
+<div class="flex flex-col border-l-2 border-secondary-fixed-dim pl-6 py-2">
+<label class="font-label text-[0.7rem] uppercase tracking-widest text-primary/60 mb-2 font-bold">Daily Intake Goal</label>
+<div class="flex items-center gap-2">
+<input class="form-input-custom w-20 text-2xl font-headline italic" type="text" value="32"/>
+<span class="font-body text-primary/50 text-sm">oz</span>
+</div>
+<p class="mt-4 text-xs text-primary/60 leading-relaxed font-body">The baseline volume required to meet your baby's current daily demand.</p>
+</div>
+<div class="flex flex-col border-l-2 border-secondary-fixed-dim pl-6 py-2">
+<label class="font-label text-[0.7rem] uppercase tracking-widest text-primary/60 mb-2 font-bold">Avg. Bottle Size</label>
+<div class="flex items-center gap-2">
+<input class="form-input-custom w-20 text-2xl font-headline italic" type="text" value="4.5"/>
+<span class="font-body text-primary/50 text-sm">oz</span>
+</div>
+<p class="mt-4 text-xs text-primary/60 leading-relaxed font-body">Used to calculate how many sessions are needed for a full day's supply.</p>
+</div>
+</div>
+</section>
+<!-- Strategy Section -->
+<section>
+<div class="flex items-baseline gap-4 mb-10">
+<span class="font-label text-xs uppercase tracking-[0.15rem] text-primary/60 font-bold">02</span>
+<h2 class="font-headline text-3xl text-primary">Strategy</h2>
+</div>
+<div class="space-y-12">
+<div class="bg-surface-container-low p-8 rounded-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div class="max-w-md">
+<h3 class="font-headline text-xl text-primary mb-2">Return-to-work Goal</h3>
+<p class="text-sm text-primary/70 leading-relaxed">Transition your pumping schedule to align with office hours. We'll adjust your reminders 2 weeks prior.</p>
+</div>
+<div class="flex items-center gap-4">
+<input class="form-input-custom border-none bg-surface-container-lowest px-4 rounded-lg text-sm" type="date" value="2024-11-15"/>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="flex flex-col border-l-2 border-secondary-fixed-dim pl-6 py-2">
+<label class="font-label text-[0.7rem] uppercase tracking-widest text-primary/60 mb-2 font-bold">Stash Goal</label>
+<div class="flex items-center gap-2">
+<input class="form-input-custom w-24 text-2xl font-headline italic" type="text" value="150"/>
+<span class="font-body text-primary/50 text-sm">oz</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 mt-6 overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full" style="width: 45%;"></div>
+</div>
+<p class="mt-3 text-[0.65rem] text-primary/50 uppercase tracking-tighter">Current progress: 68oz (45%)</p>
+</div>
+<div class="flex flex-col border-l-2 border-secondary-fixed-dim pl-6 py-2">
+<label class="font-label text-[0.7rem] uppercase tracking-widest text-primary/60 mb-2 font-bold">Stash Strategy</label>
+<select class="form-input-custom border-none font-body text-sm bg-transparent cursor-pointer">
+<option>Steady Accumulation</option>
+<option>Aggressive Build</option>
+<option>Maintenance Only</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Partners & Reminders -->
+<div class="lg:col-span-4 space-y-16">
+<!-- Partner Access -->
+<section>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="font-label text-xs uppercase tracking-[0.15rem] text-primary/60 font-bold">03</span>
+<h2 class="font-headline text-2xl text-primary">Partner Access</h2>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a smiling man with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUA8_9BiljqGct4kw1u08gl_Cz2IO1D0ojZJblGEu8G2k1httCF2vXNeICRIATG4qhty6C4wGiKVc5M4AeP0G-5NADdVUj6__fOJILEraJB7n1pW-29zqOabKj32oRQvT3-yR0BJISLXWzyt_SUjWS6gnIIg1o-KAjbA9FRREOVU0p5lD6t1uRNmOiUbQvAsySnmARu6lSiHIjeYxLrZ9SC6jDlqKA8t5hz9o0y_xOhxp1HXLfiFCULTsgVnf0ShjZ46Jh6PhMXKk"/>
+<div class="flex-1">
+<p class="font-body font-bold text-sm text-primary">Julian S.</p>
+<p class="text-xs text-primary/50">Full Editor</p>
+</div>
+<span class="material-symbols-outlined text-primary/40 text-sm cursor-pointer hover:text-error transition-colors" data-icon="cancel">cancel</span>
+</div>
+<!-- CTA Framed Box -->
+<div class="border-2 border-dashed border-secondary-fixed-dim p-8 text-center flex flex-col items-center gap-4 group cursor-pointer hover:bg-secondary-fixed/5 transition-colors">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed-dim/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary" data-icon="person_add">person_add</span>
+</div>
+<div>
+<h4 class="font-headline text-lg text-primary">Invite a Caregiver</h4>
+<p class="text-xs text-primary/60 mt-1">Grant access to logs and schedules.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Reminders -->
+<section>
+<div class="flex items-baseline gap-4 mb-8">
+<span class="font-label text-xs uppercase tracking-[0.15rem] text-primary/60 font-bold">04</span>
+<h2 class="font-headline text-2xl text-primary">Reminders</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10">
+<div>
+<p class="font-body font-semibold text-sm text-primary">Next Feed Window</p>
+<p class="text-[0.7rem] text-primary/50">15 min before scheduled start</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-2 border-surface-container-highest appearance-none cursor-pointer checked:border-secondary-fixed-dim top-1 left-1" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle1"></label>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10">
+<div>
+<p class="font-body font-semibold text-sm text-primary">Milk Stash Milestone</p>
+<p class="text-[0.7rem] text-primary/50">Notify at 25%, 50%, 75% goals</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input checked="" class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-2 border-surface-container-highest appearance-none cursor-pointer checked:border-secondary-fixed-dim top-1 left-1" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle2"></label>
+</div>
+</div>
+<div class="flex items-center justify-between py-4 border-b border-outline-variant/10">
+<div>
+<p class="font-body font-semibold text-sm text-primary">Daily Summary</p>
+<p class="text-[0.7rem] text-primary/50">Review the day at 9:00 PM</p>
+</div>
+<div class="relative inline-block w-10 align-middle select-none transition duration-200 ease-in">
+<input class="toggle-checkbox absolute block w-4 h-4 rounded-full bg-white border-2 border-surface-container-highest appearance-none cursor-pointer checked:border-secondary-fixed-dim top-1 left-1" id="toggle3" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-container-highest cursor-pointer" for="toggle3"></label>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Editorial Quote Footer -->
+<footer class="mt-32 border-t border-outline-variant/10 pt-20 flex flex-col items-center text-center">
+<div class="max-w-3xl bg-surface-container-low px-12 py-24 rounded-lg w-full mb-12">
+<blockquote class="font-headline italic text-3xl text-primary leading-snug">
+                    "Preparation is the ultimate form of care; when we carry the details, we free our hearts to carry the child."
+                </blockquote>
+</div>
+<div class="flex flex-col items-center gap-6">
+<div class="font-serif text-2xl text-[#635d5a]">Laitly</div>
+<p class="font-sans Manrope text-sm text-[#635d5a] dark:text-stone-400">© 2024 Laitly. We carry the details. You carry the baby.</p>
+<div class="flex gap-8">
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Support</a>
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Editorial Policy</a>
+</div>
+</div>
+</footer>
+</main>
+<!-- SideNavBar (Desktop Fixed) -->
+<div class="hidden lg:flex fixed left-0 top-0 h-full w-64 bg-[#f5f3ee] dark:bg-stone-800 text-[#635d5a] dark:text-stone-200 font-sans Manrope tracking-tight border-r border-[#635d5a]/5 flex flex-col p-6 z-40 pt-24">
+<div class="flex items-center gap-3 mb-10">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Soft aesthetic floral pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5MwIhdSFU-FSOdudLE33yT8aCG3TULss9cqnTpbMB0DIN6MOPTmTjqY43PNXSFNpvZtZtFWH32YtvXILnVtb_El1WibpFRrM0tjAxp7uSfYtTcbFXMK5a95YPCumNymIoXIsqYZNfNxShM98veOr_StOM90zEttimxbWFk3MJjK3nqOiGVpOnAtb3zt9SKvz7hf4CjNsFnZgYG-Y1PBCUSFqovrva58fOu7G_wGUiMeoy8Ra8GZz0DMyZ1QHKA8tbX8BMXtCN2Ro"/>
+<div>
+<p class="font-serif italic text-[#C5A55A] text-sm">Laitly Curated</p>
+<p class="text-xs font-bold uppercase tracking-wider opacity-60">The Curator</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<button class="w-full flex items-center gap-3 px-4 py-3 text-left text-[#635d5a]/70 dark:text-stone-400 hover:bg-stone-200/50 hover:translate-x-1 transition-transform duration-200 rounded-r-lg">
+<span class="material-symbols-outlined" data-icon="opacity">opacity</span>
+<span>Log Milk</span>
+</button>
+<button class="w-full flex items-center gap-3 px-4 py-3 text-left text-[#635d5a]/70 dark:text-stone-400 hover:bg-stone-200/50 hover:translate-x-1 transition-transform duration-200 rounded-r-lg">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+<span>Add Feed</span>
+</button>
+</nav>
+<button class="mt-auto bg-primary text-on-primary py-4 px-6 rounded-lg font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 active:scale-95 duration-150">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            New Entry
+        </button>
+</div>
+</body></html>

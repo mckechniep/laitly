@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#745b17",
+              "inverse-surface": "#30312e",
+              "on-background": "#1b1c19",
+              "surface-variant": "#e4e2dd",
+              "on-surface": "#1b1c19",
+              "secondary-fixed": "#ffdf99",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbdad5",
+              "surface-tint": "#635d5a",
+              "surface": "#fbf9f4",
+              "on-surface-variant": "#4d4639",
+              "background": "#fbf9f4",
+              "tertiary-container": "#b8a77c",
+              "on-tertiary-container": "#483c1b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#1e1b18",
+              "tertiary": "#6b5d38",
+              "secondary-container": "#ffdc8c",
+              "inverse-on-surface": "#f2f1ec",
+              "tertiary-fixed": "#f4e1b2",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#413d3a",
+              "outline-variant": "#d0c5b4",
+              "primary": "#635d5a",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#e5c374",
+              "primary-fixed": "#e9e1dc",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eee9",
+              "primary-container": "#afa7a3",
+              "outline": "#7e7667",
+              "on-secondary-container": "#795f1b",
+              "surface-bright": "#fbf9f4",
+              "inverse-primary": "#cdc5c0",
+              "on-primary-fixed-variant": "#4b4642",
+              "on-secondary-fixed": "#251a00",
+              "on-secondary-fixed-variant": "#5a4300",
+              "surface-container-low": "#f5f3ee",
+              "primary-fixed-dim": "#cdc5c0",
+              "surface-container-high": "#eae8e3",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Newsreader', serif; }
+        .section-header { font-family: 'Manrope', sans-serif; text-transform: uppercase; letter-spacing: 0.15rem; font-weight: 700; font-size: 0.75rem; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed left-0 top-0 h-full w-64 flex flex-col z-40 bg-[#fbf9f4] dark:bg-stone-900">
+<div class="px-6 py-8">
+<h1 class="text-3xl font-medium font-serif text-[#C5A55A] dark:text-[#e5c374]">Laitly</h1>
+<p class="section-header mt-1 text-[#635d5a]/60">The Digital Curator</p>
+</div>
+<nav class="flex-1">
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="home-v1.html">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="movement.html">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span>Movement</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a] dark:text-white font-bold border-l-2 border-[#C5A55A] bg-[#ffffff] dark:bg-stone-800 transition-colors duration-200" href="storage-v1.html">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span>Lait</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="guides.html">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span>Guides</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="strategy.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Me</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low">
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover" data-alt="Close up of a woman smiling softly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGQArjv8oVwmx4mK4WbWtitQg3a2Vb2_fjddQL4M_UAIKiSICDJaEHcPwbnv5bPxaRJJCuBOL62Yugzvs2Jt5YOksdSW-km1EAtsf-vWXt7bGyjB5OkDW0lzC0-pThVYINeCwR4EHVfapkrWsaDT-JeJZad2LPvwo_QeBxMXERTjSj3n3WMvs30tFZS07VdV29bKaDYEGoG_e2anV1aep2QT6owDXd-npQOZDEziUZbxkhI3PbT2VGP1kPJL0ahP4CqbM_C9ApdcY"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Elena Rossi</p>
+<p class="text-xs text-on-surface-variant">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Authority: JSON) -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-30 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<span class="text-sm font-medium text-primary/60">Inventory</span>
+<span class="text-primary/20">/</span>
+<span class="text-sm font-bold text-primary">Lait Storage</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-primary/40 text-sm" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-1 focus:ring-secondary-fixed-dim" placeholder="Search logs..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary/70 cursor-pointer hover:text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-primary/70 cursor-pointer hover:text-primary" data-icon="settings">settings</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-8 pb-12">
+<!-- Hero Section: Total Stored -->
+<div class="mb-12 grid grid-cols-12 gap-8 items-end">
+<div class="col-span-12 lg:col-span-7">
+<h2 class="text-6xl serif font-medium text-primary mb-4 italic">Lait</h2>
+<div class="flex items-baseline gap-4">
+<span class="text-8xl font-medium serif text-primary">51.0</span>
+<span class="text-2xl font-body text-primary/40">oz</span>
+</div>
+<p class="text-on-surface-variant mt-2 max-w-md">Your current supply is curated across two storage locations. This represents approximately 2.4 days of nutrition for Leo.</p>
+</div>
+<div class="col-span-12 lg:col-span-5 flex flex-col items-end gap-6">
+<!-- Toggles -->
+<div class="flex p-1 bg-surface-container-low rounded-lg">
+<button class="px-6 py-2 bg-white shadow-sm rounded-md text-sm font-bold text-primary">oz</button>
+<button class="px-6 py-2 text-sm font-medium text-primary/40 hover:text-primary transition-colors">bottles</button>
+<button class="px-6 py-2 text-sm font-medium text-primary/40 hover:text-primary transition-colors">days</button>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:opacity-90 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                        Log Session
+                    </button>
+<button class="flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-bold shadow-sm border border-outline-variant/20 hover:bg-surface-container-lowest transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="file_upload">file_upload</span>
+                        Export
+                    </button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Fridge Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim relative overflow-hidden group">
+<div class="flex justify-between items-start mb-12">
+<div>
+<p class="section-header text-primary/60 mb-1">In Fridge</p>
+<h3 class="text-4xl serif">12.5 <span class="text-lg font-body text-primary/40 italic">oz</span></h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="kitchen">kitchen</span>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-bold text-primary/60">CAPACITY</span>
+<span class="font-bold text-primary">42%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[42%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4 px-4 bg-surface-container-low/50 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="timer">timer</span>
+<div>
+<p class="text-xs font-bold text-primary/60 uppercase tracking-wider">Earliest Expiry</p>
+<p class="text-sm font-bold text-secondary">Today, 8:45 PM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Freezer Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border-l-2 border-primary/20 relative overflow-hidden">
+<div class="flex justify-between items-start mb-12">
+<div>
+<p class="section-header text-primary/60 mb-1">In Freezer</p>
+<h3 class="text-4xl serif">38.5 <span class="text-lg font-body text-primary/40 italic">oz</span></h3>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center">
+<span class="material-symbols-outlined text-primary/70" data-icon="ac_unit">ac_unit</span>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-xs mb-2">
+<span class="font-bold text-primary/60">UTILIZATION</span>
+<span class="font-bold text-primary">12%</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary/40 w-[12%]"></div>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4 px-4 bg-surface-container-low/50 rounded-lg">
+<span class="material-symbols-outlined text-primary/40 text-sm" data-icon="event">event</span>
+<div>
+<p class="text-xs font-bold text-primary/60 uppercase tracking-wider">Oldest Stash</p>
+<p class="text-sm font-bold text-primary">April 12, 2024</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Expiry Timeline (Editorial Focus) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low p-8 rounded-xl">
+<p class="section-header mb-6">Upcoming Expiry</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-white rounded-lg border-l-2 border-secondary">
+<div class="text-center">
+<p class="text-xs font-bold text-primary/40">MAY</p>
+<p class="text-xl font-bold text-primary">24</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Session #142</p>
+<p class="text-xs text-on-surface-variant">4.5 oz • Fridge</p>
+</div>
+<span class="text-xs font-bold text-secondary">3h left</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white/50 rounded-lg">
+<div class="text-center">
+<p class="text-xs font-bold text-primary/40">MAY</p>
+<p class="text-xl font-bold text-primary">25</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Session #145</p>
+<p class="text-xs text-on-surface-variant">4.0 oz • Fridge</p>
+</div>
+<span class="text-xs font-medium text-primary/60">Tomorrow</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-white/50 rounded-lg">
+<div class="text-center">
+<p class="text-xs font-bold text-primary/40">MAY</p>
+<p class="text-xl font-bold text-primary">25</p>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold">Session #146</p>
+<p class="text-xs text-on-surface-variant">4.0 oz • Fridge</p>
+</div>
+<span class="text-xs font-medium text-primary/60">Tomorrow</span>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-primary/60 hover:text-primary transition-colors border-t border-primary/5 pt-4">VIEW FULL CALENDAR</button>
+</div>
+<!-- Detailed Batch List (Editorial Layout) -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl overflow-hidden mt-6">
+<div class="px-8 py-6 border-b border-surface-container-low flex justify-between items-center">
+<p class="section-header">Inventory Batches</p>
+<div class="flex gap-4">
+<button class="text-xs font-bold text-primary/40 hover:text-primary">All</button>
+<button class="text-xs font-bold text-primary border-b border-secondary-fixed-dim">Fridge</button>
+<button class="text-xs font-bold text-primary/40 hover:text-primary">Freezer</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low/30">
+<th class="px-8 py-4 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Logged Date</th>
+<th class="px-8 py-4 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Session ID</th>
+<th class="px-8 py-4 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Volume</th>
+<th class="px-8 py-4 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Type</th>
+<th class="px-8 py-4 text-[10px] font-bold text-primary/40 uppercase tracking-widest">Expires In</th>
+<th class="px-8 py-4"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/20 transition-colors group">
+<td class="px-8 py-6">
+<p class="text-sm font-bold">May 24, 2024</p>
+<p class="text-xs text-on-surface-variant">08:45 AM</p>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-primary/60">#142-A</td>
+<td class="px-8 py-6">
+<span class="text-sm font-bold">4.5 oz</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold">Fresh</span>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tight">3 Hours</span>
+</td>
+<td class="px-8 py-6 text-right">
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary cursor-pointer transition-colors" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/20 transition-colors group">
+<td class="px-8 py-6">
+<p class="text-sm font-bold">May 24, 2024</p>
+<p class="text-xs text-on-surface-variant">12:30 PM</p>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-primary/60">#143-A</td>
+<td class="px-8 py-6">
+<span class="text-sm font-bold">4.0 oz</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold">Fresh</span>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="text-xs font-medium text-primary/60">15 Hours</span>
+</td>
+<td class="px-8 py-6 text-right">
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary cursor-pointer transition-colors" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/20 transition-colors group">
+<td class="px-8 py-6">
+<p class="text-sm font-bold">May 24, 2024</p>
+<p class="text-xs text-on-surface-variant">04:15 PM</p>
+</td>
+<td class="px-8 py-6 text-sm font-medium text-primary/60">#144-A</td>
+<td class="px-8 py-6">
+<span class="text-sm font-bold">4.0 oz</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<span class="text-xs font-bold">Fresh</span>
+</div>
+</td>
+<td class="px-8 py-6">
+<span class="text-xs font-medium text-primary/60">22 Hours</span>
+</td>
+<td class="px-8 py-6 text-right">
+<span class="material-symbols-outlined text-primary/20 group-hover:text-primary cursor-pointer transition-colors" data-icon="more_vert">more_vert</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Care Quote (Design System Special Component) -->
+<div class="col-span-12 mt-12 mb-6 text-center py-24 px-12 bg-surface-container-low rounded-xl">
+<p class="serif text-3xl italic text-primary max-w-2xl mx-auto leading-relaxed">
+                    "Every drop is a testament to your dedication. Taking a moment for your own restoration is the best gift you can give your little one today."
+                </p>
+<div class="w-12 h-[1px] bg-secondary-fixed-dim mx-auto mt-8"></div>
+<p class="section-header mt-8 text-primary/40">The Curator's Note</p>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per logic for detail/inventory screens) -->
+</body></html>

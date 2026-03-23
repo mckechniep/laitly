@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly - Log Milk Entry</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#251a00",
+              "tertiary": "#6b5d38",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#795f1b",
+              "inverse-primary": "#cdc5c0",
+              "on-tertiary-fixed": "#241a00",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "surface-container-high": "#eae8e3",
+              "on-primary-fixed-variant": "#4b4642",
+              "surface-tint": "#635d5a",
+              "outline-variant": "#d0c5b4",
+              "surface-dim": "#dbdad5",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-surface": "#30312e",
+              "secondary-fixed": "#ffdf99",
+              "surface-container-low": "#f5f3ee",
+              "tertiary-container": "#b8a77c",
+              "surface": "#fbf9f4",
+              "inverse-on-surface": "#f2f1ec",
+              "on-secondary-fixed-variant": "#5a4300",
+              "background": "#fbf9f4",
+              "tertiary-fixed": "#f4e1b2",
+              "secondary-fixed-dim": "#e5c374",
+              "on-error-container": "#93000a",
+              "on-background": "#1b1c19",
+              "secondary-container": "#ffdc8c",
+              "surface-variant": "#e4e2dd",
+              "on-tertiary-container": "#483c1b",
+              "on-secondary": "#ffffff",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-error": "#ffffff",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "primary-fixed-dim": "#cdc5c0",
+              "primary-fixed": "#e9e1dc",
+              "outline": "#7e7667",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#4d4639",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-surface": "#1b1c19",
+              "surface-container-highest": "#e4e2dd",
+              "primary": "#635d5a",
+              "on-primary-fixed": "#1e1b18",
+              "surface-container": "#f0eee9"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 32px 64px -12px rgba(27, 28, 25, 0.04);
+        }
+        .glass-header {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-stone-900 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto fixed top-0 z-50 border-b border-[#635d5a]/10">
+<div class="text-3xl font-medium font-serif text-[#635d5a] dark:text-stone-100">Laitly</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Home</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Movement</a>
+<a class="text-[#C5A55A] font-bold border-b-2 border-[#C5A55A] pb-1 font-sans uppercase tracking-widest text-xs" href="#">Lait</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Guides</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Me</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="person">person</button>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-20 px-6 flex justify-center items-center">
+<!-- Log Entry Card -->
+<div class="w-full max-w-2xl bg-surface-container-lowest editorial-shadow rounded-xl overflow-hidden border-l-2 border-secondary-fixed-dim">
+<div class="p-8 md:p-12 space-y-10">
+<!-- Header -->
+<div class="space-y-2">
+<span class="font-label text-xs font-bold uppercase tracking-[0.15rem] text-primary/60">Journal Entry</span>
+<h1 class="font-headline text-4xl text-primary">Log Milk</h1>
+</div>
+<!-- Large Numeric Display -->
+<div class="flex flex-col items-center justify-center py-8 bg-surface-container-low rounded-lg">
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-7xl md:text-8xl text-secondary select-none">4.5</span>
+<span class="font-headline text-2xl text-primary/60 italic">oz</span>
+</div>
+<div class="flex gap-4 mt-6">
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-primary">remove</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center hover:bg-outline-variant/30 transition-colors">
+<span class="material-symbols-outlined text-primary">add</span>
+</button>
+</div>
+</div>
+<!-- Source Selection -->
+<div class="space-y-4">
+<label class="font-label text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary/70">Source</label>
+<div class="flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/20 bg-surface-container-low text-primary font-label text-sm hover:translate-x-1 transition-transform">Pump Left</button>
+<button class="px-5 py-2.5 rounded-full border border-secondary-fixed-dim bg-secondary-fixed-dim/10 text-secondary font-bold text-sm">Pump Right</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/20 bg-surface-container-low text-primary font-label text-sm hover:translate-x-1 transition-transform">Pump L&amp;R</button>
+<button class="px-5 py-2.5 rounded-full border border-outline-variant/20 bg-surface-container-low text-primary font-label text-sm hover:translate-x-1 transition-transform">Direct Feed</button>
+</div>
+</div>
+<!-- Destination & Timestamp Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+<!-- Destination -->
+<div class="space-y-4">
+<label class="font-label text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary/70">Destination</label>
+<div class="flex p-1 bg-surface-container-low rounded-lg">
+<button class="flex-1 py-2 text-sm font-bold text-secondary bg-surface-container-lowest rounded-md shadow-sm">Fridge</button>
+<button class="flex-1 py-2 text-sm text-primary/60 hover:text-primary transition-colors">Freezer</button>
+<button class="flex-1 py-2 text-sm text-primary/60 hover:text-primary transition-colors">Stash</button>
+</div>
+</div>
+<!-- Timestamp -->
+<div class="space-y-4">
+<label class="font-label text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary/70">Logged At</label>
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg">
+<span class="text-primary font-medium">Today, 10:45 AM</span>
+<button class="material-symbols-outlined text-primary/40 hover:text-secondary transition-colors" data-icon="edit">edit</button>
+</div>
+</div>
+</div>
+<!-- Notes -->
+<div class="space-y-4">
+<label class="font-label text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary/70">Notes (Optional)</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg focus:ring-1 focus:ring-secondary-fixed-dim placeholder:text-primary/30 text-primary p-4 resize-none" placeholder="Add a few words about this session..." rows="3"></textarea>
+</div>
+<!-- Actions -->
+<div class="pt-6 flex flex-col items-center gap-4">
+<button class="w-full py-4 bg-gradient-to-r from-[#635d5a] to-[#afa7a3] text-white font-bold rounded-lg shadow-xl hover:opacity-90 active:scale-[0.98] transition-all">
+                        Save Entry
+                    </button>
+<button class="text-primary/40 text-sm font-label uppercase tracking-widest hover:text-primary transition-colors">Cancel</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Editorial Quote Footer -->
+<section class="bg-[#f5f3ee] dark:bg-stone-800 py-24 px-8 flex flex-col items-center text-center">
+<blockquote class="font-headline italic text-2xl md:text-3xl text-primary max-w-2xl leading-relaxed">
+            "Every ounce collected is a quiet act of devotion, a thread in the tapestry of care that binds you together."
+        </blockquote>
+</section>
+<!-- Footer -->
+<footer class="w-full px-8 py-12 flex flex-col items-center gap-4 bg-[#fbf9f4] dark:bg-stone-900 border-t border-[#635d5a]/10">
+<div class="font-serif text-[#635d5a] text-xl">Laitly</div>
+<div class="flex gap-6">
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Privacy</a>
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Support</a>
+<a class="font-sans Manrope text-sm text-[#635d5a] opacity-60 hover:opacity-100 transition-opacity" href="#">Editorial Policy</a>
+</div>
+<p class="font-sans Manrope text-sm text-[#635d5a] opacity-60">© 2024 Laitly. We carry the details. You carry the baby.</p>
+</footer>
+<!-- SideNavBar (Suppressed based on Transactional Focus rule, but represented here if needed for navigation back) -->
+<div class="hidden lg:fixed lg:left-0 lg:top-0 lg:h-full lg:flex lg:flex-col lg:p-6 lg:w-20 lg:bg-[#f5f3ee] lg:border-r lg:border-[#635d5a]/5 items-center justify-center gap-8">
+<button class="w-12 h-12 rounded-full bg-white flex items-center justify-center border-l-2 border-[#C5A55A] hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">opacity</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-primary/40 hover:bg-stone-200/50 hover:translate-x-1 transition-transform">
+<span class="material-symbols-outlined">child_care</span>
+</button>
+</div>
+</body></html>

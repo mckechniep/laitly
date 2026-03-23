@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly Milk Inventory</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'WHT' 300;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f4;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Newsreader', serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#251a00",
+                        "tertiary": "#6b5d38",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#795f1b",
+                        "inverse-primary": "#cdc5c0",
+                        "on-tertiary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#eae8e3",
+                        "on-primary-fixed-variant": "#4b4642",
+                        "surface-tint": "#635d5a",
+                        "outline-variant": "#d0c5b4",
+                        "surface-dim": "#dbdad5",
+                        "secondary": "#745b17",
+                        "on-primary-container": "#413d3a",
+                        "inverse-surface": "#30312e",
+                        "secondary-fixed": "#ffdf99",
+                        "surface-container-low": "#f5f3ee",
+                        "tertiary-container": "#b8a77c",
+                        "surface": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-secondary-fixed-variant": "#5a4300",
+                        "background": "#fbf9f4",
+                        "tertiary-fixed": "#f4e1b2",
+                        "secondary-fixed-dim": "#e5c374",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1b1c19",
+                        "secondary-container": "#ffdc8c",
+                        "surface-variant": "#e4e2dd",
+                        "on-tertiary-container": "#483c1b",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#524623",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fbf9f4",
+                        "primary-container": "#afa7a3",
+                        "primary-fixed-dim": "#cdc5c0",
+                        "primary-fixed": "#e9e1dc",
+                        "outline": "#7e7667",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#4d4639",
+                        "tertiary-fixed-dim": "#d7c598",
+                        "on-surface": "#1b1c19",
+                        "surface-container-highest": "#e4e2dd",
+                        "primary": "#635d5a",
+                        "on-primary-fixed": "#1e1b18",
+                        "surface-container": "#f0eee9"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-stone-900 text-[#635d5a] dark:text-stone-200 flex justify-between items-center w-full px-8 py-4 max-w-full mx-auto docked full-width top-0 border-b border-[#635d5a]/10 sticky z-50">
+<div class="text-3xl font-medium font-serif text-[#635d5a] dark:text-stone-100">Laitly</div>
+<nav class="hidden md:flex gap-10 items-center">
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Home</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Movement</a>
+<a class="text-[#C5A55A] font-bold border-b-2 border-[#C5A55A] pb-1 font-sans uppercase tracking-widest text-xs" href="#">Lait</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Guides</a>
+<a class="text-[#635d5a] dark:text-stone-400 hover:text-[#C5A55A] transition-colors font-sans uppercase tracking-widest text-xs" href="#">Me</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-2xl hover:opacity-80 transition-opacity">person</button>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex fixed left-0 top-16 h-[calc(100vh-64px)] w-64 flex-col p-6 bg-[#f5f3ee] dark:bg-stone-800 text-[#635d5a] dark:text-stone-200 border-r border-[#635d5a]/5 z-40">
+<div class="mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Laitly Curated" class="w-full h-full object-cover" data-alt="Close up of a mother smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByS-dxZBSkbgefnKIKpfIZiUDUpZFNysUNHWX1cKice3UDUMc7nPk7a4QqoeJBUecn1875XxvqxQE3a5gctvFLB1oimJ62gGqi4OFMgT3beTjv_w-StWnN9MtjDwJsQGTzQURLBQyXdcAViMFdI8BmZIqUC-7E95rh6DRZqtoIsz36xZ5rIFC-_nV_RvaHVfkNE0BlspdT2HW5XbvRHWZ4J9XdpSVshfnPPtTRmh_CWqnptEpVhrclfVy416o9E9S-nWqZYo8jzUc"/>
+</div>
+<div>
+<p class="font-serif italic text-[#C5A55A] leading-tight">The Curator</p>
+<p class="text-[10px] uppercase tracking-widest opacity-60">Your Daily Feed</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-stone-700 text-[#635d5a] border-l-2 border-[#C5A55A] rounded-r-lg hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="opacity">opacity</span>
+<span class="font-sans Manrope tracking-tight font-medium">Log Milk</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#635d5a]/70 dark:text-stone-400 hover:bg-stone-200/50 hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+<span class="font-sans Manrope tracking-tight">Add Feed</span>
+</a>
+</nav>
+<button class="mt-auto w-full py-4 bg-primary text-white rounded-lg font-bold hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Entry
+            </button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-8 md:p-12 min-h-screen">
+<!-- Header Section -->
+<div class="max-w-5xl mx-auto mb-16">
+<h1 class="text-5xl md:text-6xl text-primary font-serif mb-2">Milk Inventory</h1>
+<p class="text-on-surface-variant font-body tracking-tight">Managing your liquid gold with editorial precision.</p>
+</div>
+<!-- Bento Layout / Content Grid -->
+<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
+<!-- Left Column: Fridge Inventory -->
+<div class="md:col-span-7 space-y-12">
+<!-- Section: In the Fridge -->
+<section>
+<div class="flex items-baseline justify-between mb-6 border-b border-outline-variant/20 pb-2">
+<h2 class="text-xs font-label font-bold uppercase tracking-[0.15rem] text-primary">In the Fridge</h2>
+<span class="text-xs font-body opacity-50">4 Entries</span>
+</div>
+<div class="space-y-4">
+<!-- Entry 1 -->
+<div class="group flex items-center justify-between p-5 bg-surface-container-lowest border-l-2 border-secondary-fixed-dim rounded-sm transition-all hover:bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+<div>
+<p class="font-body font-bold text-lg text-primary">4.5 oz</p>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Today, 08:30 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-1 bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-wider rounded-sm">Expires in 4h</span>
+<button class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="group flex items-center justify-between p-5 bg-surface-container-low border-l-2 border-secondary-fixed-dim/30 rounded-sm transition-all hover:bg-white">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-body font-bold text-lg text-primary">4.0 oz</p>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Today, 05:15 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="px-2 py-1 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold uppercase tracking-wider rounded-sm">Freshly Logged</span>
+<button class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="group flex items-center justify-between p-5 bg-surface-container-low border-l-2 border-secondary-fixed-dim/30 rounded-sm transition-all hover:bg-white">
+<div class="flex items-center gap-4">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-body font-bold text-lg text-primary">5.2 oz</p>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Yesterday, 10:45 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Quote Component -->
+<div class="bg-surface-container-low py-12 px-8 text-center rounded-sm">
+<p class="font-serif italic text-2xl text-primary leading-relaxed max-w-md mx-auto">
+                            "A mother's milk is more than just nutrition; it's a living dialogue between two souls."
+                        </p>
+</div>
+<!-- Section: In the Freezer -->
+<section>
+<div class="flex items-baseline justify-between mb-6 border-b border-outline-variant/20 pb-2">
+<h2 class="text-xs font-label font-bold uppercase tracking-[0.15rem] text-primary">In the Freezer</h2>
+<span class="text-xs font-body opacity-50">12 Entries</span>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="group flex items-center justify-between p-5 bg-surface-container-lowest border-l-2 border-secondary-fixed-dim/30 rounded-sm transition-all hover:bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">ac_unit</span>
+<div>
+<p class="font-body font-bold text-lg text-primary">6.0 oz Bag</p>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Log Date: Oct 24, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</div>
+<div class="group flex items-center justify-between p-5 bg-surface-container-lowest border-l-2 border-secondary-fixed-dim/30 rounded-sm transition-all hover:bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">ac_unit</span>
+<div>
+<p class="font-body font-bold text-lg text-primary">6.0 oz Bag</p>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant">Log Date: Oct 23, 2023</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-outline-variant hover:text-primary transition-colors">more_vert</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Featured Content & Stats -->
+<div class="md:col-span-5 space-y-10">
+<!-- Featured Milk Brick Card -->
+<div class="relative bg-primary text-on-primary p-8 rounded-sm overflow-hidden shadow-xl">
+<!-- Background Pattern Decoration -->
+<div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-12">
+<div class="bg-secondary-fixed-dim text-on-secondary-fixed px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full">Primary Storage</div>
+<span class="material-symbols-outlined text-white/40">inventory_2</span>
+</div>
+<h3 class="text-4xl font-serif mb-1">Milk Brick #4</h3>
+<p class="text-sm font-body text-white/70 mb-8 italic">Sealed &amp; Stored on Oct 15</p>
+<div class="flex items-end gap-2 mb-4">
+<span class="text-6xl font-serif leading-none">50</span>
+<span class="text-xl font-label uppercase tracking-widest mb-1 opacity-80">oz Total</span>
+</div>
+<!-- Progress Indicator -->
+<div class="w-full h-1 bg-white/20 rounded-full mb-6">
+<div class="w-3/4 h-full bg-secondary-fixed-dim rounded-full"></div>
+</div>
+<p class="text-xs font-body leading-relaxed text-white/60">
+                                This brick contains 10 individual 5oz bags. Optimized for space efficiency in the deep freeze.
+                            </p>
+</div>
+</div>
+<!-- Sidebar Stats Card -->
+<div class="bg-surface-container-low p-8 border-l-2 border-secondary-fixed-dim">
+<h2 class="text-xs font-label font-bold uppercase tracking-[0.15rem] text-primary mb-6">Inventory Summary</h2>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<p class="text-sm font-body text-on-surface-variant">Total Volume</p>
+<p class="text-lg font-serif text-primary">142.7 oz</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-sm font-body text-on-surface-variant">Daily Average</p>
+<p class="text-lg font-serif text-primary">28.4 oz</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-sm font-body text-on-surface-variant">Days of Supply</p>
+<p class="text-lg font-serif text-primary">~5.2 Days</p>
+</div>
+</div>
+<button class="mt-8 w-full py-3 bg-transparent border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                            Export Log
+                        </button>
+</div>
+<!-- Visual Tip -->
+<div class="rounded-sm overflow-hidden bg-surface-container-high group">
+<div class="aspect-square relative overflow-hidden">
+<img alt="Feeding bottle" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of a glass baby bottle with milk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDafFf0lNTqtkLstqOEMpdXqXUli2eHW--Rm_pOEuyIao9CePW4rkdsXzQx_GyyPjrufqKgr0NCxmtPEk7xyfphqZFriFRQuqcpZWGBZJRpIcESLgwS8XlyQanrd_-cjVxd7CRhjGArWnhHVxaHZysJKTVdIGWYFYg3pn3HhPVgMSFlesn8jcWwpHGWUhuhmM818cJ4vQY-omAVCj4kuNoEf3Ek6zDtdju3n8KzO75ut2pkBwamzauW-43Vmfmw1RrLykjv0C0SPjc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6">
+<p class="text-xs font-label uppercase tracking-widest text-white/80 mb-2">Editor's Guide</p>
+<p class="text-white font-serif text-xl leading-snug">The Golden Hour: Maximizing morning yields.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full px-8 py-12 flex flex-col items-center gap-4 bg-[#fbf9f4] dark:bg-stone-900 text-[#635d5a] dark:text-stone-400 border-t border-[#635d5a]/10 mt-20">
+<div class="font-serif text-[#635d5a] text-2xl">Laitly</div>
+<p class="font-sans Manrope text-sm opacity-60">© 2024 Laitly. We carry the details. You carry the baby.</p>
+<div class="flex gap-6 mt-4">
+<a class="font-sans Manrope text-sm underline decoration-[#C5A55A]" href="#">Privacy</a>
+<a class="font-sans Manrope text-sm opacity-60 hover:opacity-100 transition-opacity" href="#">Support</a>
+<a class="font-sans Manrope text-sm opacity-60 hover:opacity-100 transition-opacity" href="#">Editorial Policy</a>
+</div>
+</footer>
+</body></html>

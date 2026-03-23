@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#745b17",
+              "inverse-surface": "#30312e",
+              "on-background": "#1b1c19",
+              "surface-variant": "#e4e2dd",
+              "on-surface": "#1b1c19",
+              "secondary-fixed": "#ffdf99",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "surface-dim": "#dbdad5",
+              "surface-tint": "#635d5a",
+              "surface": "#fbf9f4",
+              "on-surface-variant": "#4d4639",
+              "background": "#fbf9f4",
+              "tertiary-container": "#b8a77c",
+              "on-tertiary-container": "#483c1b",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#1e1b18",
+              "tertiary": "#6b5d38",
+              "secondary-container": "#ffdc8c",
+              "inverse-on-surface": "#f2f1ec",
+              "tertiary-fixed": "#f4e1b2",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#413d3a",
+              "outline-variant": "#d0c5b4",
+              "primary": "#635d5a",
+              "on-error-container": "#93000a",
+              "secondary-fixed-dim": "#e5c374",
+              "primary-fixed": "#e9e1dc",
+              "surface-container-lowest": "#ffffff",
+              "surface-container": "#f0eee9",
+              "primary-container": "#afa7a3",
+              "outline": "#7e7667",
+              "on-secondary-container": "#795f1b",
+              "surface-bright": "#fbf9f4",
+              "inverse-primary": "#cdc5c0",
+              "on-primary-fixed-variant": "#4b4642",
+              "on-secondary-fixed": "#251a00",
+              "on-secondary-fixed-variant": "#5a4300",
+              "surface-container-low": "#f5f3ee",
+              "primary-fixed-dim": "#cdc5c0",
+              "surface-container-high": "#eae8e3",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-italic { font-style: italic; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-secondary-fixed">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col z-40 w-64 bg-[#fbf9f4] dark:bg-stone-900">
+<div class="px-8 py-10">
+<h1 class="text-3xl font-medium font-serif text-[#C5A55A] dark:text-[#e5c374]">Laitly</h1>
+<p class="text-xs uppercase tracking-[0.15rem] mt-2 text-[#635d5a]/60 font-label">The Digital Curator</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label">Home</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a] dark:text-white font-bold border-l-2 border-[#C5A55A] bg-[#ffffff] dark:bg-stone-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-label">Movement</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="water_drop">water_drop</span>
+<span class="font-label">Lait</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label">Guides</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 text-[#635d5a]/60 dark:text-stone-400 font-medium hover:bg-[#ffffff] dark:hover:bg-stone-800 hover:text-[#635d5a] transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label">Me</span>
+</a>
+</nav>
+<div class="p-8 border-t-0 bg-[#f5f3ee] dark:bg-stone-800/50">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container overflow-hidden">
+<img alt="User profile photo" data-alt="Close up portrait of a smiling woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzI9aqnFTaOvZItkAv6sRBr-dGPLO5vU_SVJeRX945g_dK00z0gUybegkvF-6KX9YQytcB6U636FEiMPnhqOQsfvymkkm9EjArchZLTyJ_UyyThS9HUqxooXkl8Nc21nlak-X_V79-OKADejg39w4pIdOEgzF5FHE5CaIXNXWn94WuPPkDuU56G8lPASmcpdEWSyA2LLfnzE_tN9vkgfmRAABV8tYDF4TrTfr4aLo_-G13u3J_tnBkUavysn7JcOERsYX87niEh-s"/>
+</div>
+<div>
+<p class="text-sm font-bold text-primary">Elara Vance</p>
+<p class="text-[10px] uppercase tracking-wider text-outline">Premium Member</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-64 h-16 flex justify-between items-center px-8 z-30 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label uppercase tracking-[0.15rem] text-primary">Inventory Logistics</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative flex items-center bg-surface-container-low px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-sm text-outline mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none text-sm font-label focus:ring-0 w-48 text-primary" placeholder="Search sessions..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-primary hover:text-secondary transition-colors" data-icon="settings">settings</button>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<section class="pt-24 px-12 pb-12 max-w-7xl mx-auto">
+<!-- Header Section -->
+<div class="mb-12">
+<h2 class="font-headline text-5xl text-primary mb-2">Movement</h2>
+<p class="font-label text-sm uppercase tracking-widest text-outline">Track the flow of nourishment</p>
+</div>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Stat Card: Add Milk -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-secondary bg-secondary-container/30 p-3 rounded-full" data-icon="add_circle">add_circle</span>
+<span class="text-[10px] font-label uppercase tracking-widest text-secondary font-bold">Inflow</span>
+</div>
+<div class="mb-8">
+<h3 class="font-headline text-2xl text-primary mb-1">Add Milk</h3>
+<p class="text-6xl font-headline text-primary font-medium tracking-tight">12.4 <span class="text-2xl font-body text-outline">oz</span></p>
+<p class="text-xs font-label text-outline mt-2 italic">Logged today</p>
+</div>
+<button class="w-full py-4 bg-primary hover:bg-on-surface-variant text-white font-bold font-label rounded transition-all flex items-center justify-center gap-2 group">
+                        Log Session 
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Main Stat Card: Move Milk -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-secondary bg-secondary-container/30 p-3 rounded-full" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-[10px] font-label uppercase tracking-widest text-secondary font-bold">Relocation</span>
+</div>
+<div class="mb-8">
+<h3 class="font-headline text-2xl text-primary mb-1">Move Milk</h3>
+<p class="text-6xl font-headline text-primary font-medium tracking-tight">32 <span class="text-2xl font-body text-outline">bags</span></p>
+<p class="text-xs font-label text-outline mt-2 italic">Fridge to Freezer</p>
+</div>
+<button class="w-full py-4 bg-primary hover:bg-on-surface-variant text-white font-bold font-label rounded transition-all flex items-center justify-center gap-2 group">
+                        Log Session 
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Main Stat Card: Used Milk -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim transition-all hover:translate-y-[-4px]">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-secondary bg-secondary-container/30 p-3 rounded-full" data-icon="remove_circle">remove_circle</span>
+<span class="text-[10px] font-label uppercase tracking-widest text-secondary font-bold">Outflow</span>
+</div>
+<div class="mb-8">
+<h3 class="font-headline text-2xl text-primary mb-1">Used Milk</h3>
+<p class="text-6xl font-headline text-primary font-medium tracking-tight">8.5 <span class="text-2xl font-body text-outline">oz</span></p>
+<p class="text-xs font-label text-outline mt-2 italic">Consumed today</p>
+</div>
+<button class="w-full py-4 bg-primary hover:bg-on-surface-variant text-white font-bold font-label rounded transition-all flex items-center justify-center gap-2 group">
+                        Log Session 
+                        <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Inventory Snapshot (Wide Bento) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low p-10 rounded-xl">
+<div class="flex justify-between items-end mb-10">
+<div>
+<h4 class="text-xs font-label uppercase tracking-[0.2rem] text-primary mb-2">Inventory Snapshot</h4>
+<p class="font-headline text-3xl text-primary">Volume Distribution</p>
+</div>
+<div class="flex gap-2">
+<span class="h-2 w-8 bg-secondary-fixed-dim rounded-full"></span>
+<span class="h-2 w-2 bg-outline-variant rounded-full"></span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-label text-primary">Fresh (Fridge)</span>
+<span class="font-bold text-primary">24.5 oz</span>
+</div>
+<div class="h-[4px] w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[65%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-label text-primary">Frozen (Deep)</span>
+<span class="font-bold text-primary">142 oz</span>
+</div>
+<div class="h-[4px] w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-label text-primary">Frozen (Kitchen)</span>
+<span class="font-bold text-primary">12 oz</span>
+</div>
+<div class="h-[4px] w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[15%]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg flex flex-col justify-center">
+<p class="text-sm font-label text-outline mb-1 uppercase tracking-tighter">Total Reserve</p>
+<p class="text-5xl font-headline text-primary">178.5 <span class="text-xl font-body">oz</span></p>
+<div class="mt-4 flex items-center gap-2 text-secondary font-bold text-xs uppercase">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+                                +12% from last week
+                            </div>
+</div>
+</div>
+</div>
+<!-- Quick Insight (Small Bento) -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-8">
+<div class="bg-primary text-white p-8 rounded-xl flex-1 flex flex-col justify-between relative overflow-hidden">
+<!-- Abstract Pattern Overlay -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16"></div>
+<div>
+<span class="material-symbols-outlined text-secondary-fixed-dim mb-4" data-icon="lightbulb">lightbulb</span>
+<h4 class="font-headline text-xl mb-2">Pumping Tip</h4>
+<p class="text-sm font-light text-primary-fixed italic leading-relaxed">Consistency is the bridge between goals and accomplishment. A short 10-minute session is better than skipping entirely.</p>
+</div>
+<a class="text-secondary-fixed-dim font-label text-xs uppercase tracking-widest font-bold flex items-center gap-2 mt-6" href="#">
+                            Read Guide <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl flex items-center gap-6">
+<div class="bg-surface-container-lowest p-4 rounded-full border border-outline-variant/20 shadow-sm">
+<span class="material-symbols-outlined text-secondary" data-icon="history">history</span>
+</div>
+<div>
+<h4 class="text-[10px] font-label uppercase tracking-widest text-outline">Last Activity</h4>
+<p class="text-sm font-bold text-primary">Used Milk Log</p>
+<p class="text-xs text-outline italic">24 minutes ago</p>
+</div>
+</div>
+</div>
+<!-- Editorial Supportive Quote Section -->
+<div class="col-span-12 py-24 px-12 bg-surface-container-low rounded-xl text-center">
+<p class="font-headline text-4xl serif-italic text-primary leading-tight max-w-3xl mx-auto">
+                        "The smallest act of care today creates the strongest foundation for tomorrow."
+                    </p>
+<div class="mt-8 h-[1px] w-24 bg-secondary-fixed-dim mx-auto"></div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
