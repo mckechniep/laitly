@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Discovery — Lenox Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #32373c;
+            --primary-hover: #1e2226;
+            --bg: #ffffff;
+            --bg-alt: #f6f7f8;
+            --border: #dfe2e6;
+            --border-focus: #32373c;
+            --text: #1d2024;
+            --text-secondary: #6c737a;
+            --text-tertiary: #9ea5ac;
+            --accent: #0693e3;
+            --accent-light: #e8f4fd;
+            --success: #2d9c6f;
+            --success-light: #edf7f2;
+            --header-bg: rgba(255, 255, 255, 0.92);
+            --input-bg: #ffffff;
+            --focus-ring: rgba(50, 55, 60, 0.08);
+            --checked-bg: rgba(50, 55, 60, 0.03);
+            --radius: 8px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --font-body: 'Outfit', sans-serif;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --max-w: 720px;
+        }
+
+        /* ─── DARK THEME ─── WCAG AA compliant contrast ratios ─── */
+        [data-theme="dark"] {
+            --primary: #eceef1;
+            --primary-hover: #ffffff;
+            --bg: #111316;
+            --bg-alt: #1a1d21;
+            --border: #2a2e34;
+            --border-focus: #8ca0b4;
+            --text: #eceef1;              /* ~15:1 on #111316 */
+            --text-secondary: #a8aeb6;    /* ~7.5:1 on #111316 */
+            --text-tertiary: #8c939c;     /* ~5.2:1 on #111316 */
+            --accent: #4db8ff;            /* ~7:1 on #111316 */
+            --accent-light: #162433;
+            --success: #4ade80;
+            --success-light: #132a1c;
+            --header-bg: rgba(17, 19, 22, 0.92);
+            --input-bg: #1a1d21;
+            --focus-ring: rgba(77, 184, 255, 0.15);
+            --checked-bg: rgba(77, 184, 255, 0.08);
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ─── PROGRESS BAR ─── */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--border);
+            z-index: 100;
+        }
+
+        .progress-bar__fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            transition: width 0.5s var(--ease);
+            box-shadow: 0 0 10px var(--accent), 0 0 3px var(--accent);
+        }
+
+        /* ─── HEADER ─── */
+        .header {
+            position: sticky;
+            top: 5px;
+            background: var(--header-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 90;
+            padding: 16px 32px;
+        }
+
+        .header__inner {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header__brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .intro__logo {
+            width: 196px;
+            height: auto;
+            display: block;
+            margin: 0 auto 32px;
+            border-radius: 14px;
+        }
+
+        @media (max-width: 640px) {
+            .intro__logo { width: 154px; }
+        }
+
+        /* ─── THEME TOGGLE ─── */
+        .theme-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s var(--ease);
+            color: var(--text-secondary);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-secondary);
+            color: var(--text);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .theme-toggle__sun { display: none; }
+        .theme-toggle__moon { display: block; }
+        [data-theme="dark"] .theme-toggle__sun { display: block; }
+        [data-theme="dark"] .theme-toggle__moon { display: none; }
+
+        .header__title {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .header__step {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+        }
+
+        /* ─── STEP INDICATORS ─── */
+        .step-dots {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 28px 32px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            transition: all 0.3s var(--ease);
+            background: var(--bg);
+            flex-shrink: 0;
+        }
+
+        .step-dot:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-secondary);
+        }
+
+        .step-dot.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .step-dot.visited {
+            border-color: var(--success);
+            color: var(--success);
+        }
+
+        .step-dot-line {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+            min-width: 4px;
+        }
+
+        /* ─── MAIN CONTENT ─── */
+        .main {
+            flex: 1;
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 32px 48px;
+            width: 100%;
+        }
+
+        /* ─── STEPS ─── */
+        .step {
+            display: none;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+
+        .step.active {
+            display: block;
+            animation: stepEnter 0.45s var(--ease) forwards;
+        }
+
+        @keyframes stepEnter {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── STEP HEADER ─── */
+        .step__header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .step__num {
+            font-family: var(--font-mono);
+            font-size: 52px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+            line-height: 1;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .step__title {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        .step__goal {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .step__why {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-tertiary);
+            margin-top: 12px;
+            padding-left: 16px;
+            border-left: 2px solid var(--border);
+            font-style: italic;
+        }
+
+        /* ─── INTRO STEP ─── */
+        .intro {
+            padding-top: 80px;
+            text-align: center;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .intro__label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 24px;
+        }
+
+        .intro__heading {
+            font-family: var(--font-display);
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .intro__body {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .intro__meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .intro__meta-item {
+            text-align: center;
+        }
+
+        .intro__meta-value {
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .intro__meta-label {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* ─── FORM FIELDS ─── */
+        .field {
+            margin-bottom: 32px;
+        }
+
+        .field:last-child {
+            margin-bottom: 0;
+        }
+
+        .field__label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+
+        .field__hint {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-bottom: 10px;
+        }
+
+        textarea,
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: 100%;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text);
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--input-bg);
+            outline: none;
+            transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+            line-height: 1.5;
+        }
+
+        textarea:focus,
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px var(--focus-ring);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 44px;
+        }
+
+        textarea::placeholder,
+        input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ea5ac' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        /* ─── CHECKBOX / RADIO GROUPS ─── */
+        .check-group, .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .check-group label, .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text);
+            transition: all 0.2s var(--ease);
+            user-select: none;
+            background: var(--input-bg);
+        }
+
+        .check-group label:hover, .radio-group label:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .check-group input, .radio-group input {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            border-radius: 4px;
+            flex-shrink: 0;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.15s var(--ease);
+        }
+
+        .radio-group input {
+            border-radius: 50%;
+        }
+
+        .check-group input:checked, .radio-group input:checked {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .check-group input:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 5px;
+            width: 4px;
+            height: 8px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .radio-group input:checked::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #fff;
+        }
+
+        .check-group label:has(input:checked),
+        .radio-group label:has(input:checked) {
+            border-color: var(--accent);
+            background: var(--checked-bg);
+        }
+
+        .field__detail-textarea {
+            margin-top: 12px;
+        }
+
+        /* ─── BUTTONS ─── */
+        .btn {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: var(--radius-full);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s var(--ease);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn--primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn--primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(50, 55, 60, 0.2);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn--secondary:hover {
+            border-color: var(--text-secondary);
+            color: var(--text);
+        }
+
+        .btn--ghost {
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 12px 16px;
+        }
+
+        .btn--ghost:hover {
+            color: var(--text);
+        }
+
+        .btn--small {
+            font-size: 13px;
+            padding: 8px 16px;
+        }
+
+        .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ─── NAVIGATION ─── */
+        .nav {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 32px 32px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav__right {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* ─── REVIEW / SUMMARY ─── */
+        .summary-section {
+            padding: 28px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary-section:last-child {
+            border-bottom: none;
+        }
+
+        .summary-section__header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .summary-section__header:hover .summary-section__edit {
+            opacity: 1;
+        }
+
+        .summary-section__num {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+        }
+
+        .summary-section__title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+            flex: 1;
+        }
+
+        .summary-section__edit {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent);
+            opacity: 0.5;
+            transition: opacity 0.2s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .summary-qa {
+            margin-bottom: 16px;
+        }
+
+        .summary-qa:last-child {
+            margin-bottom: 0;
+        }
+
+        .summary-q {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .summary-a {
+            font-size: 15px;
+            color: var(--text);
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .summary-empty {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-tertiary);
+            font-size: 15px;
+        }
+
+        .export-bar {
+            margin-top: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* ─── TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--primary);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: var(--radius-full);
+            z-index: 200;
+            opacity: 0;
+            transition: all 0.3s var(--ease);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ─── SAVED INDICATOR ─── */
+        .saved-indicator {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--success);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .saved-indicator.show {
+            opacity: 1;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            text-align: center;
+            padding: 24px 32px 32px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-family: var(--font-mono);
+        }
+
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--text);
+        }
+
+        /* ─── DARK MODE COMPONENT OVERRIDES ─── */
+        [data-theme="dark"] .step-dot.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #111316;
+        }
+
+        [data-theme="dark"] .btn--primary {
+            background: #eceef1;
+            color: #111316;
+        }
+
+        [data-theme="dark"] .btn--primary:hover {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(236, 238, 241, 0.15);
+        }
+
+        [data-theme="dark"] .btn--secondary {
+            color: var(--text-secondary);
+            border-color: var(--border);
+        }
+
+        [data-theme="dark"] .btn--secondary:hover {
+            border-color: var(--text-secondary);
+            color: var(--text);
+        }
+
+        [data-theme="dark"] .toast {
+            background: #eceef1;
+            color: #111316;
+        }
+
+        [data-theme="dark"] select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238c939c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+
+        [data-theme="dark"] .step__why {
+            border-left-color: var(--border);
+        }
+
+        [data-theme="dark"] .summary-section__edit {
+            color: var(--accent);
+        }
+
+        /* Smooth theme transition */
+        body,
+        .header,
+        .step-dot,
+        .btn,
+        .theme-toggle,
+        textarea, input, select,
+        .check-group label,
+        .radio-group label {
+            transition: background-color 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+        }
+
+        /* ─── UTILITIES ─── */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .header { padding: 12px 20px; }
+            .main { padding: 0 20px 32px; }
+            .nav { padding: 24px 20px 40px; }
+            .step-dots { padding: 20px 20px 0; gap: 4px; }
+            .step-dot { width: 26px; height: 26px; font-size: 10px; }
+            .intro { padding-top: 48px; }
+            .intro__heading { font-size: 28px; }
+            .intro__meta { gap: 20px; }
+            .step__num { font-size: 36px; }
+            .step__title { font-size: 24px; }
+            .step__header { padding: 32px 0 28px; margin-bottom: 28px; }
+            .check-group, .radio-group { flex-direction: column; }
+            .export-bar { flex-direction: column; }
+            .export-bar .btn { width: 100%; justify-content: center; }
+        }
+
+        /* ─── PRINT ─── */
+        @media print {
+            .progress-bar, .header, .step-dots, .nav, .footer,
+            .export-bar, .toast, .btn, .summary-section__edit, .theme-toggle { display: none !important; }
+
+            body { font-size: 12px; }
+
+            .main { max-width: 100%; padding: 0; }
+
+            .step { display: block !important; opacity: 1 !important; transform: none !important; animation: none !important; }
+
+            .step[data-step="0"] { display: none !important; }
+
+            .step__header { padding: 24px 0 16px; margin-bottom: 16px; }
+            .step__num { font-size: 28px; }
+            .step__title { font-size: 20px; }
+
+            .field { margin-bottom: 16px; }
+
+            textarea, input, select {
+                border: 1px solid #ccc;
+                padding: 6px 8px;
+                font-size: 12px;
+                min-height: auto !important;
+            }
+
+            .step { page-break-inside: avoid; }
+            .step__header { page-break-after: avoid; }
+
+            .print-header {
+                display: block !important;
+                text-align: center;
+                padding: 24px 0 32px;
+                border-bottom: 2px solid var(--primary);
+                margin-bottom: 32px;
+            }
+
+            .print-header h1 {
+                font-family: var(--font-display);
+                font-size: 24px;
+            }
+
+            .print-header p {
+                font-size: 12px;
+                color: var(--text-secondary);
+            }
+        }
+
+        .print-header { display: none; }
+    </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar__fill" id="progressFill"></div>
+</div>
+
+<!-- Header -->
+<header class="header">
+    <div class="header__inner">
+        <div class="header__brand">
+            <span class="header__title">Client Discovery</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px;">
+            <span class="saved-indicator" id="savedIndicator">Saved</span>
+            <span class="header__step" id="headerStep"></span>
+            <button class="theme-toggle" id="themeToggle" onclick="app.toggleTheme()" aria-label="Toggle dark mode">
+                <svg class="theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Step Dots -->
+<nav class="step-dots" id="stepDots" aria-label="Questionnaire sections">
+    <!-- Generated by JS -->
+</nav>
+
+<!-- Print-only header -->
+<div class="print-header">
+    <h1>Client Discovery Questionnaire</h1>
+    <p>Lenox Systems</p>
+</div>
+
+<!-- Main Content -->
+<main class="main" id="mainContent">
+
+    <!-- ─── STEP 0: INTRO ─── -->
+    <div class="step active" data-step="0">
+        <div class="intro">
+            <img src="logo-neon-darker-v4.png" alt="Lenox Systems" class="intro__logo">
+            <h1 class="intro__heading">Client Discovery Questionnaire</h1>
+            <p class="intro__body">
+                Before we write a line of code, we need to understand what we're building and why.
+                This questionnaire covers the essential questions that shape scope, architecture, and timeline.<br><br>
+                Take your time. Incomplete answers are fine — they tell us where to dig deeper together.
+            </p>
+            <div class="intro__meta">
+                <div class="intro__meta-item">
+                    <div class="intro__meta-value">11</div>
+                    <div class="intro__meta-label">Sections</div>
+                </div>
+                <div class="intro__meta-item">
+                    <div class="intro__meta-value">~45</div>
+                    <div class="intro__meta-label">Minutes</div>
+                </div>
+                <div class="intro__meta-item">
+                    <div class="intro__meta-value">Auto</div>
+                    <div class="intro__meta-label">Saved</div>
+                </div>
+            </div>
+            <button class="btn btn--primary" onclick="app.next()">
+                Begin
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- ─── STEP 1: BUSINESS & PROBLEM DEFINITION ─── -->
+    <div class="step" data-step="1" data-section="1">
+        <div class="step__header">
+            <span class="step__num">01</span>
+            <h2 class="step__title">Business & Problem Definition</h2>
+            <p class="step__goal">Validate that the project solves a real problem.</p>
+            <p class="step__why">Top studios reject or reshape projects at this stage if the problem is weak.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s1q1">What problem are you trying to solve?</label>
+                <p class="field__hint">Describe the core issue in plain terms.</p>
+                <textarea id="s1q1" name="s1q1" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s1q2">Who experiences this problem most acutely?</label>
+                <p class="field__hint">Be specific: roles, industries, situations.</p>
+                <textarea id="s1q2" name="s1q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s1q3">How is this problem solved today?</label>
+                <p class="field__hint">Current tools, workarounds, manual processes.</p>
+                <textarea id="s1q3" name="s1q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s1q4">What is broken or inefficient about the current solution?</label>
+                <p class="field__hint">Where does it fall short?</p>
+                <textarea id="s1q4" name="s1q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s1q5">What is the business impact of this problem?</label>
+                <p class="field__hint">Consider time lost, money spent, risk incurred.</p>
+                <textarea id="s1q5" name="s1q5" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s1q6">Why now? What has changed?</label>
+                <p class="field__hint">New regulation, market shift, funding, growth pain.</p>
+                <textarea id="s1q6" name="s1q6" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 2: USERS & MARKET ─── -->
+    <div class="step" data-step="2" data-section="2">
+        <div class="step__header">
+            <span class="step__num">02</span>
+            <h2 class="step__title">Users & Market</h2>
+            <p class="step__goal">Define who the product is for and how it fits in the market.</p>
+            <p class="step__why">Defines who we're building for and ensures the product fills a real gap.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s2q1">Who are your primary users?</label>
+                <p class="field__hint">Demographics, roles, technical proficiency.</p>
+                <textarea id="s2q1" name="s2q1" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s2q2">Are there distinct user roles or personas?</label>
+                <p class="field__hint">e.g., admin vs. end user, buyer vs. seller.</p>
+                <textarea id="s2q2" name="s2q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s2q3">What are their goals when using this product?</label>
+                <p class="field__hint">What does success look like from the user's perspective?</p>
+                <textarea id="s2q3" name="s2q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s2q4">What frustrates them about current solutions?</label>
+                <p class="field__hint">Pain points, missing features, poor UX.</p>
+                <textarea id="s2q4" name="s2q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s2q5">What alternatives or competitors exist?</label>
+                <p class="field__hint">Direct competitors, indirect substitutes, DIY solutions.</p>
+                <textarea id="s2q5" name="s2q5" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s2q6">Why would someone choose your product over the alternatives?</label>
+                <p class="field__hint">Your unique advantage.</p>
+                <textarea id="s2q6" name="s2q6" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 3: PRODUCT SCOPE & FEATURES ─── -->
+    <div class="step" data-step="3" data-section="3">
+        <div class="step__header">
+            <span class="step__num">03</span>
+            <h2 class="step__title">Product Scope & Features</h2>
+            <p class="step__goal">Prevent scope creep and define what version 1 actually is.</p>
+            <p class="step__why">This determines cost and timeline more than anything else.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s3q1">What are the core features required for launch?</label>
+                <p class="field__hint">List the non-negotiable capabilities.</p>
+                <textarea id="s3q1" name="s3q1" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s3q2">If you removed 80% of features, what must remain?</label>
+                <p class="field__hint">The absolute minimum viable product.</p>
+                <textarea id="s3q2" name="s3q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s3q3">What does version 1 need to accomplish?</label>
+                <p class="field__hint">Focus on outcomes, not features.</p>
+                <textarea id="s3q3" name="s3q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s3q4">What can be deferred to later versions?</label>
+                <p class="field__hint">Nice-to-haves, future phases, stretch goals.</p>
+                <textarea id="s3q4" name="s3q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s3q5">Have you already made any must-have vs. nice-to-have distinctions?</label>
+                <p class="field__hint">Share any prioritization work you've already done.</p>
+                <textarea id="s3q5" name="s3q5" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 4: USER WORKFLOWS ─── -->
+    <div class="step" data-step="4" data-section="4">
+        <div class="step__header">
+            <span class="step__num">04</span>
+            <h2 class="step__title">User Workflows</h2>
+            <p class="step__goal">Understand how the system is actually used.</p>
+            <p class="step__why">Understanding real usage patterns prevents building the wrong thing.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s4q1">Describe a typical user journey, step by step.</label>
+                <p class="field__hint">From first touch to desired outcome. e.g., "User logs in &rarr; uploads file &rarr; receives report."</p>
+                <textarea id="s4q1" name="s4q1" rows="5"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s4q2">What triggers a user to open the product?</label>
+                <p class="field__hint">An event, a need, a notification, a scheduled task.</p>
+                <textarea id="s4q2" name="s4q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s4q3">What key actions do they take inside the product?</label>
+                <p class="field__hint">The main interactions and inputs.</p>
+                <textarea id="s4q3" name="s4q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s4q4">What decisions do they make along the way?</label>
+                <p class="field__hint">Choice points, branches, configuration.</p>
+                <textarea id="s4q4" name="s4q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s4q5">What is the final outcome or output?</label>
+                <p class="field__hint">A report, a transaction, a saved state, a notification.</p>
+                <textarea id="s4q5" name="s4q5" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 5: DATA & SYSTEM LOGIC ─── -->
+    <div class="step" data-step="5" data-section="5">
+        <div class="step__header">
+            <span class="step__num">05</span>
+            <h2 class="step__title">Data & System Logic</h2>
+            <p class="step__goal">Define the backend reality.</p>
+            <p class="step__why">Defines the data architecture that everything else depends on.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s5q1">What data does the system need to store?</label>
+                <p class="field__hint">User profiles, transactions, content, analytics, etc.</p>
+                <textarea id="s5q1" name="s5q1" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s5q2">Where does that data come from?</label>
+                <p class="field__hint">User input, external APIs, imports, sensors, manual entry.</p>
+                <textarea id="s5q2" name="s5q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s5q3">What processing or transformations happen to the data?</label>
+                <p class="field__hint">Calculations, aggregations, conversions, ML inference.</p>
+                <textarea id="s5q3" name="s5q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s5q4">What outputs, reports, or exports are required?</label>
+                <p class="field__hint">Dashboards, PDFs, CSVs, notifications, API responses.</p>
+                <textarea id="s5q4" name="s5q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s5q5">How long does data need to be retained?</label>
+                <p class="field__hint">Days, months, years, indefinitely — and any regulatory drivers.</p>
+                <textarea id="s5q5" name="s5q5" rows="2"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 6: TECHNICAL CONSTRAINTS & INTEGRATIONS ─── -->
+    <div class="step" data-step="6" data-section="6">
+        <div class="step__header">
+            <span class="step__num">06</span>
+            <h2 class="step__title">Technical Constraints & Integrations</h2>
+            <p class="step__goal">Identify complexity early.</p>
+            <p class="step__why">Surfaces hidden cost multipliers before they become expensive surprises.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label">Does this need to integrate with existing systems?</label>
+                <p class="field__hint">Select all that apply.</p>
+                <div class="check-group">
+                    <label><input type="checkbox" name="s6q1" value="APIs"> Third-party APIs</label>
+                    <label><input type="checkbox" name="s6q1" value="CRM"> CRM / ERP</label>
+                    <label><input type="checkbox" name="s6q1" value="Payments"> Payment provider</label>
+                    <label><input type="checkbox" name="s6q1" value="Analytics"> Analytics platform</label>
+                    <label><input type="checkbox" name="s6q1" value="Auth"> Auth provider (SSO, OAuth)</label>
+                    <label><input type="checkbox" name="s6q1" value="None"> None</label>
+                </div>
+                <textarea id="s6q1_detail" name="s6q1_detail" rows="2" class="field__detail-textarea" placeholder="Provide details on specific systems..."></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label">What platforms are required?</label>
+                <p class="field__hint">Select all that apply.</p>
+                <div class="check-group">
+                    <label><input type="checkbox" name="s6q2" value="Web"> Web application</label>
+                    <label><input type="checkbox" name="s6q2" value="iOS"> iOS</label>
+                    <label><input type="checkbox" name="s6q2" value="Android"> Android</label>
+                    <label><input type="checkbox" name="s6q2" value="Desktop"> Desktop</label>
+                    <label><input type="checkbox" name="s6q2" value="API only"> API only</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label">Starting from scratch or existing codebase?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s6q3" value="scratch"> From scratch</label>
+                    <label><input type="radio" name="s6q3" value="existing"> Existing codebase</label>
+                    <label><input type="radio" name="s6q3" value="partial"> Partial — some components exist</label>
+                </div>
+                <textarea id="s6q3_detail" name="s6q3_detail" rows="2" class="field__detail-textarea" placeholder="Any details on existing code or tech stack..."></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label">Any compliance or regulatory requirements?</label>
+                <p class="field__hint">Select all that apply.</p>
+                <div class="check-group">
+                    <label><input type="checkbox" name="s6q4" value="HIPAA"> HIPAA</label>
+                    <label><input type="checkbox" name="s6q4" value="SOC2"> SOC 2</label>
+                    <label><input type="checkbox" name="s6q4" value="GDPR"> GDPR</label>
+                    <label><input type="checkbox" name="s6q4" value="PCI"> PCI DSS</label>
+                    <label><input type="checkbox" name="s6q4" value="None"> None known</label>
+                    <label><input type="checkbox" name="s6q4" value="Other"> Other</label>
+                </div>
+                <textarea id="s6q4_detail" name="s6q4_detail" rows="2" class="field__detail-textarea" placeholder="Specify other compliance requirements..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 7: SCALE & PERFORMANCE ─── -->
+    <div class="step" data-step="7" data-section="7">
+        <div class="step__header">
+            <span class="step__num">07</span>
+            <h2 class="step__title">Scale & Performance</h2>
+            <p class="step__goal">Avoid under-engineering and over-engineering.</p>
+            <p class="step__why">The difference between 100 and 100,000 users changes every architectural decision.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s7q1">How many users do you expect at launch?</label>
+                <p class="field__hint">Approximate number is fine.</p>
+                <input type="text" id="s7q1" name="s7q1" placeholder="e.g., 500 users">
+            </div>
+            <div class="field">
+                <label class="field__label" for="s7q2">What does growth look like over the first 12 months?</label>
+                <p class="field__hint">Expected user count, transaction volume, data volume.</p>
+                <textarea id="s7q2" name="s7q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label">Are there real-time requirements?</label>
+                <p class="field__hint">Live updates, chat, streaming, real-time dashboards.</p>
+                <div class="radio-group">
+                    <label><input type="radio" name="s7q3" value="yes"> Yes</label>
+                    <label><input type="radio" name="s7q3" value="no"> No</label>
+                    <label><input type="radio" name="s7q3" value="unsure"> Not sure</label>
+                </div>
+                <textarea id="s7q3_detail" name="s7q3_detail" rows="2" class="field__detail-textarea" placeholder="If yes, describe the real-time needs..."></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s7q4">Any specific performance constraints or SLAs?</label>
+                <p class="field__hint">Response time targets, uptime requirements, throughput.</p>
+                <textarea id="s7q4" name="s7q4" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 8: DESIGN & UX EXPECTATIONS ─── -->
+    <div class="step" data-step="8" data-section="8">
+        <div class="step__header">
+            <span class="step__num">08</span>
+            <h2 class="step__title">Design & UX Expectations</h2>
+            <p class="step__goal">Align on product feel and usability.</p>
+            <p class="step__why">Misaligned design expectations are the top source of revision cycles.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label">Do you have existing designs, wireframes, or brand guidelines?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s8q1" value="full"> Yes — full designs</label>
+                    <label><input type="radio" name="s8q1" value="partial"> Yes — partial / rough</label>
+                    <label><input type="radio" name="s8q1" value="brand"> Brand guidelines only</label>
+                    <label><input type="radio" name="s8q1" value="none"> No — need design</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s8q2">Are there reference products whose look and feel you admire?</label>
+                <p class="field__hint">Products, websites, or apps you find well-designed. Links are welcome.</p>
+                <textarea id="s8q2" name="s8q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label">What level of design polish is expected for v1?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s8q3" value="prototype"> Functional prototype</label>
+                    <label><input type="radio" name="s8q3" value="mvp"> Polished MVP</label>
+                    <label><input type="radio" name="s8q3" value="production"> Production-ready</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label">Which matters more: UX simplicity or feature depth?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s8q4" value="simplicity"> Simplicity — fewer features, dead-simple UX</label>
+                    <label><input type="radio" name="s8q4" value="depth"> Depth — more capability, steeper learning curve is OK</label>
+                    <label><input type="radio" name="s8q4" value="balanced"> Balanced</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 9: OPERATIONS & OWNERSHIP ─── -->
+    <div class="step" data-step="9" data-section="9">
+        <div class="step__header">
+            <span class="step__num">09</span>
+            <h2 class="step__title">Operations & Ownership</h2>
+            <p class="step__goal">Define long-term responsibility.</p>
+            <p class="step__why">What happens after launch shapes what we build now.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label">Who will maintain the system after launch?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s9q1" value="lenox"> Lenox Systems</label>
+                    <label><input type="radio" name="s9q1" value="internal"> Our internal team</label>
+                    <label><input type="radio" name="s9q1" value="shared"> Shared responsibility</label>
+                    <label><input type="radio" name="s9q1" value="tbd"> TBD</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label">Do you have internal developers?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s9q2" value="yes"> Yes</label>
+                    <label><input type="radio" name="s9q2" value="no"> No</label>
+                    <label><input type="radio" name="s9q2" value="hiring"> Planning to hire</label>
+                </div>
+                <textarea id="s9q2_detail" name="s9q2_detail" rows="2" class="field__detail-textarea" placeholder="Team size, skills, tech stack familiarity..."></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s9q3">Will you need admin dashboards or internal tools?</label>
+                <p class="field__hint">Content management, user management, reporting, moderation.</p>
+                <textarea id="s9q3" name="s9q3" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label">How often do you anticipate adding new features post-launch?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s9q4" value="weekly"> Weekly</label>
+                    <label><input type="radio" name="s9q4" value="monthly"> Monthly</label>
+                    <label><input type="radio" name="s9q4" value="quarterly"> Quarterly</label>
+                    <label><input type="radio" name="s9q4" value="rarely"> Rarely</label>
+                    <label><input type="radio" name="s9q4" value="unsure"> Unsure</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 10: BUDGET, TIMELINE & RISK ─── -->
+    <div class="step" data-step="10" data-section="10">
+        <div class="step__header">
+            <span class="step__num">10</span>
+            <h2 class="step__title">Budget, Timeline & Risk</h2>
+            <p class="step__goal">Qualify the project commercially and set honest expectations.</p>
+            <p class="step__why">Transparency here prevents misalignment later.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s10q1">What is your budget range?</label>
+                <select id="s10q1" name="s10q1">
+                    <option value="" disabled selected>Select a range</option>
+                    <option value="under-10k">Under $10k</option>
+                    <option value="10k-25k">$10k – $25k</option>
+                    <option value="25k-50k">$25k – $50k</option>
+                    <option value="50k-100k">$50k – $100k</option>
+                    <option value="100k+">$100k+</option>
+                    <option value="unsure">Not sure yet</option>
+                </select>
+            </div>
+            <div class="field">
+                <label class="field__label">Is funding secured?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="s10q2" value="yes"> Yes, fully</label>
+                    <label><input type="radio" name="s10q2" value="partial"> Partially</label>
+                    <label><input type="radio" name="s10q2" value="no"> Not yet</label>
+                    <label><input type="radio" name="s10q2" value="self"> Self-funded</label>
+                </div>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s10q3">What is your target launch date?</label>
+                <p class="field__hint">Exact date, general timeframe, or "as soon as possible."</p>
+                <input type="text" id="s10q3" name="s10q3" placeholder="e.g., Q3 2026, November 2026, ASAP">
+            </div>
+            <div class="field">
+                <label class="field__label" for="s10q4">What happens if this project is delayed?</label>
+                <p class="field__hint">Business impact of missed timelines.</p>
+                <textarea id="s10q4" name="s10q4" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s10q5">What are the biggest risks you see?</label>
+                <p class="field__hint">Technical, market, financial, team, regulatory.</p>
+                <textarea id="s10q5" name="s10q5" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 11: SUCCESS METRICS ─── -->
+    <div class="step" data-step="11" data-section="11">
+        <div class="step__header">
+            <span class="step__num">11</span>
+            <h2 class="step__title">Success Metrics</h2>
+            <p class="step__goal">Define measurable outcomes.</p>
+            <p class="step__why">If we don't define success up front, we can't know when we've achieved it.</p>
+        </div>
+        <div class="step__body">
+            <div class="field">
+                <label class="field__label" for="s11q1">How will you know this project is successful?</label>
+                <p class="field__hint">Define success in concrete, measurable terms.</p>
+                <textarea id="s11q1" name="s11q1" rows="4"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s11q2">What KPIs or metrics matter most?</label>
+                <p class="field__hint">Revenue, engagement, cost savings, time saved, user adoption, etc.</p>
+                <textarea id="s11q2" name="s11q2" rows="3"></textarea>
+            </div>
+            <div class="field">
+                <label class="field__label" for="s11q3">What does failure look like?</label>
+                <p class="field__hint">Helps us understand what we need to prevent.</p>
+                <textarea id="s11q3" name="s11q3" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── STEP 12: REVIEW & EXPORT ─── -->
+    <div class="step" data-step="12">
+        <div class="step__header">
+            <span class="step__num">&mdash;</span>
+            <h2 class="step__title">Review & Export</h2>
+            <p class="step__goal">Review your responses. Click any section header to make changes.</p>
+        </div>
+        <div class="step__body">
+            <div id="summaryContent"></div>
+            <div class="export-bar">
+                <button class="btn btn--primary" onclick="app.copyToClipboard()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy to Clipboard
+                </button>
+                <button class="btn btn--secondary" onclick="window.print()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    Print / PDF
+                </button>
+                <button class="btn btn--ghost btn--small" onclick="app.clearAll()">Clear All Responses</button>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- Navigation -->
+<div class="nav" id="navBar">
+    <button class="btn btn--ghost" id="prevBtn" onclick="app.prev()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Previous
+    </button>
+    <div class="nav__right">
+        <button class="btn btn--primary" id="nextBtn" onclick="app.next()">
+            Next
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <a href="https://www.lenox-systems.com">lenox-systems.com</a> &nbsp;&middot;&nbsp; Client Discovery Questionnaire
+</footer>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script>
+const TOTAL_STEPS = 13; // 0=intro, 1-11=sections, 12=review
+const STORAGE_KEY = 'lenox_discovery';
+
+const SECTION_TITLES = [
+    'Welcome',
+    'Business & Problem Definition',
+    'Users & Market',
+    'Product Scope & Features',
+    'User Workflows',
+    'Data & System Logic',
+    'Technical Constraints & Integrations',
+    'Scale & Performance',
+    'Design & UX Expectations',
+    'Operations & Ownership',
+    'Budget, Timeline & Risk',
+    'Success Metrics',
+    'Review & Export'
+];
+
+const app = {
+    currentStep: 0,
+    visited: new Set([0]),
+    saveTimeout: null,
+
+    init() {
+        this.loadTheme();
+        this.restoreState();
+        this.buildDots();
+        this.bindEvents();
+        this.updateUI();
+    },
+
+    // ── Navigation ──
+
+    next() {
+        if (this.currentStep < TOTAL_STEPS - 1) {
+            this.currentStep++;
+            this.visited.add(this.currentStep);
+            this.updateUI();
+            this.saveState();
+        }
+    },
+
+    prev() {
+        if (this.currentStep > 0) {
+            this.currentStep--;
+            this.updateUI();
+        }
+    },
+
+    goToStep(step) {
+        if (step >= 0 && step < TOTAL_STEPS) {
+            this.currentStep = step;
+            this.visited.add(step);
+            this.updateUI();
+        }
+    },
+
+    // ── UI Updates ──
+
+    updateUI() {
+        // Steps
+        document.querySelectorAll('.step').forEach(el => {
+            el.classList.remove('active');
+        });
+        const activeStep = document.querySelector(`.step[data-step="${this.currentStep}"]`);
+        if (activeStep) {
+            // Force re-trigger animation
+            void activeStep.offsetWidth;
+            activeStep.classList.add('active');
+        }
+
+        // Progress bar
+        const progress = this.currentStep === 0 ? 0 : (this.currentStep / (TOTAL_STEPS - 1)) * 100;
+        document.getElementById('progressFill').style.width = `${progress}%`;
+
+        // Header step indicator
+        const headerStep = document.getElementById('headerStep');
+        if (this.currentStep === 0) {
+            headerStep.textContent = '';
+        } else if (this.currentStep === 12) {
+            headerStep.textContent = 'Review';
+        } else {
+            headerStep.textContent = `${String(this.currentStep).padStart(2, '0')} / 11`;
+        }
+
+        // Dots
+        document.querySelectorAll('.step-dot').forEach((dot, i) => {
+            const stepNum = i + 1;
+            dot.classList.remove('active', 'visited');
+            if (stepNum === this.currentStep) {
+                dot.classList.add('active');
+            } else if (this.visited.has(stepNum) && this.sectionHasContent(stepNum)) {
+                dot.classList.add('visited');
+            }
+        });
+
+        // Dot container visibility
+        document.getElementById('stepDots').style.display = (this.currentStep === 0 || this.currentStep === 12) ? 'none' : 'flex';
+
+        // Nav buttons
+        const navBar = document.getElementById('navBar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        navBar.style.display = this.currentStep === 0 ? 'none' : 'flex';
+        prevBtn.style.visibility = this.currentStep <= 0 ? 'hidden' : 'visible';
+
+        if (this.currentStep === 11) {
+            nextBtn.innerHTML = `Review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+        } else if (this.currentStep === 12) {
+            nextBtn.style.display = 'none';
+        } else {
+            nextBtn.style.display = 'inline-flex';
+            nextBtn.innerHTML = `Next <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>`;
+        }
+
+        // Generate summary if on review step
+        if (this.currentStep === 12) {
+            this.generateSummary();
+        }
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+
+    buildDots() {
+        const container = document.getElementById('stepDots');
+        for (let i = 1; i <= 11; i++) {
+            if (i > 1) {
+                const line = document.createElement('div');
+                line.className = 'step-dot-line';
+                container.appendChild(line);
+            }
+            const dot = document.createElement('button');
+            dot.className = 'step-dot';
+            dot.textContent = String(i).padStart(2, '0');
+            dot.setAttribute('aria-label', `Section ${i}: ${SECTION_TITLES[i]}`);
+            dot.addEventListener('click', () => this.goToStep(i));
+            container.appendChild(dot);
+        }
+    },
+
+    // ── Data ──
+
+    sectionHasContent(stepNum) {
+        const section = document.querySelector(`.step[data-step="${stepNum}"]`);
+        if (!section) return false;
+        const inputs = section.querySelectorAll('textarea, input, select');
+        for (const input of inputs) {
+            if (input.type === 'checkbox' || input.type === 'radio') {
+                if (input.checked) return true;
+            } else if (input.value && input.value.trim()) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    getFieldValue(fieldEl) {
+        // Textarea or text/number/date input
+        const textarea = fieldEl.querySelector('textarea:not(.field__detail-textarea)');
+        const textInput = fieldEl.querySelector('input[type="text"], input[type="number"], input[type="date"]');
+        const select = fieldEl.querySelector('select');
+        const detailTextarea = fieldEl.querySelector('.field__detail-textarea');
+
+        let parts = [];
+
+        // Radio
+        const radio = fieldEl.querySelector('input[type="radio"]:checked');
+        if (radio) {
+            parts.push(radio.closest('label').textContent.trim());
+        }
+
+        // Checkboxes
+        const checked = fieldEl.querySelectorAll('input[type="checkbox"]:checked');
+        if (checked.length) {
+            parts.push([...checked].map(cb => cb.closest('label').textContent.trim()).join(', '));
+        }
+
+        // Select
+        if (select && select.value) {
+            parts.push(select.selectedOptions[0].text);
+        }
+
+        // Text input
+        if (textInput && textInput.value.trim()) {
+            parts.push(textInput.value.trim());
+        }
+
+        // Main textarea
+        if (textarea && textarea.value.trim()) {
+            parts.push(textarea.value.trim());
+        }
+
+        // Detail textarea
+        if (detailTextarea && detailTextarea.value.trim()) {
+            parts.push(detailTextarea.value.trim());
+        }
+
+        return parts.join('\n');
+    },
+
+    // ── Summary ──
+
+    generateSummary() {
+        const container = document.getElementById('summaryContent');
+        let html = '';
+        let hasAnyContent = false;
+
+        for (let i = 1; i <= 11; i++) {
+            const section = document.querySelector(`.step[data-step="${i}"]`);
+            if (!section) continue;
+
+            const fields = section.querySelectorAll('.field');
+            let sectionHtml = '';
+            let sectionHasContent = false;
+
+            fields.forEach(field => {
+                const labelEl = field.querySelector('.field__label');
+                if (!labelEl) return;
+                const label = labelEl.textContent;
+                const value = this.getFieldValue(field);
+                if (value) {
+                    sectionHasContent = true;
+                    sectionHtml += `<div class="summary-qa"><p class="summary-q">${label}</p><p class="summary-a">${this.escapeHtml(value)}</p></div>`;
+                }
+            });
+
+            if (sectionHasContent) {
+                hasAnyContent = true;
+                html += `
+                    <div class="summary-section">
+                        <div class="summary-section__header" onclick="app.goToStep(${i})">
+                            <span class="summary-section__num">${String(i).padStart(2, '0')}</span>
+                            <span class="summary-section__title">${SECTION_TITLES[i]}</span>
+                            <span class="summary-section__edit">Edit</span>
+                        </div>
+                        ${sectionHtml}
+                    </div>`;
+            }
+        }
+
+        if (!hasAnyContent) {
+            html = '<div class="summary-empty">No responses yet. Go back and fill in some sections to see your summary here.</div>';
+        }
+
+        container.innerHTML = html;
+    },
+
+    // ── Persistence ──
+
+    saveState() {
+        clearTimeout(this.saveTimeout);
+        this.saveTimeout = setTimeout(() => {
+            const data = { step: this.currentStep, visited: [...this.visited], form: {} };
+
+            document.querySelectorAll('textarea, input, select').forEach(el => {
+                if (!el.name && !el.id) return;
+                const key = el.name || el.id;
+                if (el.type === 'checkbox') {
+                    if (!data.form[key]) data.form[key] = [];
+                    if (el.checked) data.form[key].push(el.value);
+                } else if (el.type === 'radio') {
+                    if (el.checked) data.form[key] = el.value;
+                } else {
+                    data.form[key] = el.value;
+                }
+            });
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+            const indicator = document.getElementById('savedIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => indicator.classList.remove('show'), 1500);
+        }, 300);
+    },
+
+    restoreState() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+
+        try {
+            const data = JSON.parse(raw);
+            if (data.step) this.currentStep = data.step;
+            if (data.visited) this.visited = new Set(data.visited);
+
+            if (data.form) {
+                Object.entries(data.form).forEach(([key, value]) => {
+                    if (Array.isArray(value)) {
+                        // Checkboxes
+                        document.querySelectorAll(`input[name="${key}"]`).forEach(cb => {
+                            cb.checked = value.includes(cb.value);
+                        });
+                    } else {
+                        const el = document.querySelector(`[name="${key}"], #${key}`);
+                        if (!el) return;
+                        if (el.type === 'radio') {
+                            const radio = document.querySelector(`input[name="${key}"][value="${value}"]`);
+                            if (radio) radio.checked = true;
+                        } else {
+                            el.value = value;
+                        }
+                    }
+                });
+            }
+        } catch (e) {
+            // Corrupted data, ignore
+        }
+    },
+
+    // ── Export ──
+
+    copyToClipboard() {
+        let text = '# Client Discovery Questionnaire\n## Lenox Systems\n\n';
+
+        for (let i = 1; i <= 11; i++) {
+            const section = document.querySelector(`.step[data-step="${i}"]`);
+            if (!section) continue;
+
+            const fields = section.querySelectorAll('.field');
+            let sectionText = '';
+            let sectionHasContent = false;
+
+            fields.forEach(field => {
+                const labelEl = field.querySelector('.field__label');
+                if (!labelEl) return;
+                const label = labelEl.textContent;
+                const value = this.getFieldValue(field);
+                if (value) {
+                    sectionHasContent = true;
+                    sectionText += `**${label}**\n${value}\n\n`;
+                }
+            });
+
+            if (sectionHasContent) {
+                text += `---\n\n### ${String(i).padStart(2, '0')} — ${SECTION_TITLES[i]}\n\n${sectionText}`;
+            }
+        }
+
+        navigator.clipboard.writeText(text).then(() => {
+            this.showToast('Copied to clipboard');
+        }).catch(() => {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+            this.showToast('Copied to clipboard');
+        });
+    },
+
+    clearAll() {
+        if (!confirm('Clear all responses? This cannot be undone.')) return;
+        localStorage.removeItem(STORAGE_KEY);
+        document.querySelectorAll('textarea, input[type="text"], input[type="number"], input[type="date"]').forEach(el => el.value = '');
+        document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+        document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => el.checked = false);
+        this.visited = new Set([0]);
+        this.currentStep = 0;
+        this.updateUI();
+        this.showToast('All responses cleared');
+    },
+
+    // ── Theme ──
+
+    loadTheme() {
+        const saved = localStorage.getItem('lenox_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+    },
+
+    toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('lenox_theme', next);
+    },
+
+    // ── Utilities ──
+
+    showToast(message) {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    },
+
+    escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    },
+
+    // ── Events ──
+
+    bindEvents() {
+        // Auto-save on input
+        document.querySelectorAll('textarea, input, select').forEach(el => {
+            const event = (el.type === 'checkbox' || el.type === 'radio' || el.tagName === 'SELECT') ? 'change' : 'input';
+            el.addEventListener(event, () => this.saveState());
+        });
+
+        // Keyboard nav
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                e.preventDefault();
+                this.next();
+            }
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                e.preventDefault();
+                this.prev();
+            }
+        });
+    }
+};
+
+// ── Boot ──
+document.addEventListener('DOMContentLoaded', () => app.init());
+</script>
+
+</body>
+</html>

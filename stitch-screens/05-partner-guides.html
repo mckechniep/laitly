@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed": "#f4e1b2",
+              "primary": "#635d5a",
+              "on-background": "#1b1c19",
+              "inverse-surface": "#30312e",
+              "surface-tint": "#635d5a",
+              "on-primary-fixed": "#1e1b18",
+              "surface-container-highest": "#e4e2dd",
+              "surface-bright": "#fbf9f4",
+              "background": "#fbf9f4",
+              "on-primary-container": "#413d3a",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-dim": "#dbdad5",
+              "tertiary-container": "#b8a77c",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1c19",
+              "on-secondary": "#ffffff",
+              "primary-fixed-dim": "#cdc5c0",
+              "on-tertiary-container": "#483c1b",
+              "surface-container-lowest": "#ffffff",
+              "secondary-container": "#ffdc8c",
+              "on-secondary-fixed-variant": "#5a4300",
+              "on-secondary-container": "#795f1b",
+              "on-tertiary-fixed": "#241a00",
+              "on-secondary-fixed": "#251a00",
+              "outline-variant": "#d0c5b4",
+              "outline": "#7e7667",
+              "secondary-fixed": "#ffdf99",
+              "error": "#ba1a1a",
+              "surface-variant": "#e4e2dd",
+              "on-surface-variant": "#4d4639",
+              "on-tertiary-fixed-variant": "#524623",
+              "surface-container-high": "#eae8e3",
+              "surface": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "surface-container": "#f0eee9",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#4b4642",
+              "secondary": "#745b17",
+              "on-primary": "#ffffff",
+              "secondary-fixed-dim": "#e5c374",
+              "inverse-primary": "#cdc5c0",
+              "primary-fixed": "#e9e1dc",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#6b5d38",
+              "surface-container-low": "#f5f3ee",
+              "inverse-on-surface": "#f2f1ec",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Manrope", "sans-serif"],
+              "label": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 32px rgba(27, 28, 25, 0.04);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body text-on-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-[#fbf9f4] dark:bg-stone-950 no-border tonal-shift bg-[#f5f3ee] dark:bg-stone-900 flat no-shadows">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#635d5a] dark:text-stone-300 cursor-pointer hover:opacity-80 transition-opacity active:scale-95 duration-150" data-icon="menu">menu</span>
+</div>
+<h1 class="text-2xl font-medium font-serif text-[#635d5a] dark:text-stone-200">Guides</h1>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#635d5a] dark:text-stone-300 cursor-pointer hover:opacity-80 transition-opacity active:scale-95 duration-150" data-icon="search">search</span>
+</div>
+</nav>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-12">
+<!-- Hero Header -->
+<section class="space-y-3">
+<h2 class="font-headline italic text-5xl md:text-6xl text-primary tracking-tight">For the Caregiver</h2>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed">Essential knowledge for baby's best care.</p>
+</section>
+<!-- Category Toggles -->
+<section class="flex gap-3 overflow-x-auto no-scrollbar pb-2">
+<button class="bg-primary text-on-primary px-5 py-2.5 rounded-full font-label text-[10px] font-bold tracking-[0.15rem] transition-transform active:scale-95">WARMING</button>
+<button class="border border-outline/20 text-on-surface-variant px-5 py-2.5 rounded-full font-label text-[10px] font-bold tracking-[0.15rem] hover:bg-surface-container-low transition-colors">HANDLING</button>
+<button class="border border-outline/20 text-on-surface-variant px-5 py-2.5 rounded-full font-label text-[10px] font-bold tracking-[0.15rem] hover:bg-surface-container-low transition-colors">CUES</button>
+<button class="border border-outline/20 text-on-surface-variant px-5 py-2.5 rounded-full font-label text-[10px] font-bold tracking-[0.15rem] hover:bg-surface-container-low transition-colors">STORAGE</button>
+</section>
+<!-- Featured Guide Card -->
+<section>
+<div class="relative group cursor-pointer overflow-hidden rounded-xl bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow transition-transform active:scale-[0.98]">
+<div class="aspect-[16/9] w-full overflow-hidden">
+<img alt="Warm infant bottle" class="w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" data-alt="A clean baby bottle standing on a warm wooden surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEriFT1VjpPmFxZpUEimwUkqB3KE6Sz1BeUysjxnv-PqmsFz1mZxOx2nJAzm--9WcHlMr_dFTPGZr3AiVuceoF9YHOmR1uGiBm6RMqzfFTvTWK5zH7jnDlEVEM-Rg07wzt8OslvQfk5v_DwdK-iRwBZkeSeBNbSMUBUX3IdqKDDqd9PMENbNmApuJTg3H0cOSJkr1Bk2LZh148DGM0wZ0NPudZFCYJ4JML7e5oBNnqnZRjeY2kelyC7MvHbErTefgK7iGe4Rk-oPQ"/>
+</div>
+<div class="p-8 space-y-4">
+<div class="flex justify-between items-center">
+<span class="font-label uppercase text-[10px] tracking-[0.15rem] text-secondary font-bold">Featured Guide</span>
+<span class="font-label text-[10px] text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                            4 MIN READ
+                        </span>
+</div>
+<div class="flex justify-between items-end">
+<h3 class="font-headline text-3xl text-on-surface leading-tight max-w-[80%]">How to Warm a Bottle Safely</h3>
+<div class="bg-primary text-on-primary p-2 rounded-full mb-1">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- List of Resources -->
+<section class="space-y-6">
+<header class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<h4 class="font-label uppercase text-[11px] tracking-[0.15rem] text-on-surface-variant font-bold">Knowledge Base</h4>
+<button class="text-primary font-label text-[11px] font-bold hover:underline">VIEW ALL</button>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Resource Item 1 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl border-l-2 border-secondary-fixed-dim editorial-shadow flex flex-col justify-between min-h-[140px] hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="space-y-2">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Feeding</span>
+<h5 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Recognizing Hunger Cues</h5>
+</div>
+<p class="text-on-surface-variant/70 text-sm line-clamp-2">Understanding rooting, hand-to-mouth, and subtle early signs.</p>
+</div>
+<!-- Resource Item 2 -->
+<div class="p-6 bg-surface-container-lowest rounded-xl border-l-2 border-secondary-fixed-dim editorial-shadow flex flex-col justify-between min-h-[140px] hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="space-y-2">
+<span class="font-label text-[9px] uppercase tracking-widest text-secondary font-bold">Safety</span>
+<h5 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Safe Milk Storage for Caregivers</h5>
+</div>
+<p class="text-on-surface-variant/70 text-sm line-clamp-2">Best practices for refrigeration, freezing, and thawing times.</p>
+</div>
+<!-- Resource Item 3 (Editorial Quote/Note Style) -->
+<div class="md:col-span-2 p-8 bg-surface-container-low rounded-xl border-l-2 border-primary editorial-shadow relative overflow-hidden">
+<div class="relative z-10 flex items-start gap-6">
+<span class="material-symbols-outlined text-primary text-4xl opacity-20" data-icon="format_quote">format_quote</span>
+<div class="space-y-2">
+<h5 class="font-headline italic text-2xl text-primary">The "Swirl, Don't Shake" Rule</h5>
+<p class="text-on-surface-variant leading-relaxed text-sm">Vigorous shaking creates air bubbles and can break down delicate nutritional components. A gentle swirl is all that's needed to homogenize the milk.</p>
+</div>
+</div>
+<div class="absolute right-[-20px] bottom-[-20px] opacity-[0.03]">
+<span class="material-symbols-outlined text-[180px]" data-icon="science">science</span>
+</div>
+</div>
+<!-- Resource Item 4 -->
+<div class="md:col-span-2 p-6 bg-surface-container-lowest rounded-xl border-l-2 border-secondary-fixed-dim editorial-shadow flex items-center justify-between hover:bg-surface-container-low transition-colors group cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="h-12 w-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="stroller">stroller</span>
+</div>
+<div class="space-y-1">
+<h5 class="font-headline text-xl text-on-surface group-hover:text-primary transition-colors">Feeding Pace &amp; Positioning</h5>
+<p class="text-on-surface-variant/70 text-sm">Ensuring comfort and preventing reflux during feeds.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Editorial Note -->
+<section class="py-16 text-center border-t border-outline-variant/10">
+<p class="font-headline italic text-2xl text-on-surface-variant/60 leading-relaxed max-w-sm mx-auto">
+                "Your care is the foundation of their growth."
+            </p>
+<div class="mt-6 flex justify-center">
+<div class="w-12 h-[1px] bg-secondary-fixed-dim"></div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full h-20 flex justify-around items-center px-4 pb-safe bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 rounded-t-3xl border-t border-[#635d5a]/10 dark:border-stone-800 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Log</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] dark:text-[#e5c374] scale-110 transition-transform tap-highlight-none transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors tap-highlight-none transform active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans font-bold text-[10px] tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

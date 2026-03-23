@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Log Milk Entry - Laitly</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#5a4300",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e9e1dc",
+                        "surface-container-low": "#f5f3ee",
+                        "surface": "#fbf9f4",
+                        "primary-fixed-dim": "#cdc5c0",
+                        "on-tertiary-fixed-variant": "#524623",
+                        "primary-container": "#afa7a3",
+                        "surface-tint": "#635d5a",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-container-highest": "#e4e2dd",
+                        "background": "#fbf9f4",
+                        "secondary": "#745b17",
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#cdc5c0",
+                        "outline": "#7e7667",
+                        "on-tertiary-container": "#483c1b",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#30312e",
+                        "tertiary-container": "#b8a77c",
+                        "secondary-container": "#ffdc8c",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#d7c598",
+                        "surface-bright": "#fbf9f4",
+                        "surface-container-high": "#eae8e3",
+                        "surface-dim": "#dbdad5",
+                        "on-primary-fixed-variant": "#4b4642",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#1e1b18",
+                        "tertiary": "#6b5d38",
+                        "secondary-fixed-dim": "#e5c374",
+                        "on-primary-container": "#413d3a",
+                        "inverse-on-surface": "#f2f1ec",
+                        "tertiary-fixed": "#f4e1b2",
+                        "surface-container": "#f0eee9",
+                        "secondary-fixed": "#ffdf99",
+                        "primary": "#635d5a",
+                        "on-secondary-container": "#795f1b",
+                        "surface-variant": "#e4e2dd",
+                        "on-secondary-fixed": "#251a00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#1b1c19",
+                        "on-error": "#ffffff",
+                        "outline-variant": "#d0c5b4",
+                        "on-surface": "#1b1c19",
+                        "on-surface-variant": "#4d4639"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Manrope", "sans-serif"],
+                        "label": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .small-caps {
+            font-variant: small-caps;
+            letter-spacing: 0.15rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-stone-950 border-b border-[#635d5a]/10 dark:border-stone-800 flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<button class="text-[#635d5a] dark:text-stone-300 hover:bg-[#f5f3ee] dark:hover:bg-stone-900 transition-colors p-2 rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-headline italic text-2xl text-[#635d5a] dark:text-stone-300">Log Entry</h1>
+</div>
+<div class="font-headline text-2xl font-medium text-[#C5A55A]">Laitly</div>
+</header>
+<main class="flex-1 max-w-xl mx-auto w-full px-6 py-8 space-y-10 pb-32">
+<!-- Amount Input Section -->
+<section class="space-y-4">
+<label class="font-label font-bold uppercase tracking-widest text-[10px] text-on-surface-variant block px-1">Amount</label>
+<div class="flex flex-col items-center bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim shadow-[0_4px_24px_rgba(27,28,25,0.02)]">
+<div class="flex items-baseline gap-2">
+<input class="w-32 bg-transparent text-center text-6xl font-headline focus:ring-0 border-none p-0 text-on-surface" placeholder="0.0" step="0.1" type="number" value="4.5"/>
+<span class="text-2xl font-headline italic text-on-surface-variant">oz</span>
+</div>
+<!-- Toggle Unit -->
+<div class="flex bg-surface-container-low p-1 rounded-lg mt-6">
+<button class="px-6 py-1.5 text-xs font-bold font-label rounded-md bg-surface-container-lowest text-primary shadow-sm">oz</button>
+<button class="px-6 py-1.5 text-xs font-bold font-label rounded-md text-on-surface-variant hover:bg-surface-container-high transition-colors">ml</button>
+</div>
+</div>
+</section>
+<!-- Source Selection -->
+<section class="space-y-4">
+<label class="font-label font-bold uppercase tracking-widest text-[10px] text-on-surface-variant block px-1">Source</label>
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 p-4 rounded-xl bg-surface-container-lowest border-l-2 border-secondary-fixed-dim hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-secondary-fixed-dim group-hover:text-secondary transition-colors" data-icon="water_drop">water_drop</span>
+<span class="font-label text-sm font-semibold">Pump (Left)</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-4 rounded-xl bg-surface-container-lowest border-l-2 border-secondary-fixed-dim hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-secondary-fixed-dim group-hover:text-secondary transition-colors" data-icon="water_drop">water_drop</span>
+<span class="font-label text-sm font-semibold">Pump (Right)</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-4 rounded-xl bg-surface-container-lowest border-l-2 border-secondary-fixed-dim hover:bg-surface-container-low transition-colors group">
+<span class="material-symbols-outlined text-secondary-fixed-dim group-hover:text-secondary transition-colors" data-icon="opacity">opacity</span>
+<span class="font-label text-sm font-semibold">Pump (L&amp;R)</span>
+</button>
+<button class="flex items-center justify-center gap-2 p-4 rounded-xl bg-surface-container-low border-l-2 border-secondary transition-colors group">
+<span class="material-symbols-outlined text-secondary" data-icon="child_care" style="font-variation-settings: 'FILL' 1;">child_care</span>
+<span class="font-label text-sm font-bold text-on-surface">Direct Feed</span>
+</button>
+</div>
+</section>
+<!-- Destination Selection -->
+<section class="space-y-4">
+<label class="font-label font-bold uppercase tracking-widest text-[10px] text-on-surface-variant block px-1">Destination</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 font-label text-xs font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Fridge</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-lowest border-l-2 border-secondary-fixed-dim font-label text-xs font-bold text-on-surface shadow-sm">Freezer</button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-low border border-outline-variant/20 font-label text-xs font-bold text-on-surface-variant hover:bg-surface-container-high transition-colors">Stash Brick</button>
+</div>
+</section>
+<!-- Timestamp & Notes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<section class="space-y-4">
+<label class="font-label font-bold uppercase tracking-widest text-[10px] text-on-surface-variant block px-1">Logged at</label>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary/60" data-icon="schedule">schedule</span>
+<span class="font-body text-sm font-medium">Just now</span>
+</div>
+<button class="p-1 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="edit">edit</span>
+</button>
+</div>
+</section>
+<section class="space-y-4">
+<label class="font-label font-bold uppercase tracking-widest text-[10px] text-on-surface-variant block px-1">Notes (Optional)</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-xl p-4 text-sm font-body focus:ring-1 focus:ring-secondary-fixed-dim placeholder:text-on-surface-variant/40" placeholder="Add a note..." rows="1"></textarea>
+</section>
+</div>
+<!-- Editorial Note -->
+<section class="bg-surface-container-low py-12 px-8 rounded-2xl flex flex-col items-center text-center space-y-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+<blockquote class="font-headline italic text-lg text-on-surface-variant max-w-xs leading-relaxed">
+                "Every ounce collected is a quiet act of devotion to their tomorrow."
+            </blockquote>
+</section>
+<!-- Action Button Container (Mobile focus) -->
+<div class="pt-6">
+<button class="w-full py-5 px-6 rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary font-label font-bold text-lg shadow-lg hover:opacity-95 active:scale-[0.98] transition-all">
+                Save Entry
+            </button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f4]/80 dark:bg-stone-950/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/5 shadow-[0_-4px_24px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-sans font-bold uppercase tracking-widest text-[10px] Manrope mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+<span class="font-sans font-bold uppercase tracking-widest text-[10px] Manrope mt-1">Movement</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] bg-[#f5f3ee] dark:bg-stone-900 rounded-xl px-3 py-1 scale-110 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="opacity" style="font-variation-settings: 'FILL' 1;">opacity</span>
+<span class="font-sans font-bold uppercase tracking-widest text-[10px] Manrope mt-1">Lait</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-sans font-bold uppercase tracking-widest text-[10px] Manrope mt-1">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-70 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans font-bold uppercase tracking-widest text-[10px] Manrope mt-1">Me</span>
+</a>
+</nav>
+</body></html>

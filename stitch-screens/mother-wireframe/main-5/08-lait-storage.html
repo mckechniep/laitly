@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f5f3ee",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-secondary-fixed": "#251a00",
+              "primary-fixed-dim": "#cdc5c0",
+              "on-tertiary-container": "#483c1b",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#795f1b",
+              "inverse-on-surface": "#f2f1ec",
+              "on-error-container": "#93000a",
+              "surface-tint": "#635d5a",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-primary": "#cdc5c0",
+              "secondary-fixed-dim": "#e5c374",
+              "tertiary-fixed": "#f4e1b2",
+              "outline-variant": "#d0c5b4",
+              "on-primary": "#ffffff",
+              "on-background": "#1b1c19",
+              "background": "#fbf9f4",
+              "surface": "#fbf9f4",
+              "secondary-fixed": "#ffdf99",
+              "primary-fixed": "#e9e1dc",
+              "secondary-container": "#ffdc8c",
+              "tertiary": "#6b5d38",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dbdad5",
+              "surface-container-high": "#eae8e3",
+              "surface-container": "#f0eee9",
+              "outline": "#7e7667",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#b8a77c",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1c19",
+              "on-primary-fixed": "#1e1b18",
+              "surface-variant": "#e4e2dd",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#30312e",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-secondary-fixed-variant": "#5a4300",
+              "primary": "#635d5a",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "on-surface-variant": "#4d4639",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#4b4642"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-blur {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .tap-highlight-none {
+        -webkit-tap-highlight-color: transparent;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    @media (min-width: 430px) {
+      html { background: #e4e2dd; min-height: 100vh; }
+      body { max-width: 390px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); position: relative; }
+      header.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
+      nav.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
+      .fixed.bottom-24.right-6 { right: auto; left: 50%; margin-left: calc(195px - 56px - 24px); }
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen pb-32">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#635d5a] hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+<span class="font-['Newsreader'] italic text-2xl text-[#635d5a] dark:text-[#C5A55A]">Laitly</span>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="Soft focused portrait of a person" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNFgIuT37akDH4zJT8I5tH6NzqNoRNofJvftuMoiMf_BJnvb6nfMX2q-ahQ38R1YqP7_IKnb17L2cvVkS9SBzf3nJU9phU7rwed9Z2wtzvHGSIrHaS-1K_ZXGm86bJbT0rfLMTADU651sSNMQs8P_lld6Uu1QMc3GmUPuxaC3VXoOmVfwsI6dAg9Egvx6aFT3AATcRiGR2ZiGy_-WkgBBiIrjMqfEanPWlAOMrGMEs0mFk0OnGtXXQ3tKTZthDh2IjBIL9ygk2OWs"/>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Screen Header -->
+<header class="mb-10 text-center md:text-left">
+<h1 class="font-headline italic text-5xl md:text-6xl text-primary leading-tight">Lait</h1>
+<p class="font-body text-on-surface-variant mt-2 tracking-tight">The Milk Math Tab</p>
+</header>
+<!-- TOTAL STORED SECTION -->
+<section class="mb-12">
+<h2 class="font-label font-bold text-[0.75rem] uppercase tracking-[0.15rem] text-on-surface-variant mb-6">TOTAL STORED</h2>
+<div class="bg-surface-container-lowest p-8 rounded-xl border-l-2 border-secondary-fixed-dim shadow-[0_4px_32px_rgba(27,28,25,0.04)] text-center relative overflow-hidden">
+<!-- Background decorative element -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-surface-container-low rounded-full opacity-50"></div>
+<div class="relative z-10">
+<span class="font-headline font-medium text-6xl text-primary">51.0<span class="text-2xl ml-2">oz</span></span>
+<div class="mt-8 flex justify-center">
+<div class="inline-flex p-1 bg-surface-container-low rounded-full">
+<button class="px-5 py-1.5 text-[0.65rem] font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors">OZ</button>
+<button class="px-5 py-1.5 text-[0.65rem] font-bold tracking-widest text-on-surface-variant hover:text-primary transition-colors">BOTTLES</button>
+<button class="px-6 py-1.5 bg-primary text-white rounded-full text-[0.65rem] font-bold tracking-widest shadow-lg">DAYS</button>
+</div>
+</div>
+<p class="mt-6 font-headline italic text-lg text-secondary">Covers 4.2 days of feeds.</p>
+</div>
+</div>
+</section>
+<!-- WHERE IT LIVES SECTION -->
+<section class="mb-12">
+<h2 class="font-label font-bold text-[0.75rem] uppercase tracking-[0.15rem] text-on-surface-variant mb-6">WHERE IT LIVES</h2>
+<div class="space-y-8">
+<!-- Fridge Progress -->
+<div class="group">
+<div class="flex justify-between items-end mb-3">
+<span class="font-body font-bold text-sm text-primary">Fridge</span>
+<span class="font-body text-xs text-on-surface-variant">12 oz (3 bags)</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[24%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Freezer Progress -->
+<div class="group">
+<div class="flex justify-between items-end mb-3">
+<span class="font-body font-bold text-sm text-primary">Freezer</span>
+<span class="font-body text-xs text-on-surface-variant">39 oz (12 bags)</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-[76%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- EXPIRY SECTION -->
+<section class="mb-16">
+<h2 class="font-label font-bold text-[0.75rem] uppercase tracking-[0.15rem] text-on-surface-variant mb-6">EXPIRY</h2>
+<div class="bg-surface-container-low rounded-xl overflow-hidden">
+<!-- Item 1 -->
+<div class="flex items-center justify-between p-5 border-b border-white/50 bg-surface-container-lowest/40 backdrop-blur-sm">
+<div class="flex items-center gap-4">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary ring-4 ring-secondary/10"></div>
+<span class="font-body text-sm font-medium">Expiring in 24h</span>
+</div>
+<span class="font-headline italic text-lg text-primary">9 oz</span>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center justify-between p-5 bg-surface-container-low/20">
+<div class="flex items-center gap-4">
+<div class="w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-primary/5"></div>
+<span class="font-body text-sm font-medium">Expiring in 3 days</span>
+</div>
+<span class="font-headline italic text-lg text-primary">3 oz</span>
+</div>
+</div>
+</section>
+<!-- Editorial Quote Component -->
+<section class="mt-12 mb-20 px-8 py-20 bg-surface-container-low rounded-xl text-center">
+<p class="font-headline italic text-2xl text-on-surface leading-relaxed max-w-xs mx-auto">
+                "Every ounce collected is a quiet act of devotion to their tomorrow."
+            </p>
+<div class="mt-6 w-8 h-px bg-secondary-fixed-dim mx-auto"></div>
+</section>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pb-safe h-20 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="03-home-mother.html">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="10-movement.html">
+<span class="material-symbols-outlined mb-1">sync</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Movement</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="08-lait-storage.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">opacity</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Lait</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="09-guides.html">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="12-me-strategy.html">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Me</span>
+</a>
+</nav>
+</body></html>

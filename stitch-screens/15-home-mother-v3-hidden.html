@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f5f3ee",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-secondary-fixed": "#251a00",
+              "primary-fixed-dim": "#cdc5c0",
+              "on-tertiary-container": "#483c1b",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#795f1b",
+              "inverse-on-surface": "#f2f1ec",
+              "on-error-container": "#93000a",
+              "surface-tint": "#635d5a",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-primary": "#cdc5c0",
+              "secondary-fixed-dim": "#e5c374",
+              "tertiary-fixed": "#f4e1b2",
+              "outline-variant": "#d0c5b4",
+              "on-primary": "#ffffff",
+              "on-background": "#1b1c19",
+              "background": "#fbf9f4",
+              "surface": "#fbf9f4",
+              "secondary-fixed": "#ffdf99",
+              "primary-fixed": "#e9e1dc",
+              "secondary-container": "#ffdc8c",
+              "tertiary": "#6b5d38",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dbdad5",
+              "surface-container-high": "#eae8e3",
+              "surface-container": "#f0eee9",
+              "outline": "#7e7667",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#b8a77c",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1c19",
+              "on-primary-fixed": "#1e1b18",
+              "surface-variant": "#e4e2dd",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#30312e",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-secondary-fixed-variant": "#5a4300",
+              "primary": "#635d5a",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "on-surface-variant": "#4d4639",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#4b4642"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .text-shadow-subtle {
+            text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tonal-layering-glass {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50">
+<button class="text-[#635d5a] dark:text-stone-200 hover:opacity-80 transition-opacity active:transition-transform scale-95">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Newsreader'] italic text-2xl text-[#635d5a] dark:text-[#C5A55A]">Laitly</h1>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User Profile" data-alt="Portrait of a smiling young mother" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu39C8ldrGn9KbDu8hQa1vWA6pCM2Gb4L8dRCJmp1EyHBziiWv6tQwC429PqzpgM3E6cbtTHh5AKIXgNqZTh33n5qAjVRhB7wAk2Es6veBBFoE_9hjsEOpVOpbrtWancXOjWGUvW1U6ArjFmgRreV0DCdicd6WkcTJFFiIBx6-Y3ADmKNkKqYHnz3-Z4AY0dGwMKAIMDFjsr9nwqx1qv5O7_WrillqyuMpmYO_5Oti-Qm_bIZrRc3Fe5OfF_eBUf75gNNp6544g2g"/>
+</div>
+</header>
+<main class="pt-16 px-0">
+<!-- Hero Branding Section -->
+<section class="bg-[#C5A55A] pt-12 pb-16 px-6 text-on-primary">
+<div class="max-w-md mx-auto">
+<p class="font-label font-bold text-[0.75rem] uppercase tracking-[0.15rem] text-on-primary/80 mb-2">DAY 312</p>
+<h2 class="font-headline font-bold text-[2.5rem] leading-tight mb-4">Good morning, Sarah.</h2>
+<div class="flex items-center gap-4 text-sm font-medium opacity-90">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="child_care">child_care</span>
+                        23 days
+                    </span>
+<span class="w-1 h-1 rounded-full bg-on-primary/40"></span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]" data-icon="monitor_heart">monitor_heart</span>
+                        Breastfeeding for 289 days
+                    </span>
+</div>
+</div>
+</section>
+<!-- Stats Bento Section -->
+<section class="px-6 -mt-8 relative z-10">
+<div class="max-w-md mx-auto space-y-6">
+<!-- Stored Lifetime Card -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-8 shadow-[0_4px_32px_rgba(27,28,25,0.04)]">
+<p class="font-label font-bold text-[0.7rem] uppercase tracking-[0.2rem] text-on-surface-variant mb-6">STORED LIFETIME</p>
+<div class="flex items-baseline gap-2 mb-8">
+<span class="font-headline text-5xl font-medium text-primary">1,847</span>
+<span class="font-headline italic text-2xl text-on-surface-variant">oz</span>
+</div>
+<div class="space-y-4 pt-6 border-t border-outline-variant/20">
+<div class="flex justify-between items-center group">
+<span class="text-sm text-on-surface-variant group-hover:text-primary transition-colors">Currently stored</span>
+<span class="text-sm font-bold text-primary">51 oz · 4.2 days</span>
+</div>
+<div class="flex justify-between items-center group">
+<span class="text-sm text-on-surface-variant group-hover:text-primary transition-colors">Last session</span>
+<span class="text-sm font-bold text-primary">3.5 oz · 2h ago</span>
+</div>
+</div>
+</div>
+<!-- Reminders Section -->
+<div>
+<p class="font-label font-bold text-[0.7rem] uppercase tracking-[0.2rem] text-on-surface-variant mb-4 px-2">REMINDERS</p>
+<div class="space-y-3">
+<!-- Reminder 1 -->
+<div class="bg-surface-container-low p-5 flex items-start gap-4 hover:bg-surface-container transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-[0.9375rem] font-bold text-on-surface">Fridge milk expiring — 3 bags</p>
+<span class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-wider ml-4">tomorrow</span>
+</div>
+</div>
+</div>
+<!-- Reminder 2 -->
+<div class="bg-surface-container-low p-5 flex items-start gap-4 hover:bg-surface-container transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-[0.9375rem] font-bold text-on-surface">Extra pump session — RTW goal</p>
+<span class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-wider ml-4">suggested</span>
+</div>
+</div>
+</div>
+<!-- Reminder 3 -->
+<div class="bg-surface-container-low p-5 flex items-start gap-4 hover:bg-surface-container transition-colors">
+<div class="w-2.5 h-2.5 rounded-full bg-primary mt-1.5 shrink-0"></div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<p class="text-[0.9375rem] font-bold text-on-surface">Chicago trip — Friday</p>
+<span class="text-[0.75rem] font-bold text-on-surface-variant uppercase tracking-wider ml-4">plan ready</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Editorial Quote Component -->
+<div class="bg-surface-container-low p-10 text-center mt-8">
+<p class="font-headline italic text-xl text-primary leading-relaxed">
+                        "Your body is performing a quiet miracle every single day. Rest is just as productive as pumping."
+                    </p>
+<p class="font-label font-bold text-[0.65rem] uppercase tracking-widest text-secondary-fixed-dim mt-4">EDITORIAL NOTE</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Nav Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pb-safe h-20 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest mt-1">Home</span>
+</a>
+<!-- Movement -->
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="sync">sync</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest mt-1">Movement</span>
+</a>
+<!-- Lait -->
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="opacity">opacity</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest mt-1">Lait</span>
+</a>
+<!-- Guides -->
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest mt-1">Guides</span>
+</a>
+<!-- Me -->
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest mt-1">Me</span>
+</a>
+</nav>
+<!-- FAB (Suppressed as per logic: Home screen often needs quick log, but "Me" or "Details" doesn't. Here we render a specialized Log action) -->
+<div class="fixed bottom-24 right-6 z-40">
+<button class="w-14 h-14 bg-primary text-on-primary rounded-full shadow-lg flex items-center justify-center transition-transform active:scale-90">
+<span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
+</button>
+</div>
+</body></html>

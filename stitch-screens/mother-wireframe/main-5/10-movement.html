@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&amp;family=Manrope:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-low": "#f5f3ee",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#d7c598",
+              "on-secondary-fixed": "#251a00",
+              "primary-fixed-dim": "#cdc5c0",
+              "on-tertiary-container": "#483c1b",
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#795f1b",
+              "inverse-on-surface": "#f2f1ec",
+              "on-error-container": "#93000a",
+              "surface-tint": "#635d5a",
+              "secondary": "#745b17",
+              "on-primary-container": "#413d3a",
+              "inverse-primary": "#cdc5c0",
+              "secondary-fixed-dim": "#e5c374",
+              "tertiary-fixed": "#f4e1b2",
+              "outline-variant": "#d0c5b4",
+              "on-primary": "#ffffff",
+              "on-background": "#1b1c19",
+              "background": "#fbf9f4",
+              "surface": "#fbf9f4",
+              "secondary-fixed": "#ffdf99",
+              "primary-fixed": "#e9e1dc",
+              "secondary-container": "#ffdc8c",
+              "tertiary": "#6b5d38",
+              "error-container": "#ffdad6",
+              "surface-dim": "#dbdad5",
+              "surface-container-high": "#eae8e3",
+              "surface-container": "#f0eee9",
+              "outline": "#7e7667",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-container": "#b8a77c",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1c19",
+              "on-primary-fixed": "#1e1b18",
+              "surface-variant": "#e4e2dd",
+              "surface-container-highest": "#e4e2dd",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#30312e",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-secondary-fixed-variant": "#5a4300",
+              "primary": "#635d5a",
+              "surface-bright": "#fbf9f4",
+              "primary-container": "#afa7a3",
+              "on-surface-variant": "#4d4639",
+              "on-tertiary-fixed": "#241a00",
+              "on-primary-fixed-variant": "#4b4642"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    @media (min-width: 430px) {
+      html { background: #e4e2dd; min-height: 100vh; }
+      body { max-width: 390px; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,0.08); position: relative; }
+      header.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
+      nav.fixed { width: 390px; left: 50%; transform: translateX(-50%); }
+      .fixed.bottom-24.right-6 { right: auto; left: 50%; margin-left: calc(195px - 56px - 24px); }
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-6 h-16 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#635d5a] dark:text-stone-200 cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+</div>
+<h1 class="font-['Newsreader'] italic font-medium text-2xl text-[#635d5a] dark:text-[#C5A55A]">Laitly</h1>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant/20 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="User profile avatar of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfGetCGv8Z-Nhzs9MrPZxXloG68DfksncdZ85DMuvfS3PapK8ajftxiJqYucotMViV2dDKwX1jOtvpIYztOjczc8PyUvyfiK8fduRNT_E115Pyi3wkToGtevlbRCyOmjTRBJrtKkrMvjbesMEEzTXVrFDkHXMGe0BSTGTja4Bg09Y0Lm4v1V3MsxnKKN3Xca-dzlMDsIjjmipSJtgRa3PwsmiAFteIKoYk2ZOwG7gbWNh8konuFBLo8gtZjQOybo9cuKpinZC5pns"/>
+</div>
+</header>
+<main class="flex-1 pt-24 pb-32 px-6 max-w-lg mx-auto w-full">
+<!-- Editorial Quote / Header -->
+<div class="mb-10 text-center">
+<span class="font-label text-[10px] uppercase tracking-[0.15rem] text-on-surface-variant font-bold mb-2 block">Quick Log</span>
+<h2 class="font-headline text-3xl italic text-on-surface">Milk Movement</h2>
+</div>
+<!-- Toggle Section -->
+<div class="grid grid-cols-3 gap-2 mb-10">
+<button class="py-4 px-2 bg-primary text-on-primary rounded-lg text-[10px] font-bold tracking-widest uppercase transition-all shadow-sm">
+                ADD MILK
+            </button>
+<button class="py-4 px-2 border border-outline-variant/40 text-on-surface-variant rounded-lg text-[10px] font-bold tracking-widest uppercase hover:bg-surface-container-low transition-all">
+                MOVE MILK
+            </button>
+<button class="py-4 px-2 border border-outline-variant/40 text-on-surface-variant rounded-lg text-[10px] font-bold tracking-widest uppercase hover:bg-surface-container-low transition-all">
+                USED MILK
+            </button>
+</div>
+<!-- Input Section -->
+<div class="space-y-6">
+<!-- Amount -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-2 border-secondary-fixed-dim transition-all">
+<label class="font-label text-[10px] uppercase tracking-[0.15rem] text-on-surface-variant font-bold mb-4 block">Amount</label>
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-4xl text-on-surface">3.5</span>
+<span class="font-body text-lg text-on-surface-variant">oz</span>
+</div>
+</div>
+<!-- Grid Layout for Source & Destination -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-secondary-fixed-dim/30">
+<label class="font-label text-[10px] uppercase tracking-[0.15rem] text-on-surface-variant font-bold mb-4 block">Source</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary scale-90">adjust</span>
+<span class="font-body text-sm font-bold text-on-surface">Pump (L&amp;R)</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl border-l-2 border-secondary-fixed-dim/30">
+<label class="font-label text-[10px] uppercase tracking-[0.15rem] text-on-surface-variant font-bold mb-4 block">Destination</label>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary scale-90">kitchen</span>
+<span class="font-body text-sm font-bold text-on-surface">Fridge</span>
+</div>
+</div>
+</div>
+<!-- Timestamp -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border-l-2 border-secondary-fixed-dim flex justify-between items-center">
+<div>
+<label class="font-label text-[10px] uppercase tracking-[0.15rem] text-on-surface-variant font-bold mb-1 block">Timestamp</label>
+<span class="font-body text-md font-bold text-on-surface">Just now</span>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Primary CTA -->
+<div class="mt-12">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold text-base rounded-lg tracking-widest flex items-center justify-center gap-3 active:scale-[0.98] transition-transform shadow-lg shadow-on-surface/5">
+                LOG SESSION
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<p class="text-center mt-6 font-headline italic text-on-surface-variant text-sm px-8">
+                "Small steps today create a healthy flow for tomorrow."
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-2 pb-safe h-20 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl z-50 border-t border-[#635d5a]/10 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="03-home-mother.html">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] scale-110 transition-transform" href="10-movement.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">sync</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Movement</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="08-lait-storage.html">
+<span class="material-symbols-outlined mb-1">opacity</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Lait</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="09-guides.html">
+<span class="material-symbols-outlined mb-1">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Guides</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-400 opacity-60 hover:text-[#C5A55A] transition-colors active:scale-90" href="12-me-strategy.html">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-widest">Me</span>
+</a>
+</nav>
+</body></html>

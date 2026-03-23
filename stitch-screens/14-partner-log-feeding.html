@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Laitly - Log Entry</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-fixed": "#e9e1dc",
+              "inverse-on-surface": "#f2f1ec",
+              "on-tertiary-container": "#483c1b",
+              "on-primary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#dbdad5",
+              "primary-container": "#afa7a3",
+              "secondary": "#745b17",
+              "inverse-primary": "#cdc5c0",
+              "tertiary": "#6b5d38",
+              "outline-variant": "#d0c5b4",
+              "on-surface": "#1b1c19",
+              "on-error": "#ffffff",
+              "tertiary-container": "#b8a77c",
+              "on-secondary-container": "#795f1b",
+              "on-primary-fixed": "#1e1b18",
+              "surface-container": "#f0eee9",
+              "primary-fixed-dim": "#cdc5c0",
+              "error": "#ba1a1a",
+              "background": "#fbf9f4",
+              "on-primary-container": "#413d3a",
+              "on-background": "#1b1c19",
+              "inverse-surface": "#30312e",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#f5f3ee",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-secondary-fixed": "#251a00",
+              "surface-bright": "#fbf9f4",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed-variant": "#5a4300",
+              "on-error-container": "#93000a",
+              "surface-tint": "#635d5a",
+              "surface": "#fbf9f4",
+              "surface-variant": "#e4e2dd",
+              "tertiary-fixed": "#f4e1b2",
+              "outline": "#7e7667",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-container-high": "#eae8e3",
+              "secondary-fixed-dim": "#e5c374",
+              "primary": "#635d5a",
+              "secondary-fixed": "#ffdf99",
+              "on-tertiary-fixed": "#241a00",
+              "on-surface-variant": "#4d4639",
+              "on-primary-fixed-variant": "#4b4642",
+              "secondary-container": "#ffdc8c",
+              "surface-container-highest": "#e4e2dd",
+              "error-container": "#ffdad6"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #fbf9f4;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#fbf9f4] dark:bg-stone-900 sticky top-0 z-50">
+<div class="flex items-center justify-between w-full px-6 py-4 max-w-screen-xl mx-auto">
+<button class="text-[#635d5a] dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors p-2 rounded-full Active:opacity-70 Active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Newsreader'] font-medium text-2xl tracking-tight text-[#635d5a] dark:text-stone-200">Log Entry</h1>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+<div class="bg-[#f5f3ee] dark:bg-stone-800 h-px w-full"></div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow max-w-lg mx-auto w-full px-6 py-8 flex flex-col gap-10">
+<!-- Amount Section (Editorial Bento Style) -->
+<section class="flex flex-col gap-4">
+<h2 class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem] text-primary/60">Amount</h2>
+<div class="relative bg-surface-container-lowest border-l-2 border-secondary-fixed-dim p-10 flex flex-col items-center justify-center rounded-xl shadow-[0_4px_32px_rgba(27,28,25,0.04)]">
+<div class="flex items-baseline gap-2">
+<span class="font-headline text-7xl font-medium text-primary">4.5</span>
+<span class="font-label text-xl font-bold text-secondary-fixed-dim uppercase tracking-widest">oz</span>
+</div>
+<!-- Quick Stepper Icons -->
+<div class="flex gap-12 mt-8">
+<button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="remove">remove</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Time Section (Asymmetric Editorial Style) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-3">
+<h2 class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem] text-primary/60">Logged At</h2>
+<div class="flex items-center gap-3 bg-surface-container-low p-4 rounded-xl border-l-2 border-secondary-fixed-dim">
+<span class="material-symbols-outlined text-secondary" data-icon="schedule">schedule</span>
+<span class="font-body text-sm font-medium text-primary">Just now</span>
+<button class="ml-auto text-primary/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<!-- Contextual Tip (Editorial Quote Component) -->
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col justify-center italic text-center">
+<p class="font-headline text-primary/80 leading-snug">"Consistent tracking helps establish healthy patterns for your little one."</p>
+</div>
+</section>
+<!-- Notes Section -->
+<section class="flex flex-col gap-4">
+<h2 class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem] text-primary/60">Notes</h2>
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim rounded-xl p-1 shadow-[0_4px_32px_rgba(27,28,25,0.04)]">
+<textarea class="w-full bg-transparent border-none focus:ring-0 font-body text-sm p-4 min-h-[120px] resize-none text-primary" placeholder="e.g., Ate well, fussy today..."></textarea>
+</div>
+</section>
+<!-- Large Keypad for Mobile Convenience (Tactile Feel) -->
+<section class="grid grid-cols-3 gap-2 mt-4 max-w-sm mx-auto w-full md:hidden">
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">1</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">2</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">3</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">4</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">5</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">6</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">7</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">8</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">9</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">.</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">0</button>
+<button class="h-14 flex items-center justify-center bg-surface-container-low rounded-lg font-body font-bold text-lg text-primary hover:bg-primary/5 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="backspace">backspace</span>
+</button>
+</section>
+<!-- Primary Action -->
+<div class="mt-8 mb-24">
+<button class="w-full bg-[#635d5a] bg-gradient-to-r from-[#635d5a] to-[#afa7a3] text-white font-['Manrope'] font-bold text-base py-5 rounded-xl shadow-[0_4px_32px_rgba(27,28,25,0.12)] active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Log Feeding
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Suppressed for focused task logic as per instructions, but placeholder provided for reference if it were top-level) -->
+<!-- Nav is suppressed here because this is a "Task-Focused" screen (Log Entry) -->
+<!-- Navigation logic would usually sit here if this were the Feed screen -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-2 bg-[#fbf9f4]/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_-4px_32px_rgba(27,28,25,0.04)] border-t border-stone-200/20">
+<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
+<span class="material-symbols-outlined" data-icon="child_care">child_care</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Feed</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#635d5a] dark:text-stone-100 font-bold bg-[#f5f3ee] dark:bg-stone-800 rounded-xl px-3 py-1 scale-90 duration-200 ease-out">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Log</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Guides</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#635d5a]/60 dark:text-stone-400 px-3 py-1 hover:text-[#C5A55A] dark:hover:text-[#e5c374] transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Manrope'] font-bold text-[10px] uppercase tracking-[0.15rem]">Profile</span>
+</div>
+</nav>
+</body></html>

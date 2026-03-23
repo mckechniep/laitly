@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laitly — Development Proposal</title>
+  <meta name="description" content="Development proposal for Laitly — a breastfeeding companion app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #faf9f6;
+      --bg-warm: #f4f0e9;
+      --text: #1a1a1a;
+      --text-2: #6e6e6e;
+      --text-3: #a0a0a0;
+      --border: #dedad2;
+      --gold: #B8962A;
+      --gold-lt: #d4b44a;
+      --dark: #111;
+      --dark-text: #f0ebe0;
+      --dark-muted: #777;
+      --dark-border: rgba(255,255,255,0.07);
+      --heading: 'Syne', system-ui, sans-serif;
+      --body: 'Outfit', system-ui, sans-serif;
+      --brand: Georgia, 'Times New Roman', serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(184,150,42,0.15); }
+
+    h2 {
+      font: 700 clamp(2rem, 4vw, 2.8rem)/1.15 var(--heading);
+      letter-spacing: -0.02em; color: var(--text);
+    }
+    h3 {
+      font: 600 1.15rem/1.35 var(--heading);
+      letter-spacing: -0.01em; color: var(--text);
+    }
+    p { font: 300 1rem/1.75 var(--body); color: var(--text-2); }
+    .label {
+      font: 600 0.6875rem/1 var(--body);
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 16px;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    section { padding: clamp(72px, 10vw, 120px) 0; }
+    .section-head { margin-bottom: clamp(40px, 5vw, 60px); }
+
+    /* ── Reveals ── */
+    .rv {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .rv.vis { opacity: 1; transform: none; }
+    .rvs > .rv:nth-child(2) { transition-delay: 0.06s; }
+    .rvs > .rv:nth-child(3) { transition-delay: 0.12s; }
+    .rvs > .rv:nth-child(4) { transition-delay: 0.18s; }
+    .rvs > .rv:nth-child(5) { transition-delay: 0.24s; }
+    .rvs > .rv:nth-child(6) { transition-delay: 0.30s; }
+
+    /* ── Nav ── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      opacity: 0; transform: translateY(-100%);
+      transition: opacity 0.35s, transform 0.35s;
+    }
+    #nav.show { opacity: 1; transform: none; }
+    .nav-bg {
+      position: absolute; inset: 0;
+      background: rgba(250,249,246,0.93);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-inner {
+      max-width: 960px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; position: relative; z-index: 1;
+    }
+    .nav-mark {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-mark img { width: 24px; height: 24px; border-radius: 4px; }
+    .nav-mark span {
+      font: 600 0.625rem/1 var(--body);
+      letter-spacing: 0.14em; color: var(--text-3); text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      font: 400 0.8125rem/1 var(--body);
+      color: var(--text-2); text-decoration: none; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ══════════════════════════════
+       HERO
+       ══════════════════════════════ */
+    #hero {
+      min-height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(184,150,42,0.07) 0%, transparent 55%),
+        var(--dark);
+      color: var(--dark-text); position: relative;
+    }
+    #hero::after {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.35) 100%);
+    }
+    #hero > * { position: relative; z-index: 1; }
+    .hero-logo {
+      width: 72px; height: 72px; margin-bottom: 40px;
+      filter: drop-shadow(0 0 48px rgba(184,150,42,0.25));
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-title {
+      font: bold clamp(3rem, 10vw, 7rem)/0.95 var(--brand);
+      letter-spacing: 0.2em; color: var(--dark-text);
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero-sep {
+      width: 1px; height: 40px; background: var(--gold);
+      margin: 36px auto;
+      animation: fadeUp 0.7s ease 0.25s both;
+    }
+    .hero-sub {
+      font: 300 0.9375rem/1 var(--body);
+      letter-spacing: 0.06em; color: var(--dark-muted);
+      animation: fadeUp 0.7s ease 0.35s both;
+    }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      animation: fadeUp 0.7s ease 0.7s both;
+    }
+    .hero-scroll span {
+      font: 400 0.5rem/1 var(--body);
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--dark-muted);
+    }
+    .hero-scroll svg {
+      width: 12px; height: 12px; stroke: var(--gold);
+      stroke-width: 2; fill: none; animation: drift 2.5s ease infinite;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateY(0); opacity: 0.6; }
+      50% { transform: translateY(5px); opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ══════════════════════════════
+       PROBLEM
+       ══════════════════════════════ */
+    .problem-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 80px); align-items: start;
+    }
+    .problem-left h2 { margin-bottom: 40px; }
+    .stat-block { border-top: 1px solid var(--border); padding-top: 32px; }
+    .stat-num {
+      font: 800 clamp(3rem, 7vw, 4.5rem)/0.9 var(--heading);
+      color: var(--gold); letter-spacing: -0.03em; display: block; margin-bottom: 12px;
+    }
+    .stat-block p { max-width: 340px; font-size: 0.9375rem; }
+    .pain-list { padding-top: 4px; }
+    .pain-item {
+      padding: 20px 0; border-bottom: 1px solid var(--border);
+      transition: padding-left 0.3s var(--ease);
+    }
+    .pain-item:hover { padding-left: 8px; }
+    .pain-item:first-child { border-top: 1px solid var(--border); }
+    .pain-q {
+      font: 500 1.05rem/1.4 var(--heading);
+      color: var(--text); margin-bottom: 3px;
+    }
+    .pain-a { font: 400 0.875rem/1.5 var(--body); color: var(--gold); margin: 0; }
+
+    /* ══════════════════════════════
+       MISSION
+       ══════════════════════════════ */
+    #mission {
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(184,150,42,0.04) 0%, transparent 50%),
+        var(--dark);
+      color: var(--dark-text); text-align: center;
+    }
+    .mission-line {
+      width: 28px; height: 2px; background: var(--gold); margin: 0 auto 40px;
+    }
+    #mission blockquote {
+      font: 600 clamp(1.4rem, 2.8vw, 1.9rem)/1.4 var(--heading);
+      color: var(--dark-text); max-width: 660px; margin: 0 auto 28px;
+      letter-spacing: -0.01em;
+    }
+    .mission-body {
+      max-width: 520px; margin: 0 auto;
+      font-size: 0.9375rem; color: var(--dark-muted);
+    }
+
+    /* ══════════════════════════════
+       FEATURES
+       ══════════════════════════════ */
+    .feature-list { border-top: 1px solid var(--border); }
+    .fl-row {
+      display: grid; grid-template-columns: 56px 1fr;
+      gap: 20px; padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      transition: padding-left 0.35s var(--ease);
+    }
+    .fl-row:hover { padding-left: 12px; }
+    .fl-num {
+      font: 800 1.5rem/1 var(--heading);
+      color: var(--border); transition: color 0.35s var(--ease);
+      padding-top: 1px;
+    }
+    .fl-row:hover .fl-num { color: var(--gold); }
+    .fl-row:hover { border-bottom-color: var(--gold); }
+    .fl-text h3 { margin-bottom: 4px; }
+    .fl-text p { font-size: 0.9375rem; margin: 0; max-width: 480px; }
+
+    /* ══════════════════════════════
+       SCOPE
+       ══════════════════════════════ */
+    #scope { background: var(--bg-warm); }
+    .scope-cols {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    }
+    .scope-col {
+      padding: 0 28px; border-left: 1px solid var(--border);
+    }
+    .scope-col:first-child { border-left: none; padding-left: 0; }
+    .scope-col:last-child { padding-right: 0; }
+    .scope-col h3 {
+      font: 600 0.6875rem/1 var(--body);
+      letter-spacing: 0.13em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+      padding-bottom: 14px; border-bottom: 1px solid var(--border);
+    }
+    .scope-col ul { list-style: none; }
+    .scope-col li {
+      font: 300 0.875rem/1.6 var(--body); color: var(--text-2);
+      padding: 3px 0 3px 12px; position: relative;
+    }
+    .scope-col li::before {
+      content: ''; position: absolute; left: 0; top: 10px;
+      width: 3px; height: 3px; border-radius: 50%; background: var(--border);
+    }
+    .scope-col.v1 li { color: var(--text); }
+    .scope-col.v1 li::before { background: var(--gold); }
+    .scope-col.out { opacity: 0.55; }
+
+    /* ══════════════════════════════
+       TIMELINE
+       ══════════════════════════════ */
+    .tl { max-width: 580px; }
+    .tl-row {
+      display: grid; grid-template-columns: 12px 1fr;
+      gap: 24px; padding-bottom: 40px; position: relative;
+    }
+    .tl-row:not(:last-child)::after {
+      content: ''; position: absolute;
+      left: 5px; top: 20px; bottom: 0; width: 1px;
+      background: var(--border);
+    }
+    .tl-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid var(--gold); background: var(--bg);
+      position: relative; z-index: 1; margin-top: 4px;
+    }
+    .tl-week {
+      font: 700 0.625rem/1 var(--body);
+      letter-spacing: 0.14em; color: var(--gold);
+      display: block; margin-bottom: 4px;
+    }
+    .tl-content h3 { margin-bottom: 10px; }
+    .tl-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tl-tags span {
+      font: 300 0.8125rem/1 var(--body); color: var(--text-2);
+      border: 1px solid var(--border); border-radius: 100px; padding: 4px 10px;
+    }
+
+    /* ══════════════════════════════
+       INVESTMENT
+       ══════════════════════════════ */
+    #invest { background: var(--bg-warm); }
+    .invest-intro { text-align: center; }
+    .invest-intro p {
+      font-size: 0.9375rem; color: var(--text-2);
+      max-width: 380px; margin: 0 auto;
+    }
+    .tiers {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 16px; margin-bottom: 56px; max-width: 640px; margin-left: auto; margin-right: auto;
+    }
+    .tier {
+      padding: 28px 24px; border: 1px solid var(--border);
+      border-radius: 10px; background: var(--bg);
+      text-align: left; position: relative;
+      transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+    }
+    .tier:hover { transform: translateY(-2px); }
+    .tier.rec {
+      border: 2px solid var(--gold);
+      box-shadow: 0 8px 32px rgba(184,150,42,0.08);
+    }
+    .tier-badge {
+      font: 700 0.5625rem/1 var(--body);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 20px;
+      min-height: 0.5625rem;
+    }
+    .tier-price {
+      font: 800 clamp(1.75rem, 3vw, 2.25rem)/1 var(--heading);
+      color: var(--text); display: block; margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .tier-dur {
+      font: 300 0.875rem/1 var(--body);
+      color: var(--text-2); display: block; margin-bottom: 20px;
+    }
+    .tier-desc {
+      font: 300 0.8125rem/1.55 var(--body); color: var(--text-2);
+      border-top: 1px solid var(--border); padding-top: 16px; margin: 0;
+    }
+    .ms-heading {
+      font: 600 0.6875rem/1 var(--body);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); text-align: center;
+      margin-bottom: 24px;
+    }
+    .ms-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; text-align: left; margin-bottom: 40px;
+    }
+    .ms-col {
+      padding: 0 20px;
+      border-left: 2px solid var(--gold);
+    }
+    .ms-col:first-child { padding-left: 0; border-left: none; }
+    .ms-col:last-child { padding-right: 0; }
+    .ms-label {
+      font: 700 0.625rem/1 var(--body);
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 10px;
+    }
+    .ms-amt {
+      font: 800 clamp(1.3rem, 2.5vw, 1.75rem)/1 var(--heading);
+      color: var(--text); display: block; margin-bottom: 3px;
+      letter-spacing: -0.02em;
+    }
+    .ms-when {
+      font: 300 0.75rem/1 var(--body);
+      color: var(--text-3); display: block; margin-bottom: 14px;
+    }
+    .ms-desc {
+      font: 300 0.8125rem/1.5 var(--body); color: var(--text-2);
+      border-top: 1px solid var(--border); padding-top: 12px; margin: 0;
+    }
+    .fine {
+      font-size: 0.75rem !important; color: var(--text-3) !important;
+      text-align: center;
+    }
+
+    /* ══════════════════════════════
+       CTA
+       ══════════════════════════════ */
+    #cta {
+      background:
+        radial-gradient(ellipse at 50% 60%, rgba(184,150,42,0.05) 0%, transparent 50%),
+        var(--dark);
+      color: var(--dark-text);
+      text-align: center; padding-bottom: clamp(80px, 12vw, 140px);
+    }
+    .cta-logo { width: 56px; height: 56px; margin-bottom: 36px; }
+    .cta-line {
+      font: 700 clamp(1.8rem, 4vw, 2.6rem)/1.2 var(--heading);
+      color: var(--dark-text); margin-bottom: 0; letter-spacing: -0.02em;
+    }
+    .cta-line .gold { color: var(--gold-lt); }
+    .cta-sep {
+      width: 1px; height: 32px; background: var(--gold); margin: 32px auto;
+    }
+    .cta-prompt {
+      font: 300 1rem/1 var(--body); color: var(--dark-muted); margin-bottom: 28px;
+    }
+    .cta-btn {
+      display: inline-block;
+      font: 600 0.75rem/1 var(--body);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--dark); text-decoration: none;
+      background: var(--gold-lt); padding: 16px 44px;
+      border-radius: 100px;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(184,150,42,0.22);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark); text-align: center; padding: 28px;
+      border-top: 1px solid var(--dark-border);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .footer-logo { width: 20px; height: 20px; border-radius: 3px; opacity: 0.5; }
+    footer p { font-size: 0.625rem; color: var(--dark-muted); margin: 0; letter-spacing: 0.06em; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .tiers { grid-template-columns: 1fr; max-width: 360px; }
+      .ms-grid { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+      .ms-col { border-left: none; padding: 0; border-top: 2px solid var(--gold); padding-top: 16px; }
+      .ms-col:first-child { border-top: 2px solid var(--gold); padding-top: 16px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .problem-layout { grid-template-columns: 1fr; gap: 40px; }
+      .scope-cols { grid-template-columns: 1fr; gap: 32px; }
+      .scope-col { padding: 0; border-left: none; border-top: 1px solid var(--border); padding-top: 20px; }
+      .scope-col:first-child { border-top: none; padding-top: 0; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 20px; }
+      .ms-grid { grid-template-columns: 1fr; }
+      .fl-row { grid-template-columns: 40px 1fr; gap: 14px; }
+    }
+    /* ── Focus ── */
+    .nav-links a:focus-visible,
+    .cta-btn:focus-visible {
+      outline: 2px solid var(--gold); outline-offset: 3px;
+    }
+    @media print {
+      .rv { opacity: 1 !important; transform: none !important; }
+      #nav, .hero-scroll { display: none; }
+      section { padding: 36px 0; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <div class="nav-bg"></div>
+    <div class="nav-inner">
+      <div class="nav-mark">
+        <img src="logo-neon-darker-v4.png" alt="LX">
+        <span>LX</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#scope">Scope</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#invest">Investment</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <img src="laitly-logo-no-bg.png" alt="Laitly" class="hero-logo">
+    <h1 class="hero-title">LAITLY</h1>
+    <div class="hero-sep"></div>
+    <p class="hero-sub">Development Proposal &middot; March 2026</p>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="problem-layout">
+        <div class="problem-left">
+          <div class="rv">
+            <span class="label">The Problem</span>
+            <h2>Every mother is doing this math in her head.</h2>
+          </div>
+          <div class="stat-block rv">
+            <span class="stat-num">1 in 3</span>
+            <p>breastfeeding mothers stop earlier than intended &mdash; not because they wanted to, but because the logistics overwhelmed them.</p>
+          </div>
+        </div>
+        <div class="pain-list rvs">
+          <div class="pain-item rv">
+            <p class="pain-q">&ldquo;How many oz do I have stored?&rdquo;</p>
+            <p class="pain-a">Counted by hand, from memory.</p>
+          </div>
+          <div class="pain-item rv">
+            <p class="pain-q">&ldquo;Will it expire before I use it?&rdquo;</p>
+            <p class="pain-a">Guessed, then panicked.</p>
+          </div>
+          <div class="pain-item rv">
+            <p class="pain-q">&ldquo;Do I have enough for work?&rdquo;</p>
+            <p class="pain-a">Calculated at 3am.</p>
+          </div>
+          <div class="pain-item rv">
+            <p class="pain-q">&ldquo;Should I pump again before I leave?&rdquo;</p>
+            <p class="pain-a">No one tells her.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="container rv">
+      <div class="mission-line"></div>
+      <blockquote>Laitly takes the mental load of breastfeeding off a mother&rsquo;s plate &mdash; so she can just be present.</blockquote>
+      <p class="mission-body">Every mother who chooses to breastfeed deserves support that actually works. Not a forum. Not a Google search at 3am. Laitly exists to do the milk math, track the movement, protect the supply, and plan for the moments away.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="label">What We&rsquo;re Building</span>
+        <h2>Five features. Each one essential.</h2>
+      </div>
+      <div class="feature-list rvs">
+        <div class="fl-row rv">
+          <span class="fl-num">01</span>
+          <div class="fl-text">
+            <h3>Milk Movement</h3>
+            <p>Log every pump, bottle feed, and storage transfer in under 10 seconds.</p>
+          </div>
+        </div>
+        <div class="fl-row rv">
+          <span class="fl-num">02</span>
+          <div class="fl-text">
+            <h3>Milk Math</h3>
+            <p>Always know exactly how many oz are stored, where, and how long they&rsquo;ll last.</p>
+          </div>
+        </div>
+        <div class="fl-row rv">
+          <span class="fl-num">03</span>
+          <div class="fl-text">
+            <h3>Strategy</h3>
+            <p>Plan for work, trips, and hours away with real oz targets based on baby&rsquo;s intake.</p>
+          </div>
+        </div>
+        <div class="fl-row rv">
+          <span class="fl-num">04</span>
+          <div class="fl-text">
+            <h3>Guides &amp; FAQs</h3>
+            <p>AAP-backed answers, how-to&rsquo;s, and community-reviewed best practices in one place.</p>
+          </div>
+        </div>
+        <div class="fl-row rv">
+          <span class="fl-num">05</span>
+          <div class="fl-text">
+            <h3>Me</h3>
+            <p>Her profile, baby&rsquo;s numbers, goals, reminders, and partner access &mdash; all controlled by her.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section id="scope">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="label">Scope</span>
+        <h2>Clear boundaries. Focused delivery.</h2>
+      </div>
+      <div class="scope-cols rvs">
+        <div class="scope-col v1 rv">
+          <h3>Phase 1 &middot; v1.0.0</h3>
+          <ul>
+            <li>Milk movement logging (add / move / use)</li>
+            <li>Lait tab with oz / bottle / days toggle</li>
+            <li>Fridge + freezer inventory tracking</li>
+            <li>Expiry alerts &amp; notifications</li>
+            <li>Baby intake profile</li>
+            <li>RTW &amp; trip strategy planner</li>
+            <li>Home dashboard with LTD counter</li>
+            <li>Partner / caregiver view</li>
+            <li>Guides content section</li>
+            <li>iOS + Android</li>
+          </ul>
+        </div>
+        <div class="scope-col rv">
+          <h3>Phase 2 &middot; v2.0.0</h3>
+          <ul>
+            <li>Camera-assisted bag scanning</li>
+            <li>Auto-depletion prompts</li>
+            <li>Deep freezer as third tier</li>
+            <li>Pump integration (Willow, Elvie)</li>
+            <li>Weekly update reminders</li>
+            <li>Push notification system</li>
+            <li>Gift subscription flow</li>
+            <li>HSA / FSA payment flow</li>
+          </ul>
+        </div>
+        <div class="scope-col out rv">
+          <h3>Out of Scope &middot; v3.0.0</h3>
+          <ul>
+            <li>Social / community features</li>
+            <li>Baby health tracking</li>
+            <li>Formula tracking</li>
+            <li>Wearable integration</li>
+            <li>Web app</li>
+            <li>Android-first launch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="container">
+      <div class="section-head rv">
+        <span class="label">Timeline</span>
+        <h2>Eight weeks. Four milestones.</h2>
+      </div>
+      <div class="tl">
+        <div class="tl-row rv">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-week">WEEK 1 &mdash; 2</span>
+            <h3>Discovery &amp; Design</h3>
+            <div class="tl-tags"><span>Brand alignment</span><span>Design system</span><span>Architecture</span><span>Database schema</span><span>Dev environment</span></div>
+          </div>
+        </div>
+        <div class="tl-row rv">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-week">WEEK 3 &mdash; 4</span>
+            <h3>Core Engine</h3>
+            <div class="tl-tags"><span>Movement tab</span><span>Lait tab</span><span>Storage logic</span><span>Calculations</span><span>Expiry tracking</span></div>
+          </div>
+        </div>
+        <div class="tl-row rv">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-week">WEEK 5 &mdash; 6</span>
+            <h3>Full Build</h3>
+            <div class="tl-tags"><span>Home dashboard</span><span>Guides</span><span>Me + Strategy</span><span>Partner view</span><span>Notifications</span></div>
+          </div>
+        </div>
+        <div class="tl-row rv">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <span class="tl-week">WEEK 7 &mdash; 8</span>
+            <h3>Launch &amp; Deploy</h3>
+            <div class="tl-tags"><span>QA &amp; testing</span><span>iOS deploy</span><span>Android deploy</span><span>Performance</span><span>Final polish</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTMENT -->
+  <section id="invest">
+    <div class="container">
+      <div class="section-head invest-intro rv">
+        <span class="label">Investment</span>
+        <h2>Same scope. Choose your pace.</h2>
+        <p>Every option delivers the full v1.0.0. The difference is speed.</p>
+      </div>
+
+      <div class="tiers rvs">
+        <div class="tier rec rv">
+          <span class="tier-badge">Recommended</span>
+          <span class="tier-price">$10,000</span>
+          <span class="tier-dur">8 weeks</span>
+          <p class="tier-desc">Full team, parallel workstreams. Fastest path to launch.</p>
+        </div>
+        <div class="tier rv">
+          <span class="tier-badge">&nbsp;</span>
+          <span class="tier-price">$8,000</span>
+          <span class="tier-dur">16 weeks</span>
+          <p class="tier-desc">Sequential build. Same deliverable, measured pace.</p>
+        </div>
+      </div>
+
+      <p class="ms-heading rv">8-Week Milestone Breakdown</p>
+      <div class="ms-grid rvs">
+        <div class="ms-col rv">
+          <span class="ms-label">Signing</span>
+          <span class="ms-amt">$2,000</span>
+          <span class="ms-when">Upon agreement</span>
+          <p class="ms-desc">Kickoff, discovery, architecture &amp; design system</p>
+        </div>
+        <div class="ms-col rv">
+          <span class="ms-label">Core Engine</span>
+          <span class="ms-amt">$3,000</span>
+          <span class="ms-when">Week 4</span>
+          <p class="ms-desc">Movement + Lait tabs live, storage logic complete</p>
+        </div>
+        <div class="ms-col rv">
+          <span class="ms-label">Full Build</span>
+          <span class="ms-amt">$3,000</span>
+          <span class="ms-when">Week 6</span>
+          <p class="ms-desc">All tabs, partner view, strategy planner, guides</p>
+        </div>
+        <div class="ms-col rv">
+          <span class="ms-label">Launch</span>
+          <span class="ms-amt">$2,000</span>
+          <span class="ms-when">Week 8</span>
+          <p class="ms-desc">QA, polish, iOS + Android deploy, handoff</p>
+        </div>
+      </div>
+      <p class="fine rv">Payment schedules are flexible across all options. Timeline assumes timely feedback. Scope changes may affect cost.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <img src="laitly-logo-no-bg.png" alt="Laitly" class="cta-logo rv">
+      <h2 class="cta-line rv">We carry the details.<br><span class="gold">You carry the baby.</span></h2>
+      <div class="cta-sep rv"></div>
+      <p class="cta-prompt rv">Ready to begin?</p>
+      <a href="#" class="cta-btn rv">Let&rsquo;s Talk</a>
+    </div>
+  </section>
+
+  <footer>
+    <img src="logo-neon-darker-v4.png" alt="LX" class="footer-logo">
+    <p>Prepared by LX &middot; 2026</p>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('vis');
+          if (e.target.dataset.count) countUp(e.target, +e.target.dataset.count);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    new IntersectionObserver(([e]) => {
+      document.getElementById('nav').classList.toggle('show', !e.isIntersecting);
+    }, { threshold: 0 }).observe(document.getElementById('hero'));
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    function countUp(el, target) {
+      let t0 = null;
+      el.textContent = '$0';
+      !function step(ts) {
+        if (!t0) t0 = ts;
+        const p = Math.min((ts - t0) / 1800, 1);
+        el.textContent = '$' + Math.floor((1 - Math.pow(1 - p, 3)) * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+      }(performance.now());
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary": "#745b17",
+              "primary-fixed": "#e9e1dc",
+              "on-surface": "#1b1c19",
+              "surface-variant": "#e4e2dd",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f5f3ee",
+              "surface-bright": "#fbf9f4",
+              "primary-fixed-dim": "#cdc5c0",
+              "outline": "#7e7667",
+              "on-primary-fixed": "#1e1b18",
+              "on-primary-container": "#413d3a",
+              "on-background": "#1b1c19",
+              "surface-dim": "#dbdad5",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#afa7a3",
+              "on-secondary": "#ffffff",
+              "inverse-on-surface": "#f2f1ec",
+              "background": "#fbf9f4",
+              "primary": "#635d5a",
+              "on-secondary-fixed-variant": "#5a4300",
+              "tertiary-fixed": "#f4e1b2",
+              "secondary-fixed-dim": "#e5c374",
+              "secondary-fixed": "#ffdf99",
+              "inverse-primary": "#cdc5c0",
+              "surface": "#fbf9f4",
+              "on-tertiary-container": "#483c1b",
+              "tertiary": "#6b5d38",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#241a00",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#b8a77c",
+              "on-surface-variant": "#4d4639",
+              "outline-variant": "#d0c5b4",
+              "on-secondary-fixed": "#251a00",
+              "surface-tint": "#635d5a",
+              "surface-container-highest": "#e4e2dd",
+              "error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#d7c598",
+              "surface-container-high": "#eae8e3",
+              "surface-container": "#f0eee9",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed-variant": "#524623",
+              "on-primary-fixed-variant": "#4b4642",
+              "on-secondary-container": "#795f1b",
+              "inverse-surface": "#30312e",
+              "secondary-container": "#ffdc8c",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        .editorial-shadow {
+            box-shadow: 0 4px 32px rgba(27, 28, 25, 0.04);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body min-h-screen pb-32">
+<!-- TopAppBar Shell -->
+<header class="sticky top-0 z-40 bg-[#fbf9f4] dark:bg-stone-950 flex items-center justify-between px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<button class="text-[#635d5a] dark:text-stone-200 hover:opacity-80 transition-opacity Active: scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="font-['Newsreader'] text-2xl font-medium tracking-tight text-[#635d5a] dark:text-stone-200">Milk Inventory</h1>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#635d5a]/60" data-icon="search">search</span>
+<span class="material-symbols-outlined text-[#635d5a]/60" data-icon="more_vert">more_vert</span>
+</div>
+</header>
+<div class="bg-[#f5f3ee] dark:bg-stone-900 h-px w-full"></div>
+<main class="max-w-2xl mx-auto px-6 pt-8 space-y-12">
+<!-- Section: Fridge -->
+<section>
+<header class="mb-6">
+<h2 class="font-['Manrope'] text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary">IN THE FRIDGE</h2>
+</header>
+<div class="space-y-4">
+<!-- Bag Card 1 -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow p-5 flex justify-between items-center group hover:bg-surface-container-low transition-colors duration-300">
+<div>
+<p class="font-body text-lg font-bold text-on-surface mb-1">4.0 oz</p>
+<p class="text-xs text-on-surface-variant font-medium">Collected Yesterday, 8:15 PM</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-[10px] font-bold uppercase tracking-wider text-secondary">Expires in 4h</p>
+</div>
+</div>
+<!-- Bag Card 2 -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow p-5 flex justify-between items-center group hover:bg-surface-container-low transition-colors duration-300">
+<div>
+<p class="font-body text-lg font-bold text-on-surface mb-1">4.5 oz</p>
+<p class="text-xs text-on-surface-variant font-medium">Collected Today, 6:00 AM</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<p class="text-[10px] font-bold uppercase tracking-wider text-secondary">Expires in 3 days</p>
+</div>
+</div>
+<!-- Bag Card 3 -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow p-5 flex justify-between items-center group hover:bg-surface-container-low transition-colors duration-300">
+<div>
+<p class="font-body text-lg font-bold text-on-surface mb-1">3.5 oz</p>
+<p class="text-xs text-on-surface-variant font-medium">Collected Today, 9:30 AM</p>
+</div>
+<div class="flex items-center gap-2 opacity-40">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<p class="text-[10px] font-bold uppercase tracking-wider text-primary">Freshly logged</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Freezer -->
+<section>
+<header class="mb-6">
+<h2 class="font-['Manrope'] text-[0.75rem] font-bold uppercase tracking-[0.15rem] text-primary">IN THE FREEZER</h2>
+</header>
+<div class="space-y-4">
+<!-- Special Brick Card -->
+<div class="relative overflow-hidden bg-primary-fixed editorial-shadow p-6 border-l-2 border-secondary-fixed-dim">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary/40" data-icon="inventory_2" style="font-size: 48px;">inventory_2</span>
+</div>
+<div class="relative z-10">
+<p class="text-[10px] font-bold uppercase tracking-[0.2rem] text-primary mb-2">Featured Collection</p>
+<p class="font-headline text-2xl font-medium text-on-primary-fixed mb-1">Milk Brick #4</p>
+<p class="font-body text-sm text-on-primary-fixed-variant">Contains 50 oz • 12 individual bags</p>
+</div>
+</div>
+<!-- Freezer Bag Card -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow p-5 flex justify-between items-center group hover:bg-surface-container-low transition-colors duration-300">
+<div>
+<p class="font-body text-lg font-bold text-on-surface mb-1">6.0 oz</p>
+<p class="text-xs text-on-surface-variant font-medium">Frozen July 12</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<p class="text-[10px] font-bold uppercase tracking-wider text-primary">Best by Jan 2026</p>
+</div>
+</div>
+<!-- Freezer Bag Card 2 -->
+<div class="bg-surface-container-lowest border-l-2 border-secondary-fixed-dim editorial-shadow p-5 flex justify-between items-center group hover:bg-surface-container-low transition-colors duration-300">
+<div>
+<p class="font-body text-lg font-bold text-on-surface mb-1">5.5 oz</p>
+<p class="text-xs text-on-surface-variant font-medium">Frozen July 10</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<p class="text-[10px] font-bold uppercase tracking-wider text-primary">Best by Jan 2026</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Custom Component: Editorial Quote -->
+<div class="bg-surface-container-low py-12 px-8 text-center rounded-xl">
+<p class="font-headline italic text-xl text-primary leading-relaxed max-w-sm mx-auto">
+                "The fridge is your active supply; the freezer is your peace of mind."
+            </p>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#fbf9f4]/80 dark:bg-stone-950/80 backdrop-blur-xl z-50 shadow-[0_-4px_32px_rgba(27,28,25,0.04)]">
+<a class="flex flex-col items-center justify-center text-[#635d5a]/40 dark:text-stone-500 hover:text-[#635d5a] transition-colors Active: translate-y-[-2px] duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="baby_changing_station">baby_changing_station</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-[0.15rem]">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a]/40 dark:text-stone-500 hover:text-[#635d5a] transition-colors Active: translate-y-[-2px] duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="edit_note">edit_note</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-[0.15rem]">Log</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#C5A55A] dark:text-[#e5c374] transition-colors Active: translate-y-[-2px] duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="inventory_2" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-[0.15rem]">Stash</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#635d5a]/40 dark:text-stone-500 hover:text-[#635d5a] transition-colors Active: translate-y-[-2px] duration-200" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="analytics">analytics</span>
+<span class="font-['Manrope'] text-[10px] font-bold uppercase tracking-[0.15rem]">Insights</span>
+</a>
+</nav>
+<!-- FAB (Suppressed based on Rules as this is a Details/Inventory screen, but keeping for design completion if intended for home) -->
+<!-- Suppressed: Task-Focused Details screen -->
+</body></html>
