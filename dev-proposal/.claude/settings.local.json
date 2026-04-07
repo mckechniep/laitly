@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.lenox-systems.com)",
+      "Bash(cp /mnt/wsl/Ubuntu/home/mckechniep/lenox-systems/logo-neon-darker-v4.png /home/mckechniep/projects/laitly/dev-proposal/logo-neon-darker-v4.png)",
+      "Read(//home/mckechniep/lenox-systems/**)",
+      "Read(//home/mckechniep/**)",
+      "Bash(python3:*)",
+      "WebFetch(domain:lenox-systems.com)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "resend"
+  ]
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laitly — Service Level Agreement ($10,000)</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #ffffff;
+      --bg-warm: #f5f5f5;
+      --text: #1a1a1a;
+      --text-2: #6e6e6e;
+      --text-3: #a0a0a0;
+      --border: #e0e0e0;
+      --accent: #32373c;
+      --accent-lt: #32373c;
+      --heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+    ::selection { background: rgba(50,55,60,0.15); }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 32px; }
+
+    /* Header */
+    .sla-header {
+      background: #0a0a0a;
+      color: #ffffff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .sla-header img { width: 48px; height: 48px; margin-bottom: 24px; }
+    .sla-header h1 {
+      font: 700 clamp(1.6rem, 3vw, 2.2rem)/1.2 var(--heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .sla-header .subtitle {
+      font: 400 0.9375rem/1.4 var(--body);
+      color: #bbb;
+      letter-spacing: 0.04em;
+    }
+    .sla-header .tier-badge {
+      display: inline-block;
+      font: 700 0.625rem/1 var(--body);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: var(--accent-lt);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-top: 20px;
+    }
+
+    /* Sections */
+    .sla-section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .sla-section:last-of-type { border-bottom: none; }
+    .sla-section h2 {
+      font: 700 1.25rem/1.3 var(--heading);
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .sla-section h2 .num {
+      font: 800 0.75rem/1 var(--body);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .sla-section p {
+      font: 300 0.9375rem/1.75 var(--body);
+      color: var(--text-2);
+      margin-bottom: 12px;
+    }
+    .sla-section p:last-child { margin-bottom: 0; }
+    .sla-section ul {
+      list-style: none;
+      margin: 12px 0;
+    }
+    .sla-section li {
+      font: 300 0.9375rem/1.7 var(--body);
+      color: var(--text-2);
+      padding: 4px 0 4px 16px;
+      position: relative;
+    }
+    .sla-section li::before {
+      content: '';
+      position: absolute; left: 0; top: 12px;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Payment table */
+    .payment-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+    }
+    .payment-table .nowrap { white-space: nowrap; }
+    .payment-table th {
+      font: 600 0.6875rem/1 var(--body);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: left;
+      padding: 12px 16px 12px 0;
+      border-bottom: 2px solid var(--accent);
+    }
+    .payment-table th:last-child { padding-right: 0; }
+    .payment-table td {
+      font: 300 0.9375rem/1.5 var(--body);
+      color: var(--text-2);
+      padding: 14px 16px 14px 0;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .payment-table td:last-child { padding-right: 0; }
+    .payment-table td:nth-child(2) {
+      font-weight: 600;
+      color: var(--text);
+    }
+    .payment-table .total td {
+      font-weight: 700;
+      color: var(--text);
+      border-bottom: 2px solid var(--text);
+      border-top: 2px solid var(--text);
+    }
+    .blank {
+      display: inline-block;
+      min-width: 80px;
+      border-bottom: 1px dashed var(--text-3);
+      color: var(--text-3);
+      font-style: italic;
+      font-size: 0.8125rem;
+    }
+
+    /* Signature block */
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 32px;
+    }
+    .sig-block { padding-top: 16px; }
+    .sig-line {
+      border-bottom: 1px solid var(--text);
+      height: 48px;
+      margin-bottom: 8px;
+    }
+    .sig-label {
+      font: 400 0.75rem/1 var(--body);
+      color: var(--text-3);
+      margin-bottom: 4px;
+    }
+    .sig-sub {
+      font: 300 0.8125rem/1 var(--body);
+      color: var(--text-2);
+    }
+    .date-line {
+      border-bottom: 1px solid var(--border);
+      height: 32px;
+      margin: 16px 0 8px;
+      max-width: 200px;
+    }
+
+    /* Footer */
+    .sla-footer {
+      background: #0a0a0a;
+      text-align: center;
+      padding: 24px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .sla-footer p {
+      font: 300 0.625rem/1 var(--body);
+      color: #777;
+      letter-spacing: 0.06em;
+    }
+
+    /* Print */
+    @media print {
+      body { font-size: 11pt; }
+      .sla-header { padding: 40px 0; }
+      .container { max-width: 100%; padding: 0 48px; }
+      .sla-section { padding: 32px 0; }
+    }
+    @media (max-width: 600px) {
+      .sig-grid { grid-template-columns: 1fr; gap: 32px; }
+      .container { padding: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sla-header">
+    <div class="container">
+      <img src="https://lenox-systems.com/wp-content/themes/lenox-theme/assets/images/favicon-logo.png" alt="Lenox Systems">
+      <h1>Service Level Agreement</h1>
+      <p class="subtitle">Laitly Mobile Application &mdash; v1.0.0 Development</p>
+      <span class="tier-badge">$10,000 &middot; 8 Weeks</span>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- 1. Parties -->
+    <div class="sla-section">
+      <h2><span class="num">01</span>Parties</h2>
+      <p>This Service Level Agreement ("Agreement") is entered into as of the date signed below by:</p>
+      <p><strong>Developer:</strong> Peter McKechnie &amp; Marquise Deadwiler, operating as Lenox Systems ("Developer")</p>
+      <p><strong>Client:</strong> _______________________________ ("Client")</p>
+      <p>Together referred to as the "Parties."</p>
+    </div>
+
+    <!-- 2. Project Overview -->
+    <div class="sla-section">
+      <h2><span class="num">02</span>Project Overview</h2>
+      <p>The Developer agrees to design, develop, and deliver <strong>Laitly</strong>, a cross-platform mobile application (iOS &amp; Android) that helps breastfeeding mothers track milk inventory, plan for time away, and reduce the mental load of breastfeeding logistics.</p>
+      <p>This Agreement covers the full <strong>v1.0.0</strong> scope as defined in the accompanying Development Proposal dated March 2026.</p>
+    </div>
+
+    <!-- 3. Scope of Work -->
+    <div class="sla-section">
+      <h2><span class="num">03</span>Scope of Work</h2>
+      <p>The v1.0.0 deliverable includes the following features and functionality:</p>
+      <ul>
+        <li><strong>Milk Movement</strong> &mdash; Logging of every pump, bottle feed, and storage transfer</li>
+        <li><strong>Milk Math (Lait Tab)</strong> &mdash; Real-time inventory with oz / bottle / days toggle across fridge and freezer</li>
+        <li><strong>Fridge + Freezer Inventory Tracking</strong> &mdash; Storage location management with expiry alerts and notifications</li>
+        <li><strong>Baby Intake Profile</strong> &mdash; Configurable intake data to power calculations and strategy</li>
+        <li><strong>Return-to-Work &amp; Trip Strategy Planner</strong> &mdash; Oz targets based on baby's intake and time away</li>
+        <li><strong>Home Dashboard</strong> &mdash; Overview with lifetime counter (LTD)</li>
+        <li><strong>Partner / Caregiver View</strong> &mdash; Shared access for caregivers</li>
+        <li><strong>Guides &amp; FAQs</strong> &mdash; AAP-backed content and best practices</li>
+        <li><strong>User Profile (Me Tab)</strong> &mdash; Profile, goals, reminders, and access management</li>
+        <li><strong>iOS + Android Deployment</strong> &mdash; Cross-platform build, tested and published</li>
+      </ul>
+      <p>Any features, integrations, or functionality not explicitly listed above are considered <strong>out of scope</strong> and may be addressed in future phases at additional cost upon mutual agreement.</p>
+    </div>
+
+    <!-- 4. Timeline & Milestones -->
+    <div class="sla-section">
+      <h2><span class="num">04</span>Timeline &amp; Milestones</h2>
+      <p>Development will follow a <strong>parallel workstream</strong> model over <strong>8 weeks</strong>, organized into four milestones:</p>
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Timeline</th>
+            <th>Deliverables</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Discovery &amp; Design</td>
+            <td class="nowrap">Weeks 1&ndash;2</td>
+            <td>Brand alignment, design system, architecture, database schema, dev environment</td>
+          </tr>
+          <tr>
+            <td>Core Engine</td>
+            <td class="nowrap">Weeks 3&ndash;4</td>
+            <td>Movement tab, Lait tab, storage logic, calculations, expiry tracking</td>
+          </tr>
+          <tr>
+            <td>Full Build</td>
+            <td class="nowrap">Weeks 5&ndash;6</td>
+            <td>Home dashboard, Guides, Me + Strategy tabs, partner view, notifications</td>
+          </tr>
+          <tr>
+            <td>Launch &amp; Deploy</td>
+            <td class="nowrap">Weeks 7&ndash;8</td>
+            <td>QA &amp; testing, iOS deploy, Android deploy, performance, final polish</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Timeline assumes timely feedback and approvals from Client at each milestone. Delays in client response may extend the timeline proportionally.</p>
+    </div>
+
+    <!-- 5. Payment Schedule -->
+    <div class="sla-section">
+      <h2><span class="num">05</span>Payment Schedule</h2>
+      <p>The total project investment is <strong>$10,000 USD</strong>, payable in four milestone-based installments:</p>
+      <table class="payment-table">
+        <thead>
+          <tr>
+            <th>Milestone</th>
+            <th>Amount</th>
+            <th>Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Signing / Kickoff</td>
+            <td><span class="blank">$______</span> <em style="color:var(--text-3); font-size:0.8125rem;">&nbsp; suggested: $2,500</em></td>
+            <td>Upon signing this Agreement</td>
+          </tr>
+          <tr>
+            <td>Core Engine Complete</td>
+            <td><span class="blank">$______</span> <em style="color:var(--text-3); font-size:0.8125rem;">&nbsp; suggested: $3,000</em></td>
+            <td>End of Week 4</td>
+          </tr>
+          <tr>
+            <td>Full Build Complete</td>
+            <td><span class="blank">$______</span> <em style="color:var(--text-3); font-size:0.8125rem;">&nbsp; suggested: $2,500</em></td>
+            <td>End of Week 6</td>
+          </tr>
+          <tr>
+            <td>Launch &amp; Handoff</td>
+            <td><span class="blank">$______</span> <em style="color:var(--text-3); font-size:0.8125rem;">&nbsp; suggested: $2,000</em></td>
+            <td>End of Week 8</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr class="total">
+            <td>Total</td>
+            <td>$10,000</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Payments are due within 7 days of each milestone completion. Work on subsequent milestones will not begin until the corresponding payment has been received.</p>
+    </div>
+
+    <!-- 6. Client Responsibilities -->
+    <div class="sla-section">
+      <h2><span class="num">06</span>Client Responsibilities</h2>
+      <p>To ensure successful and timely delivery, the Client agrees to:</p>
+      <ul>
+        <li>Provide timely feedback on designs, prototypes, and milestone deliverables (within 3 business days unless otherwise agreed)</li>
+        <li>Supply all required content, branding assets, and copy as needed</li>
+        <li>Designate a single point of contact for project communications</li>
+        <li>Provide access to any required third-party accounts (e.g., Apple Developer, Google Play Console) prior to deployment phase</li>
+        <li>Make milestone payments on schedule as outlined in Section 05</li>
+      </ul>
+    </div>
+
+    <!-- 7. Developer Responsibilities -->
+    <div class="sla-section">
+      <h2><span class="num">07</span>Developer Responsibilities</h2>
+      <p>The Developer agrees to:</p>
+      <ul>
+        <li>Deliver the full v1.0.0 scope as defined in Section 03</li>
+        <li>Provide regular progress updates at least once per week</li>
+        <li>Deliver a working demo at each milestone for Client review</li>
+        <li>Follow industry-standard practices for code quality, security, and performance</li>
+        <li>Deploy the final application to the Apple App Store and Google Play Store</li>
+        <li>Provide a handoff package including source code, documentation, and deployment credentials</li>
+      </ul>
+    </div>
+
+    <!-- 8. Revisions & Change Requests -->
+    <div class="sla-section">
+      <h2><span class="num">08</span>Revisions &amp; Change Requests</h2>
+      <p>This Agreement covers the scope defined in Section 03. Requests for additional features, functionality, or changes beyond the agreed scope will be handled through a formal change request process:</p>
+      <ul>
+        <li>Client submits a written description of the requested change</li>
+        <li>Developer provides a cost and timeline estimate within 3 business days</li>
+        <li>Work on the change begins only after written approval from Client</li>
+      </ul>
+      <p>Minor UI adjustments and bug fixes discovered during development are included at no additional cost. Scope changes may affect the project timeline and/or total cost.</p>
+    </div>
+
+    <!-- 9. Intellectual Property -->
+    <div class="sla-section">
+      <h2><span class="num">09</span>Intellectual Property</h2>
+      <p>Upon receipt of final payment, all intellectual property rights for the Laitly application &mdash; including source code, designs, and assets created specifically for this project &mdash; will transfer to the Client in full.</p>
+      <p>The Developer retains the right to use the project in their portfolio and marketing materials unless otherwise agreed in writing.</p>
+      <p>Any pre-existing tools, libraries, or frameworks used in development remain the property of their respective owners and are subject to their original licenses.</p>
+    </div>
+
+    <!-- 10. Confidentiality -->
+    <div class="sla-section">
+      <h2><span class="num">10</span>Confidentiality</h2>
+      <p>Both Parties agree to keep confidential any proprietary or sensitive information shared during the course of this project, including but not limited to business plans, user data strategies, and technical architecture details.</p>
+      <p>This obligation survives the termination of this Agreement.</p>
+    </div>
+
+    <!-- 11. Warranty & Support -->
+    <div class="sla-section">
+      <h2><span class="num">11</span>Warranty &amp; Post-Launch Support</h2>
+      <p>The Developer provides a <strong>30-day warranty period</strong> following final delivery. During this period, the Developer will fix any bugs or defects in the delivered software at no additional cost.</p>
+      <p>Post-warranty support, maintenance, hosting, and future development are not included in this Agreement and may be arranged under a separate agreement.</p>
+    </div>
+
+    <!-- 12. Termination -->
+    <div class="sla-section">
+      <h2><span class="num">12</span>Termination</h2>
+      <p>Either Party may terminate this Agreement with 14 days' written notice. In the event of termination:</p>
+      <ul>
+        <li>Client pays for all work completed up to the date of termination</li>
+        <li>Developer delivers all completed work product to the Client</li>
+        <li>Any advance payments for unstarted milestones will be refunded</li>
+      </ul>
+      <p>If the Client terminates after a milestone has begun but before completion, payment for that milestone is due in full.</p>
+    </div>
+
+    <!-- 13. Limitation of Liability -->
+    <div class="sla-section">
+      <h2><span class="num">13</span>Limitation of Liability</h2>
+      <p>The Developer's total liability under this Agreement shall not exceed the total amount paid by the Client. Neither Party shall be liable for indirect, incidental, or consequential damages arising from this Agreement.</p>
+    </div>
+
+    <!-- 14. Governing Law -->
+    <div class="sla-section">
+      <h2><span class="num">14</span>Governing Law</h2>
+      <p>This Agreement shall be governed by and construed in accordance with the laws of _______________________________. Any disputes shall be resolved through good-faith negotiation before pursuing formal legal remedies.</p>
+    </div>
+
+    <!-- 15. Signatures -->
+    <div class="sla-section">
+      <h2><span class="num">15</span>Agreement &amp; Signatures</h2>
+      <p>By signing below, both Parties acknowledge that they have read, understood, and agree to the terms outlined in this Service Level Agreement.</p>
+
+      <div class="sig-grid">
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <p class="sig-label">Developer Signature</p>
+          <p class="sig-sub">Peter McKechnie / Lenox Systems</p>
+          <div class="sig-line" style="margin-top:24px;"></div>
+          <p class="sig-label">Developer Signature</p>
+          <p class="sig-sub">Marquise Deadwiler / Lenox Systems</p>
+          <div class="date-line"></div>
+          <p class="sig-label">Date</p>
+        </div>
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <p class="sig-label">Client Signature</p>
+          <p class="sig-sub">_______________________________</p>
+          <div class="date-line"></div>
+          <p class="sig-label">Date</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sla-footer">
+    <p>Laitly &mdash; Service Level Agreement &middot; Prepared by Lenox Systems &middot; 2026</p>
+  </div>
+
+</body>
+</html>
