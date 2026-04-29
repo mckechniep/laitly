@@ -1,0 +1,579 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --canvas: #fbf9f4;
+  --surface: #ffffff;
+  --text: #1b1c19;
+  --muted: #635d5a;
+  --accent: #c5a55a;
+  --accent-safe: #766336;
+  --border: #d0c5b4;
+  --soft: #f8f4eb;
+  --shadow: 0 24px 70px rgba(27, 28, 25, 0.12);
+  --font-headline: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-body: "Manrope", "Segoe UI", Arial, sans-serif;
+  --max: 1280px;
+  --gutter: clamp(1rem, 5vw, 5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--canvas);
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 5%, rgba(197, 165, 90, 0.11), transparent 28rem),
+    linear-gradient(180deg, #fffdf9 0%, var(--canvas) 34%, #fffaf1 100%);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+.wordmark {
+  font-family: var(--font-headline);
+  font-optical-sizing: auto;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(18px);
+  background: rgba(251, 249, 244, 0.82);
+  border-bottom: 1px solid rgba(208, 197, 180, 0.45);
+}
+
+.site-nav,
+.section-shell,
+.site-footer {
+  width: min(100%, var(--max));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.site-nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.wordmark {
+  font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.85rem);
+  color: var(--text);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2.25rem);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.nav-links a,
+.nav-action {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-action {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 1rem;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(27, 28, 25, 0.07);
+}
+
+.section-shell {
+  padding-top: clamp(4.5rem, 9vw, 8rem);
+  padding-bottom: clamp(4.5rem, 9vw, 8rem);
+}
+
+.hero {
+  min-height: calc(100svh - 76px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  padding-top: clamp(3rem, 6vw, 6rem);
+}
+
+.hero h1 {
+  max-width: 9.5ch;
+  font-size: clamp(4rem, 10vw, 8.8rem);
+  line-height: 0.93;
+  font-weight: 600;
+}
+
+.hero-lede,
+.section-intro p,
+.story-copy p,
+.final-copy p {
+  max-width: 38rem;
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 0.92rem + 0.28vw, 1.18rem);
+}
+
+.waitlist-form {
+  width: min(100%, 34rem);
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.7rem;
+}
+
+.waitlist-form input {
+  min-width: 0;
+  height: 3.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 0 1.2rem;
+  color: var(--text);
+  outline: none;
+}
+
+.waitlist-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(197, 165, 90, 0.18);
+}
+
+.waitlist-form button {
+  height: 3.5rem;
+  border: 0;
+  border-radius: 999px;
+  padding: 0 1.35rem;
+  background: var(--accent);
+  color: var(--text);
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(197, 165, 90, 0.28);
+}
+
+.form-message {
+  grid-column: 1 / -1;
+  min-height: 1.4rem;
+  color: #7d766c;
+  font-size: 0.83rem;
+}
+
+.waitlist-form.is-success input,
+.waitlist-form.is-success button {
+  display: none;
+}
+
+.waitlist-form.is-success .form-message {
+  color: var(--accent-safe);
+  font-weight: 700;
+}
+
+.waitlist-form.is-error input {
+  border-color: #ba1a1a;
+}
+
+.waitlist-form.is-error .form-message {
+  color: #ba1a1a;
+  font-weight: 700;
+}
+
+.hero-visual,
+.final-art {
+  border: 1px solid rgba(208, 197, 180, 0.8);
+  border-radius: 1.5rem;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+}
+
+.hero-visual {
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.hero-visual > p {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.phone-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(0.55rem, 1.5vw, 1rem);
+}
+
+.phone-card {
+  width: clamp(5.9rem, 8vw, 7.4rem);
+  min-height: clamp(12.2rem, 18vw, 15.5rem);
+  border: 4px solid var(--text);
+  border-radius: 1.5rem;
+  background: var(--canvas);
+  padding: 1rem 0.7rem;
+  box-shadow: 0 22px 44px rgba(27, 28, 25, 0.14);
+}
+
+.phone-card-offset {
+  margin-top: 1.5rem;
+}
+
+.phone-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 700;
+}
+
+.phone-card strong {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--font-headline);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.phone-card strong span {
+  margin-left: 0.12rem;
+  font-size: 0.8rem;
+}
+
+.phone-panel {
+  height: 4.7rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(208, 197, 180, 0.8);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.phone-panel-grid {
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(208, 197, 180, 0.6) 50%, transparent 51%),
+    linear-gradient(180deg, var(--soft) 0 42%, var(--surface) 42% 100%);
+}
+
+.phone-panel-ring {
+  background:
+    radial-gradient(circle, var(--surface) 0 32%, transparent 33%),
+    conic-gradient(var(--accent) 0 82%, rgba(208, 197, 180, 0.55) 82% 100%);
+}
+
+.phone-panel-list {
+  background:
+    linear-gradient(var(--soft), var(--soft)) 12px 14px / calc(100% - 24px) 18px no-repeat,
+    linear-gradient(var(--soft), var(--soft)) 12px 42px / calc(100% - 24px) 18px no-repeat,
+    linear-gradient(var(--soft), var(--soft)) 12px 70px / calc(100% - 24px) 18px no-repeat,
+    var(--surface);
+}
+
+.section-intro {
+  max-width: 48rem;
+}
+
+.section-intro h2,
+.story-copy h2,
+.final-copy h2 {
+  font-size: clamp(2.4rem, 5vw, 5.3rem);
+  line-height: 1;
+  font-weight: 600;
+}
+
+.wide-asset,
+.supporting-asset {
+  width: 100%;
+  margin-top: 2rem;
+  border: 1px solid rgba(208, 197, 180, 0.78);
+  border-radius: 1.35rem;
+  background: var(--surface);
+  box-shadow: 0 18px 55px rgba(27, 28, 25, 0.09);
+}
+
+.benefit-grid,
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 2rem;
+  border: 1px solid rgba(208, 197, 180, 0.72);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: rgba(208, 197, 180, 0.8);
+}
+
+.benefit-card,
+.trust-grid article {
+  min-height: 14rem;
+  background: rgba(255, 255, 255, 0.68);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.benefit-icon {
+  display: inline-flex;
+  width: 3rem;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--accent-safe);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.benefit-card h3,
+.trust-grid h3 {
+  margin-top: 1.4rem;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  line-height: 1.12;
+  font-weight: 500;
+}
+
+.benefit-card p,
+.trust-grid p {
+  margin-top: 0.8rem;
+  color: var(--muted);
+}
+
+.away-story {
+  display: grid;
+  grid-template-columns: 0.42fr 0.58fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.stash-proof {
+  padding-top: 0;
+}
+
+.privacy {
+  max-width: 1080px;
+}
+
+.final-cta {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.final-art {
+  padding: clamp(0.7rem, 1.5vw, 1rem);
+  overflow: hidden;
+}
+
+.final-art img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: var(--muted);
+  border-top: 1px solid rgba(208, 197, 180, 0.68);
+}
+
+[data-reveal] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    width: 100%;
+  }
+
+  .site-nav,
+  .section-shell,
+  .site-footer {
+    width: auto;
+    max-width: none;
+    box-sizing: border-box;
+    margin-inline: 0;
+    padding-inline: clamp(1rem, 6vw, 1.5rem);
+    overflow: hidden;
+  }
+
+  .hero,
+  .away-story,
+  .final-cta {
+    display: block;
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .benefit-grid,
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .section-intro,
+  .story-copy,
+  .final-copy {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero-lede,
+  .section-intro p,
+  .story-copy p,
+  .final-copy p {
+    width: 100%;
+    max-width: calc(100vw - 3rem);
+    overflow-wrap: break-word;
+  }
+
+  .waitlist-form {
+    width: 100%;
+    max-width: calc(100vw - 3rem);
+  }
+
+  .waitlist-form input,
+  .waitlist-form button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .section-intro h2,
+  .story-copy h2,
+  .final-copy h2 {
+    font-size: clamp(2.15rem, 10vw, 3.4rem);
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-nav {
+    min-height: 68px;
+  }
+
+  .nav-action {
+    display: none;
+  }
+
+  .hero h1 {
+    max-width: 9ch;
+    font-size: clamp(3rem, 14vw, 4rem);
+  }
+
+  .hero-lede,
+  .section-intro p,
+  .story-copy p,
+  .final-copy p,
+  .waitlist-form {
+    max-width: 20.5rem;
+  }
+
+  .hero-visual,
+  .wide-asset,
+  .supporting-asset,
+  .benefit-grid,
+  .trust-grid,
+  .final-art {
+    max-width: calc(100vw - 3rem);
+  }
+
+  .waitlist-form {
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-form button {
+    width: 100%;
+  }
+
+  .phone-row {
+    transform: scale(0.88);
+    transform-origin: center top;
+    margin-bottom: -1.4rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+  }
+}
