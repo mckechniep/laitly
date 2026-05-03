@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Laitly — Brand Asset Package</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Manrope:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&display=swap" rel="stylesheet" />
+<link rel="icon" href="logos/logomark-transparent-512.png" />
+<style>
+  :root {
+    --canvas: #fbf9f4;
+    --surface: #ffffff;
+    --text: #1b1c19;
+    --muted: #635d5a;
+    --gold: #c5a55a;
+    --gold-text: #766336;
+    --gold-100: #f8f4eb;
+    --sand: #d0c5b4;
+    --sand-200: #f3f1ec;
+    --sand-300: #ece8e1;
+    --danger: #ba1a1a;
+    --success: #5a7a3a;
+    --info: #5a6b7a;
+    --warning: #a07830;
+    --dark: #141312;
+    --dark-surface: #1e1c1b;
+    --font-wordmark: 'Cormorant Garamond', 'Garamond', 'Times New Roman', serif;
+    --font-headline: 'Newsreader', Georgia, serif;
+    --font-body: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+    --radius: 12px;
+    --shadow-card: 0 1px 3px rgba(27,28,25,.04), 0 4px 12px rgba(27,28,25,.03);
+    --shadow-soft: 0 2px 8px rgba(27,28,25,.06), 0 8px 24px rgba(27,28,25,.04);
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--canvas);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  img { max-width: 100%; display: block; }
+  hr.rule { border: 0; border-top: 1px solid var(--sand); margin: 0; }
+
+  /* ----- Layout ----- */
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 4rem);
+  }
+  section { padding: clamp(4.5rem, 6vw, 8rem) 0; }
+  section + section { border-top: 1px solid var(--sand); }
+
+  .overline {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-text);
+    margin: 0 0 0.6rem 0;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.5em;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  h2 { font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem); margin-top: 0.2em; }
+  h3 { font-size: clamp(1.35rem, 1.1rem + 0.6vw, 1.6rem); font-weight: 500; letter-spacing: -0.01em; }
+  h4 { font-size: 1.1rem; font-weight: 500; letter-spacing: -0.01em; }
+  p  { color: var(--text); max-width: 65ch; margin: 0 0 1em; }
+  p.lead { color: var(--text); font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.25rem); line-height: 1.55; max-width: 60ch; }
+  .muted { color: var(--muted); }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.82rem; }
+  .caption { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.02em; }
+
+  /* ----- Wordmark ----- */
+  .wordmark {
+    font-family: var(--font-wordmark);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text);
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.18em;
+  }
+  .wordmark--display { font-size: clamp(2.5rem, 1rem + 6vw, 4.25rem); letter-spacing: 0.30em; padding-left: 0.30em; }
+  .wordmark--mid     { font-size: 1.75rem; letter-spacing: 0.24em; padding-left: 0.24em; }
+  .wordmark--small   { font-size: 1rem;    letter-spacing: 0.18em; padding-left: 0.18em; }
+  .wordmark--micro   { font-size: 0.75rem; letter-spacing: 0.14em; padding-left: 0.14em; }
+  .wordmark__drop {
+    width: 0.32em; height: 0.42em; flex-shrink: 0;
+    background: var(--gold);
+    -webkit-mask: radial-gradient(circle at 50% 70%, #000 60%, transparent 61%) bottom/100% 70% no-repeat,
+                  radial-gradient(circle at 50% 100%, transparent 50%, transparent) ;
+    mask: none;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform: translateY(-0.06em);
+  }
+  /* Use SVG droplet for crispness */
+  .drop-svg { width: 0.42em; height: 0.55em; transform: translateY(-0.04em); }
+
+  /* Logomark used inline with display wordmark on the wordmark stages */
+  .wm-mark {
+    width: 1.1em;
+    height: 1.1em;
+    margin-left: 0.35em;
+    flex-shrink: 0;
+    display: inline-block;
+    transform: translateY(-0.05em);
+  }
+  .wm-mark--left {
+    margin-left: 0;
+    margin-right: 0.55em; /* matches the optical letter-spacing on display wordmark */
+  }
+  .wm-mark--inline {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.4em;
+    flex-shrink: 0;
+    display: inline-block;
+    transform: translateY(-0.05em);
+  }
+
+  /* ----- Cover ----- */
+  .cover {
+    background: var(--dark);
+    color: #f3f1ec;
+    padding: clamp(5rem, 9vw, 9rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover .wrap { position: relative; z-index: 2; }
+  .cover .overline { color: var(--gold); }
+  .cover h1 {
+    font-family: var(--font-headline);
+    font-weight: 500;
+    color: #f3f1ec;
+    font-size: clamp(2.4rem, 1.5rem + 3vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 22ch;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .cover .wordmark { color: #f3f1ec; }
+  .cover .meta {
+    margin-top: 3.5rem;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    color: #a19e9c;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .cover .meta strong { color: #f3f1ec; font-weight: 500; display: block; letter-spacing: -0.01em; text-transform: none; font-size: 1rem; margin-top: .25rem;}
+  .cover-mark {
+    position: absolute;
+    right: clamp(-3rem, -3vw, -2rem);
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(280px, 35vw, 480px);
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .cover-mark img { filter: drop-shadow(0 12px 40px rgba(197,165,90,0.18)); }
+
+  /* ----- TOC ----- */
+  .toc {
+    background: var(--canvas);
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.5rem 2rem;
+    counter-reset: tocnum;
+  }
+  .toc li {
+    counter-increment: tocnum;
+    border-top: 1px solid var(--sand);
+    padding: 0.85rem 0 0;
+    font-size: 0.85rem;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+  .toc li::before {
+    content: counter(tocnum, decimal-leading-zero);
+    display: block;
+    font-family: ui-monospace, monospace;
+    font-size: 0.7rem;
+    color: var(--gold-text);
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ----- Section heading block ----- */
+  .section-head { margin-bottom: 3rem; max-width: 720px; }
+
+  /* ----- Logo grid ----- */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .logo-card {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: 2.5rem 1.25rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+  .logo-card.dark { background: var(--dark); border-color: var(--dark); color: #f3f1ec; }
+  .logo-card .swatch-img {
+    height: 130px;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .logo-card img { max-height: 130px; width: auto; }
+  .logo-card .label { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: inherit; opacity: 0.75; margin-top: .35rem; }
+  .logo-card .name { font-family: var(--font-headline); font-weight: 500; font-size: 1.05rem; }
+
+  /* ----- Wordmark stage ----- */
+  .wm-stage {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: clamp(2.5rem, 5vw, 4.5rem);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .wm-stage.dark { background: var(--dark); border-color: var(--dark); }
+  .wm-stage.dark .wordmark { color: #f3f1ec; }
+  .wm-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .wm-cell {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+  .wm-cell .caption { display: block; margin-top: 1rem; }
+
+  .lockup-stack {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.1rem;
+  }
+  .lockup-stack img { width: 96px; height: 96px; }
+  .lockup-horizontal {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.1rem;
+  }
+  .lockup-horizontal img { width: 64px; height: 64px; }
+
+  /* ----- Emblem ----- */
+  .emblem-pair {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 800px) { .emblem-pair { grid-template-columns: 1fr 1fr; } }
+  .emblem-stage {
+    border-radius: var(--radius);
+    border: 1px solid var(--sand);
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 4 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.25rem, 3vw, 2.5rem);
+    overflow: hidden;
+  }
+  .emblem-stage img { max-width: 78%; max-height: 78%; height: auto; width: auto; }
+  .emblem-stage--light  { background: var(--surface); }
+  .emblem-stage--dark   { background: var(--dark); border-color: var(--dark); }
+  .emblem-stage--cream  { background: var(--canvas); }
+  .emblem-stage--charcoal { background: var(--dark); border-color: var(--dark); }
+  .emblem-stage .caption { margin-top: 0.85rem; }
+  .emblem-stage--dark .caption,
+  .emblem-stage--charcoal .caption { color: #a19e9c; }
+  .emblem-rules {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--sand);
+  }
+  @media (min-width: 720px) { .emblem-rules { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+  .emblem-rules p { margin: 0; max-width: 38ch; }
+
+  /* ----- Color ----- */
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+  }
+  .swatch {
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--sand);
+    background: var(--surface);
+    box-shadow: var(--shadow-card);
+  }
+  .swatch .chip { height: 130px; }
+  .swatch .meta { padding: 1rem 1.1rem 1.1rem; }
+  .swatch .name { font-family: var(--font-headline); font-weight: 500; font-size: 1.05rem; }
+  .swatch .hex  { font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--muted); margin-top: 0.15rem; letter-spacing: 0.04em; }
+  .swatch .role { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+  .swatch.border-needed .chip { border-bottom: 1px solid var(--sand); }
+
+  .scale-row { display: grid; grid-template-columns: repeat(11, 1fr); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--sand); margin-top: 1rem; }
+  .scale-row > div { aspect-ratio: 1 / 1.4; display:flex; align-items:flex-end; justify-content: center; padding: 6px; font-family: ui-monospace, monospace; font-size: 0.62rem; }
+  .scale-row > div span { background: rgba(255,255,255,.7); padding: 1px 4px; border-radius: 3px; color: #1b1c19; }
+
+  /* ----- Type ----- */
+  .type-stage {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: clamp(2rem, 4vw, 3.5rem);
+    box-shadow: var(--shadow-card);
+  }
+  .type-stage + .type-stage { margin-top: 1.5rem; }
+  .type-spec { font-family: ui-monospace, monospace; font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; margin-bottom: 0.65rem; }
+  .type-sample-headline { font-family: var(--font-headline); font-weight: 600; font-size: clamp(2rem, 1.4rem + 2vw, 3.4rem); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 0.4em; }
+  .type-sample-italic { font-family: var(--font-headline); font-style: italic; font-weight: 400; font-size: clamp(1.4rem, 1rem + 1vw, 2rem); line-height: 1.25; color: var(--text); max-width: 40ch; }
+  .type-sample-body { font-family: var(--font-body); font-size: 1.05rem; line-height: 1.55; max-width: 55ch; }
+
+  /* ----- Icons ----- */
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
+  }
+  .icon-card {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: 1.25rem 0.75rem 0.85rem;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .icon-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+  .icon-card img { height: 60px; width: auto; margin: 0 auto 0.65rem; }
+  .icon-card .name { font-size: 0.8rem; color: var(--text); font-weight: 500; }
+  .icon-card .num  { font-family: ui-monospace, monospace; font-size: 0.62rem; color: var(--gold-text); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+
+  /* ----- Screens ----- */
+  .screens-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.25rem;
+    align-items: end;
+  }
+  .screen-card {
+    background: transparent;
+    text-align: center;
+  }
+  .screen-card img {
+    border-radius: 22px;
+    box-shadow: var(--shadow-soft);
+    margin: 0 auto;
+  }
+  .screen-card .label { display: block; margin-top: 0.85rem; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .screens-row.dark { background: var(--dark); padding: 2rem 1.25rem; border-radius: var(--radius); }
+  .screens-row.dark .label { color: #a19e9c; }
+  .screens-row.dark .screen-card img { box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+
+  /* ----- Generic figure ----- */
+  .figure {
+    background: var(--surface);
+    border: 1px solid var(--sand);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+  }
+  .figure img { border-radius: 8px; }
+  .figure .caption { padding: 0.85rem 0.5rem 0.25rem; }
+
+  /* ----- Marketing layout ----- */
+  .mkt-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 800px) { .mkt-grid.split { grid-template-columns: 1fr 1fr; } }
+
+  /* ----- Footer ----- */
+  footer {
+    background: var(--dark);
+    color: #a19e9c;
+    padding: 4rem 0 3rem;
+  }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+  footer .wordmark { color: #f3f1ec; }
+  footer p { color: #a19e9c; margin: 0; font-size: 0.85rem; max-width: 50ch; }
+  footer .meta-r { text-align: right; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  footer .meta-r strong { display: block; color: #f3f1ec; font-weight: 500; text-transform: none; letter-spacing: 0; font-size: 1rem; margin-bottom: 0.25rem; font-family: var(--font-headline); }
+
+  /* ----- Print ----- */
+  @media print {
+    section, .toc, .cover { page-break-inside: avoid; }
+    body { background: #fff; }
+    .cover { background: var(--dark) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .icon-card, .swatch, .figure, .logo-card, .wm-cell, .wm-stage, .type-stage { box-shadow: none !important; }
+  }
+
+  @media (max-width: 600px) {
+    .cover-mark { width: 220px; opacity: 0.35; }
+    .cover h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Reusable droplet glyph (matches logomark drop shape) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="drop" viewBox="0 0 64 84">
+      <path d="M 32 4 C 19 18, 4 48, 4 60 C 4 73, 17 80, 32 80 C 47 80, 60 73, 60 60 C 60 48, 45 18, 32 4 Z" />
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ============== COVER ============== -->
+<header class="cover">
+  <div class="cover-mark">
+    <img src="logos/logomark-transparent-1024.png" alt="" />
+  </div>
+  <div class="wrap">
+    <p class="overline">Brand Asset Package · v1.0</p>
+    <span class="wordmark wordmark--mid">LAITLY</span>
+    <h1>The visual system behind a calmer feeding plan.</h1>
+    <p style="color:#d0c5b4; max-width: 52ch; font-size: 1.05rem;">
+      Editorial warm-minimal. Built for late nights, early mornings, and quiet
+      reassurance. This package compiles every visual you'll see across the
+      Laitly product, marketing, and store presence.
+    </p>
+    <div class="meta">
+      <div>Prepared for<strong>Client Review</strong></div>
+      <div>Version<strong>1.0 — May 2026</strong></div>
+      <div>Curated by<strong>Lenox Systems</strong></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============== TOC ============== -->
+<nav class="toc">
+  <div class="wrap">
+    <ol>
+      <li><a style="color:inherit;text-decoration:none" href="#mark">The Mark</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#wordmark">Wordmark &amp; Lockups</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#emblem">The Emblem</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#color">Color System</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#type">Typography</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#icons">Icon Library</a></li>
+      <li><a style="color:inherit;text-decoration:none" href="#screens">App Screens</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============== 1. THE MARK ============== -->
+<section id="mark">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">01 · The Mark</p>
+      <h2>A single droplet, held inside a soft sun.</h2>
+      <p class="lead muted">
+        The Laitly logomark is a gold disc cradling a cream droplet. It carries
+        the warmth of milk and the steadiness of routine. Three production
+        forms ship: transparent, on dark, and on the original brand emblem.
+      </p>
+    </div>
+
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="swatch-img"><img src="logos/logomark-transparent-512.png" alt="Logomark transparent" /></div>
+        <div class="name">Primary mark</div>
+        <div class="label">Transparent · 512 / 1024</div>
+      </div>
+      <div class="logo-card dark">
+        <div class="swatch-img"><img src="logos/logomark-dark-1024.png" alt="Logomark on dark" /></div>
+        <div class="name">On charcoal</div>
+        <div class="label">Dark BG · 1024</div>
+      </div>
+      <div class="logo-card">
+        <div class="swatch-img"><img src="logos/logomark.svg" alt="Logomark SVG" /></div>
+        <div class="name">Vector source</div>
+        <div class="label">SVG · infinite scale</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============== 2. WORDMARK ============== -->
+<section id="wordmark">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">02 · Wordmark &amp; Lockups</p>
+      <h2>LAITLY, in Cormorant — always upright, always in caps.</h2>
+      <p class="lead muted">
+        The wordmark is identity; the headline serif is voice. Cormorant
+        Garamond Semibold at wide tracking carries an apothecary-editorial
+        feel without leaning precious. A small gold droplet trails the word
+        as a brand stamp.
+      </p>
+    </div>
+
+    <div class="wm-stage">
+      <span class="wordmark wordmark--display">
+        <img class="wm-mark wm-mark--left" src="logos/logomark-transparent-1024.png" alt="" />
+        LAITLY
+      </span>
+    </div>
+
+    <div class="wm-stage dark">
+      <span class="wordmark wordmark--display">
+        <img class="wm-mark wm-mark--left" src="logos/logomark-transparent-1024.png" alt="" />
+        LAITLY
+      </span>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Lockup variants</h3>
+    <div class="wm-row" style="margin-top: 1rem;">
+      <div class="wm-cell">
+        <div class="lockup-stack">
+          <img src="logos/logomark-transparent-512.png" alt="" />
+          <span class="wordmark wordmark--mid">LAITLY</span>
+        </div>
+        <span class="caption">Stacked · splash, square avatars</span>
+      </div>
+      <div class="wm-cell">
+        <div class="lockup-horizontal">
+          <img src="logos/logomark-transparent-512.png" alt="" />
+          <span class="wordmark wordmark--mid">LAITLY</span>
+        </div>
+        <span class="caption">Horizontal · web header, business card</span>
+      </div>
+      <div class="wm-cell">
+        <span class="wordmark wordmark--mid">LAITLY</span>
+        <span class="caption">Wordmark only · footer, signature</span>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Optical tracking scale</h3>
+    <div class="wm-row" style="margin-top: 1rem;">
+      <div class="wm-cell">
+        <span class="wordmark wordmark--display" style="font-size:2.4rem;">LAITLY</span>
+        <span class="caption">display · 0.30em · 48px+</span>
+      </div>
+      <div class="wm-cell">
+        <span class="wordmark wordmark--mid">LAITLY</span>
+        <span class="caption">mid · 0.24em · 24–40px</span>
+      </div>
+      <div class="wm-cell">
+        <span class="wordmark wordmark--small">LAITLY</span>
+        <span class="caption">small · 0.18em · 14–20px</span>
+      </div>
+      <div class="wm-cell">
+        <span class="wordmark wordmark--micro">LAITLY</span>
+        <span class="caption">micro · 0.14em · &lt;14px</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 3. EMBLEM ============== -->
+<section id="emblem">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">03 · The Emblem</p>
+      <h2>An apothecary seal for the editorial moments.</h2>
+      <p class="lead muted">
+        The emblem is an arched, dated wordmark with the droplet at its
+        center and the brand promise running along the bottom curve. It's
+        reserved for the moments that warrant ceremony — splash, packaging,
+        editorial covers, the back of a business card.
+      </p>
+    </div>
+
+    <div class="emblem-pair">
+      <div class="emblem-stage emblem-stage--light">
+        <img src="logos/emblem-light-v2.png" alt="Laitly emblem on light" />
+      </div>
+      <div class="emblem-stage emblem-stage--dark">
+        <img src="logos/emblem-dark-v2.png" alt="Laitly emblem on dark" />
+      </div>
+    </div>
+
+    <div class="emblem-rules">
+      <div>
+        <p class="overline" style="margin-top:0;">Use it for</p>
+        <p class="muted">Splash, app store hero, packaging seal, editorial covers, business-card back, founder letter, slow-launch invitations.</p>
+      </div>
+      <div>
+        <p class="overline" style="margin-top:0;">Don't use it for</p>
+        <p class="muted">In-product chrome, tight UI surfaces, anything below ~120px, or contexts where the wordmark lockup already does the job.</p>
+      </div>
+      <div>
+        <p class="overline" style="margin-top:0;">Clear space</p>
+        <p class="muted">Reserve a margin equal to the height of the droplet on every side. Year and tagline are part of the mark — never crop them out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 4. COLOR ============== -->
+<section id="color">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">04 · Color System</p>
+      <h2>Warm cream. Soft taupe. A single shimmer of gold.</h2>
+      <p class="lead muted">
+        The palette stays close to skin and milk and morning light. Gold is
+        the only chromatic accent — used sparingly for active states, progress,
+        and the droplet itself. Every text-on-surface pair below clears WCAG&nbsp;AA.
+      </p>
+    </div>
+
+    <h3>Brand foundation</h3>
+    <div class="swatch-grid" style="margin-top: 1rem;">
+      <div class="swatch border-needed"><div class="chip" style="background:#fbf9f4"></div><div class="meta"><div class="name">Canvas</div><div class="hex">#FBF9F4</div><div class="role">Page background, main canvas</div></div></div>
+      <div class="swatch border-needed"><div class="chip" style="background:#ffffff"></div><div class="meta"><div class="name">Surface</div><div class="hex">#FFFFFF</div><div class="role">Raised cards, content planes</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#1b1c19"></div><div class="meta"><div class="name">Charcoal</div><div class="hex">#1B1C19</div><div class="role">Primary text · 16.3:1 on cream</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#635d5a"></div><div class="meta"><div class="name">Taupe</div><div class="hex">#635D5A</div><div class="role">Secondary text · 6.2:1 on cream</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#c5a55a"></div><div class="meta"><div class="name">Gold</div><div class="hex">#C5A55A</div><div class="role">Decorative accent · never as text on light</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#766336"></div><div class="meta"><div class="name">Gold (text-safe)</div><div class="hex">#766336</div><div class="role">Body text gold · 5.5:1 on cream</div></div></div>
+      <div class="swatch border-needed"><div class="chip" style="background:#d0c5b4"></div><div class="meta"><div class="name">Sand border</div><div class="hex">#D0C5B4</div><div class="role">Subtle dividers, card edges</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ba1a1a"></div><div class="meta"><div class="name">Danger</div><div class="hex">#BA1A1A</div><div class="role">Errors, expired, risk</div></div></div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Semantic states</h3>
+    <div class="swatch-grid" style="margin-top: 1rem;">
+      <div class="swatch"><div class="chip" style="background:#5a7a3a"></div><div class="meta"><div class="name">Success</div><div class="hex">#5A7A3A</div><div class="role">Completions, safe expiry</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#a07830"></div><div class="meta"><div class="name">Warning</div><div class="hex">#A07830</div><div class="role">Approaching expiry</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#5a6b7a"></div><div class="meta"><div class="name">Info</div><div class="hex">#5A6B7A</div><div class="role">Tips, informational states</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#7a9e6b"></div><div class="meta"><div class="name">Sage</div><div class="hex">#7A9E6B</div><div class="role">Data viz · positive / growth</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#b87a5a"></div><div class="meta"><div class="name">Terracotta</div><div class="hex">#B87A5A</div><div class="role">Refrigerated category</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#5a7a8f"></div><div class="meta"><div class="name">Warm slate</div><div class="hex">#5A7A8F</div><div class="role">Frozen category</div></div></div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Gold tonal scale</h3>
+    <div class="scale-row">
+      <div style="background:#fcfbf7"><span>50</span></div>
+      <div style="background:#f8f4eb"><span>100</span></div>
+      <div style="background:#f1e9d6"><span>200</span></div>
+      <div style="background:#e8dbbd"><span>300</span></div>
+      <div style="background:#dcc99c"><span>400</span></div>
+      <div style="background:#c5a55a;color:#1b1c19"><span>500</span></div>
+      <div style="background:#9e8448;color:#fff"><span>600</span></div>
+      <div style="background:#766336;color:#fff"><span>700</span></div>
+      <div style="background:#594a28;color:#fff"><span>800</span></div>
+      <div style="background:#3b321b;color:#fff"><span>900</span></div>
+      <div style="background:#272112;color:#fff"><span>950</span></div>
+    </div>
+
+    <h3 style="margin-top: 2rem;">Taupe tonal scale</h3>
+    <div class="scale-row">
+      <div style="background:#f7f7f7"><span>50</span></div>
+      <div style="background:#ececeb"><span>100</span></div>
+      <div style="background:#d8d7d6"><span>200</span></div>
+      <div style="background:#c1bebd"><span>300</span></div>
+      <div style="background:#a19e9c"><span>400</span></div>
+      <div style="background:#635d5a;color:#fff"><span>500</span></div>
+      <div style="background:#4f4a48;color:#fff"><span>600</span></div>
+      <div style="background:#3b3836;color:#fff"><span>700</span></div>
+      <div style="background:#2d2a28;color:#fff"><span>800</span></div>
+      <div style="background:#1e1c1b;color:#fff"><span>900</span></div>
+      <div style="background:#141312;color:#fff"><span>950</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 4. TYPOGRAPHY ============== -->
+<section id="type">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">05 · Typography</p>
+      <h2>An editorial serif, a humanist sans, and a wordmark in caps.</h2>
+      <p class="lead muted">
+        Newsreader carries the headline voice with optical sizing built in.
+        Manrope handles every line of body and UI for legibility on small,
+        late-night screens. Cormorant Garamond appears once — as the wordmark.
+      </p>
+    </div>
+
+    <div class="type-stage">
+      <p class="type-spec">NEWSREADER · 600 · 3xl · headline</p>
+      <h3 class="type-sample-headline">Milk math, made calm.</h3>
+      <p class="type-spec" style="margin-top: 1.5rem;">NEWSREADER · 400 ITALIC · pull quote</p>
+      <p class="type-sample-italic">"It finally feels like the freezer isn't a guessing game anymore."</p>
+    </div>
+
+    <div class="type-stage">
+      <p class="type-spec">MANROPE · 400 · base · body</p>
+      <p class="type-sample-body">
+        Laitly tracks every bag and bottle, watches the freezer for what's
+        about to expire, and quietly hands a packing list to whoever is
+        watching the baby tonight. The app stays out of the way — except for
+        the moments it shouldn't.
+      </p>
+      <p class="type-spec" style="margin-top: 1.5rem;">MANROPE · 600 · sm uppercase · label</p>
+      <p style="font-family: var(--font-body); font-weight:600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-text);">
+        Stash overview · expiry alerts · away-time plan
+      </p>
+    </div>
+
+    <div class="type-stage" style="text-align: center;">
+      <p class="type-spec" style="text-align:left;">CORMORANT GARAMOND · 600 caps · wordmark</p>
+      <span class="wordmark wordmark--display">
+        <img class="wm-mark wm-mark--left" src="logos/logomark-transparent-1024.png" alt="" />
+        LAITLY
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 5. ICONS ============== -->
+<section id="icons">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">06 · Icon Library</p>
+      <h2>Fifteen icons, one stroke, gold where it counts.</h2>
+      <p class="lead muted">
+        Built on a 1px–1.5px stroke grid with rounded corners. Charcoal
+        linework carries meaning; gold accents flag the moments that need
+        attention — an alert, a checkmark, a goal hit.
+      </p>
+    </div>
+
+    <div class="figure">
+      <img src="icons/feature-icon-set.png" alt="Feature icon set on cream" />
+      <div class="caption">Feature icon set · charcoal linework + gold accents + soft fills · client review sheet.</div>
+    </div>
+
+    <div class="figure" style="margin-top: 1.5rem;">
+      <img src="icons/feature-icon-set-2.png" alt="Feature icon set v2" />
+      <div class="caption">Feature icon set · v2 review sheet.</div>
+    </div>
+
+    <div class="figure" style="margin-top: 1.5rem;">
+      <img src="icons/feature-icon-set-3.png" alt="Feature icon set v3" />
+      <div class="caption">Feature icon set · v3 review sheet.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 6. SCREENS ============== -->
+<section id="screens">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="overline">07 · App Screens</p>
+      <h2>The product, top to bottom.</h2>
+      <p class="lead muted">
+        Onboarding, login, splash, and core flows — shown in the two
+        environments the app actually lives in: warm cream by day, deep
+        charcoal by night.
+      </p>
+    </div>
+
+    <h3>Onboarding · light</h3>
+    <div class="screens-row">
+      <div class="screen-card"><img src="screens/onboard-1.png" alt="Onboarding 1"><span class="label">01 · Welcome</span></div>
+      <div class="screen-card"><img src="screens/onboard-2.png" alt="Onboarding 2"><span class="label">02 · Plan</span></div>
+      <div class="screen-card"><img src="screens/onboard-3.png" alt="Onboarding 3"><span class="label">03 · Begin</span></div>
+      <div class="screen-card"><img src="screens/login-1.png" alt="Login"><span class="label">04 · Sign in</span></div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Onboarding · dark</h3>
+    <div class="screens-row dark">
+      <div class="screen-card"><img src="screens/dark-onboard-1.png" alt="Dark onboarding 1"><span class="label">01 · Welcome</span></div>
+      <div class="screen-card"><img src="screens/dark-onboard-2.png" alt="Dark onboarding 2"><span class="label">02 · Plan</span></div>
+      <div class="screen-card"><img src="screens/dark-onboard-3.png" alt="Dark onboarding 3"><span class="label">03 · Begin</span></div>
+      <div class="screen-card"><img src="screens/dark-login-1.png" alt="Dark login"><span class="label">04 · Sign in</span></div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Screens</h3>
+    <div class="screens-row">
+      <div class="screen-card"><img src="screens/splash-light.png" alt="Splash light"><span class="label">Splash · light</span></div>
+      <div class="screen-card"><img src="screens/dark-bg-v2.png" alt="Dark background"><span class="label">Dark · gold outline</span></div>
+      <div class="screen-card"><img src="screens/splash-v2.png" alt="Splash v2"><span class="label">Splash · v2</span></div>
+      <div class="screen-card"><img src="screens/splash-v3.png" alt="Splash poured"><span class="label">Splash · poured</span></div>
+      <div class="screen-card"><img src="screens/droplet-dark.png" alt="Droplet on dark"><span class="label">Droplet · dark</span></div>
+      <div class="screen-card"><img src="screens/mother-outline.png" alt="Mother outline light & dark"><span class="label">Mother outline · L/D</span></div>
+      <div class="screen-card"><img src="screens/screen-1.png" alt="Light textured screen"><span class="label">Texture · light</span></div>
+      <div class="screen-card"><img src="screens/dark-screen-1.png" alt="Dark textured screen"><span class="label">Texture · dark</span></div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Imagery</h3>
+    <div class="figure">
+      <img src="screens/hero-photo-2.png" alt="Laitly milk bags · pouches stored and ready" />
+      <div class="caption">Hero photography · Laitly milk bags · pouches stored and ready.</div>
+    </div>
+
+    <div class="mkt-grid split" style="margin-top: 1.5rem;">
+      <div class="figure">
+        <img src="screens/hero-photo-1.png" alt="Laitly milk bag in the freezer" />
+        <div class="caption">Hero photography · Laitly milk bag in the freezer.</div>
+      </div>
+      <div class="figure">
+        <img src="screens/hero-freezer-2.png" alt="Laitly freezer stash tray" />
+        <div class="caption">Hero photography · Laitly freezer stash tray.</div>
+      </div>
+    </div>
+
+    <div class="mkt-grid split" style="margin-top: 1.5rem;">
+      <div class="figure">
+        <img src="screens/hero-photo-3.png" alt="Laitly hero photography 3" />
+        <div class="caption">Hero photography · 03.</div>
+      </div>
+      <div class="figure">
+        <img src="screens/hero-photo-4.png" alt="Laitly hero photography 4" />
+        <div class="caption">Hero photography · 04.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="wrap">
+    <div>
+      <span class="wordmark wordmark--mid">
+        <img class="wm-mark wm-mark--inline" src="logos/logomark-transparent-1024.png" alt="" />
+        LAITLY
+      </span>
+      <p style="margin-top: 1rem;">A calm companion for breastfeeding logistics. This package is the visual record of every brand asset shipped to date.</p>
+    </div>
+    <div class="meta-r">
+      <strong>v1.0 — May 2026</strong>
+      Curated by Lenox Systems<br/>
+      For Laitly · Client review
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
